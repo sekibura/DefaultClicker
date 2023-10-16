@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Assets.Scripts.ClickerGameController">
+    <Position X="7.75" Y="1" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAACAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Controllers\ClickerGameController.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Assets.Scripts.ScoreController">
+    <Position X="11.5" Y="1" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAQgAAAAAIQIjAAAAAAAAAEACIAAAQAA=</HashCode>
+      <FileName>Assets\Scripts\Controllers\ScoreController.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SekiburaGames.DefaultClicker.ShopItems.BaseShopItem">
+    <Position X="4" Y="1" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AgIAAAAAAAAAAAAAAIAAAAAAAAgAEAAAAAACCAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\ShopItems\BaseShopItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
