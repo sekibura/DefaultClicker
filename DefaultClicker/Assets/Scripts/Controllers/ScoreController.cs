@@ -1,14 +1,12 @@
 ﻿using SekiburaGames.DefaultClicker.Controllers;
+using SekiburaGames.DefaultClicker.System;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+
 using System.Threading;
-using System.Threading.Tasks;
-using Unity.VisualScripting;
+
 using Timer = System.Threading.Timer;
 
-namespace Assets.Scripts
+namespace SekiburaGames.DefaultClicker.UI
 {
     internal class ScoreController: IInitializable
     {
@@ -22,8 +20,16 @@ namespace Assets.Scripts
 
         public void Initialize()
         {
+            InitDefaultValues();
             TimerCallback tm = new TimerCallback(Tick);
             Timer timer = new Timer(tm, null, 0, 1000);
+        }
+
+        private void InitDefaultValues()
+        {
+            Score = 0;
+            ScorePower = 1;
+            ScorePerSecond = 0;
         }
 
         public void Init(float score, float scorePower, float scorePerSecond)
@@ -69,3 +75,4 @@ namespace Assets.Scripts
         }
     }
 }
+

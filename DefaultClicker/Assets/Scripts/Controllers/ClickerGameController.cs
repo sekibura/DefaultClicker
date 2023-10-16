@@ -1,11 +1,9 @@
 ﻿using SekiburaGames.DefaultClicker.System;
+using SekiburaGames.DefaultClicker.UI;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using UnityEngine;
 
-namespace Assets.Scripts
+namespace SekiburaGames.DefaultClicker.Controllers
 {
     internal class ClickerGameController: IInitializable
     {
@@ -23,6 +21,7 @@ namespace Assets.Scripts
         /// </summary>
         public void OnClick()
         {
+            Debug.Log("MainClick");
             OnClickEvent?.Invoke();
         }
     }

@@ -1,6 +1,7 @@
 using Assets.Scripts;
 using SekiburaGames;
 using SekiburaGames.DefaultClicker.System;
+using SekiburaGames.DefaultClicker.UI;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -20,7 +21,9 @@ namespace SekiburaGames.DefaultClicker.Controllers
             _isLoaded = true;
             SystemManager.Register(this);
             RegisterSystems();
+            GetSystems();
             SetApplicationSettings();
+            GameStateManager.Instance.UpdateGameState(GameStateManager.GameState.InGame);
         }
 
 
@@ -29,6 +32,13 @@ namespace SekiburaGames.DefaultClicker.Controllers
             SystemManager.Register<ClickerGameController>();
             SystemManager.Register<ScoreController>();
             SystemManager.Register<AdSystem>();
+        }
+
+        private void GetSystems()
+        {
+            SystemManager.Get<ClickerGameController>();
+            SystemManager.Get<ScoreController>();
+            SystemManager.Get<AdSystem>();
         }
 
         private void SetApplicationSettings()

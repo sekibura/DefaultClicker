@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts;
 using SekiburaGames.DefaultClicker.System;
+using SekiburaGames.DefaultClicker.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace SekiburaGames.DefaultClicker.ShopItems
         [SerializeField]
         private float _price = 0;
 
-        private void Awake()
+        private void Start()
         {
             Init();
         }
@@ -26,6 +27,7 @@ namespace SekiburaGames.DefaultClicker.ShopItems
         {
             _scoreController = SystemManager.Get<ScoreController>();
             _scoreController.ScoreUpdatedEvent += OnScoreUpdated;
+            OnScoreUpdated(_scoreController.Score);
         }
 
         private void OnScoreUpdated(float Score)

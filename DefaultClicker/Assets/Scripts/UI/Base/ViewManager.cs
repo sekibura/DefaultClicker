@@ -52,7 +52,7 @@ namespace SekiburaGames.DefaultClicker.UI
             }
         }
 
-        public static void Show(View view, bool remember = true)
+        public static void Show(View view, bool remember = true, bool hideLast = true)
         {
             if (Instance._currentView != null)
             {
@@ -60,7 +60,10 @@ namespace SekiburaGames.DefaultClicker.UI
                 {
                     Instance._history.Push(Instance._currentView);
                 }
-                Instance._currentView.Hide();
+                if (hideLast)
+                {
+                    Instance._currentView.Hide();
+                }
             }
             view.Show();
             Instance._currentView = view;
@@ -70,7 +73,7 @@ namespace SekiburaGames.DefaultClicker.UI
         {
             if (Instance._history.Count != 0)
             {
-                Show(Instance._history.Pop(), false);
+                Show(Instance._history.Pop(), false, true);
             }
         }
 
@@ -84,7 +87,7 @@ namespace SekiburaGames.DefaultClicker.UI
             }
             if (_startingView != null)
             {
-                Show(_startingView, true);
+                Show(_startingView, true, true);
             }
         }
     }
