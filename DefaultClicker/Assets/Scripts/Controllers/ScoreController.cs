@@ -1,14 +1,15 @@
-﻿using SekiburaGames.DefaultClicker.Controllers;
+﻿using PimDeWitte.UnityMainThreadDispatcher;
+using SekiburaGames.DefaultClicker.Controllers;
 using SekiburaGames.DefaultClicker.System;
 using System;
-
 using System.Threading;
-
+using Unity.VisualScripting;
+using UnityEngine;
 using Timer = System.Threading.Timer;
 
 namespace SekiburaGames.DefaultClicker.UI
 {
-    internal class ScoreController: IInitializable
+    internal class ScoreController: System.IInitializable
     {
         public float Score { get; private set; }
         public float ScorePower { get; private set; }
@@ -17,12 +18,13 @@ namespace SekiburaGames.DefaultClicker.UI
         public event Action<float> ScoreUpdatedEvent;
         public event Action<float> ScorePowerUpdatedEvent;
         public event Action<float> ScorePerSecondUpdatedEvent;
+        Timer timer;
 
         public void Initialize()
         {
             InitDefaultValues();
             TimerCallback tm = new TimerCallback(Tick);
-            Timer timer = new Timer(tm, null, 0, 1000);
+            timer = new Timer(tm, null, 0, 1000);
         }
 
         private void InitDefaultValues()
@@ -39,6 +41,7 @@ namespace SekiburaGames.DefaultClicker.UI
             ScorePerSecond = scorePerSecond;
         }
 
+
         public void OnClick()
         {
             if (GameStateManager.Instance.State == GameStateManager.GameState.InGame)
@@ -48,16 +51,28 @@ namespace SekiburaGames.DefaultClicker.UI
         private void Tick(object obj)
         {
             if (GameStateManager.Instance.State == GameStateManager.GameState.InGame)
-                UpdateScore(ScorePerSecond);
-
+            {
+                UnityMainThreadDispatcher.Instance().Enqueue(() =>
+                {
+                    UpdateScore(ScorePerSecond);
+                });
+                
+            } 
+            Debug.Log("Tick");
         }
 
-        public void UpdateScore(float delta)
+        public bool UpdateScore(float delta)
         {
+            Debug.Log($"Update score {delta}");
+            if (Score + delta < 0)
+                return false;
+
             Score = Score + delta > 0 ? Score + delta : 0;
 
             if(delta != 0)
                 ScoreUpdatedEvent?.Invoke(Score);
+
+            return true;
         }
 
         public void UpdateScorePower(float delta)
@@ -72,6 +87,11 @@ namespace SekiburaGames.DefaultClicker.UI
             ScorePerSecond = ScorePerSecond + delta > 0 ? ScorePerSecond + delta : 0;
             if (delta != 0)
                 ScorePerSecondUpdatedEvent?.Invoke(ScorePerSecond);
+        }
+
+        public void Dispose()
+        {
+            timer.Dispose();
         }
     }
 }

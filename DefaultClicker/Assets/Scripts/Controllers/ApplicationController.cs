@@ -45,5 +45,11 @@ namespace SekiburaGames.DefaultClicker.Controllers
         {
             Screen.sleepTimeout = SleepTimeout.NeverSleep;
         }
+
+        private void OnDestroy()
+        {
+            SystemManager.Get<ScoreController>().Dispose();
+            SystemManager.Dispose();
+        }
     }
 }
