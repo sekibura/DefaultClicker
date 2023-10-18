@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="Assets.Scripts.ClickerGameController">
+  <Class Name="SekiburaGames.DefaultClicker.Controllers.ClickerGameController">
     <Position X="7.75" Y="1" Width="3" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAQAAAAAAAAACAAAAACAAAAAAAAAAAAA=</HashCode>
@@ -8,10 +8,10 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="Assets.Scripts.ScoreController">
+  <Class Name="SekiburaGames.DefaultClicker.UI.ScoreController">
     <Position X="11.5" Y="1" Width="3.5" />
     <TypeIdentifier>
-      <HashCode>AAAgAAAAAAAAAQgAAAAAIQIjAAAAAAAAAEACIAAAQAA=</HashCode>
+      <HashCode>AAAgAACAAAAAAQgAAAAAIQIjAAAAAAAAAEACIAAAQAA=</HashCode>
       <FileName>Assets\Scripts\Controllers\ScoreController.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -19,8 +19,22 @@
   <Class Name="SekiburaGames.DefaultClicker.ShopItems.BaseShopItem">
     <Position X="4" Y="1" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>AgIAAAAAAAAAAAAAAIAAAAAAAAgAEAAAAAACCAAAAEA=</HashCode>
+      <HashCode>AgIAAAAAACAAAAAAAIAAAAAAAAgAEAAAAAACCAAAAAA=</HashCode>
       <FileName>Assets\Scripts\ShopItems\BaseShopItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ShopItemBackground">
+    <Position X="4" Y="4.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAIgAEAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\ShopItems\ShopItemBackground.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SekiburaGames.DefaultClicker.UI.UI_ShopPanel">
+    <Position X="1" Y="1" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\UI\UI_ShopPanel.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

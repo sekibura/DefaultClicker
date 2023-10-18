@@ -4,25 +4,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UI_ButtonOpenerView : MonoBehaviour
+namespace SekiburaGames.DefaultClicker.UI
 {
-    [SerializeField]
-    private Button _button;
-
-    [SerializeField]
-    private View _view;
-
-    [SerializeField]
-    private bool _remember = true;
-    [SerializeField]
-    private bool _hideLast = true;
-
-    private void Start()
+    public class UI_ButtonOpenerView : MonoBehaviour
     {
-        _button.onClick.AddListener(() => 
-        {
-            ViewManager.Show(_view, _remember, _hideLast);
-        });
-    }
+        [SerializeField]
+        private Button _button;
 
+        [SerializeField]
+        private View _view;
+
+        [SerializeField]
+        private bool _remember = true;
+        [SerializeField]
+        private bool _hideLast = true;
+
+        private void Start()
+        {
+            _button.onClick.AddListener(() =>
+            {
+                ViewManager.Show(_view, _remember, _hideLast);
+            });
+        }
+
+    }
 }

@@ -8,13 +8,19 @@ public class ShopItemBackground : BaseShopItem
 {
     [SerializeField]
     private Button _button;
-    protected override void OnBuyAction()
-    {
 
-    }
+    //protected override void OnAdAction()
+    //{
+    //    throw new System.NotImplementedException();
+    //}
 
-    protected override void SetAvaiable(bool Avaiable)
-    {
-        _button.interactable = Avaiable;
-    }
+    //protected override void OnBuyAction()
+    //{
+
+    //}
+
+    //protected override void SetAvaiable(bool Avaiable)
+    //{
+    //    _button.interactable = Avaiable;
+    //}
 }
