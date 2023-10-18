@@ -27,9 +27,9 @@ namespace SekiburaGames.DefaultClicker.UI
 
         private void Init()
         {
-            _scoreTMP.text = _scoreController.Score.ToString();
-            _scorePowerTMP.text = _scoreController.ScorePower.ToString();
-            _scorePerSecTMP.text = _scoreController.ScorePerSecond.ToString();
+            _scoreTMP.text = _scoreController.Score.ToString() + "$";
+            _scorePowerTMP.text = _scoreController.ScorePower.ToString() + "$";
+            _scorePerSecTMP.text = _scoreController.ScorePerSecond.ToString() + "$";
 
             _scoreController.ScoreUpdatedEvent += ScoreUpdated;
             _scoreController.ScorePerSecondUpdatedEvent += ScorePerSecUpdated;
@@ -38,15 +38,15 @@ namespace SekiburaGames.DefaultClicker.UI
 
         private void ScoreUpdated(float value)
         {
-            _scoreTMP.text = value.ToString();
+            _scoreTMP.text = value.ToString() + "$";
         }
         private void ScorePowerUpdated(float value)
         {
-            _scorePowerTMP.text = value.ToString();
+            _scorePowerTMP.text = value.ToString() + "$";
         }
         private void ScorePerSecUpdated(float value)
         {
-            _scorePerSecTMP.text = value.ToString();
+            _scorePerSecTMP.text = value.ToString() + "$";
         }
 
 
