@@ -17,14 +17,28 @@ namespace SekiburaGames.DefaultClicker.ShopItems
     {
         [SerializeField]
         private Button _button;
+        [SerializeField]
+        private Button _adButton;
+
         private ScoreController _scoreController;
         [SerializeField]
         protected TMP_Text _priceText;
         [SerializeField]
-        protected float _price = 0;
+        protected float _price = 10;
 
+        public float Price
+        {
+            get { return _price; }
+            set 
+            { 
+                _price = value;
+                _priceText.text = _price.ToString() + "$";
+                OnScoreUpdated(_scoreController.Score);
+            }
+        }
         [SerializeField]
-        protected GameObject _adIcon;
+        protected GameObject _adIcon;        
+        public Action<ClickType> ClickAction;
 
         private void Start()
         {
@@ -35,8 +49,11 @@ namespace SekiburaGames.DefaultClicker.ShopItems
         {
             _scoreController = SystemManager.Get<ScoreController>();
             _scoreController.ScoreUpdatedEvent += OnScoreUpdated;
+            _button.onClick.AddListener(() => { ClickAction?.Invoke(ClickType.DefaultClick);});
+            if(_adButton!=null)
+                _adButton.onClick.AddListener(() => { ClickAction?.Invoke(ClickType.AdClick);});
             OnScoreUpdated(_scoreController.Score);
-            UpdatePrice(_price);
+            Price = Price;
         }
 
         private void OnScoreUpdated(float Score)
@@ -52,58 +69,60 @@ namespace SekiburaGames.DefaultClicker.ShopItems
                 if (_scoreController.Score < _price)
                 {
                     _adIcon.SetActive(true);
-                    //_priceText.gameObject.SetActive(false);
+                    //AdMode = true;
                 }
                 else
                 {
                     _adIcon.SetActive(false);
-                    //_priceText.gameObject.SetActive(true);
+                    //AdMode = true;
                 }
             }
-                
         }
 
-        public virtual void Buy()
-        {
-            if (_adIcon != null)
-            {
-                if (_scoreController.Score >= _price)
-                {
-                    _scoreController.UpdateScore(-_price);
-                    OnBuyAction();
-                }
-                else
-                {
-                    OnAdAction();
-                }
-            }
-            else
-            {
-                _scoreController.UpdateScore(-_price);
-                OnBuyAction();
-            }
+        //public virtual void Buy()
+        //{
+        //    if (_adIcon != null)
+        //    {
+        //        if (_scoreController.Score >= _price)
+        //        {
+        //            _scoreController.UpdateScore(-_price);
+        //            OnBuyAction();
+        //        }
+        //        else
+        //        {
+        //            OnAdAction();
+        //        }
+        //    }
+        //    else
+        //    {
+        //        _scoreController.UpdateScore(-_price);
+        //        OnBuyAction();
+        //    }
             
-        }
+        //}
 
-        protected void OnBuyAction() { }
-        protected void OnAdAction() 
-        {
-            Debug.Log("ShowAd");
-        }
-
-
+        //protected void OnBuyAction() { }
+        //protected void OnAdAction() 
+        //{
+        //    ClickAction?.Invoke(ClickType.AdClick);
+        //}
 
         protected void SetAvaiable(bool Avaiable)
         {
-            //if(_adIcon == null)
-                _button.interactable = Avaiable;
+            _button.interactable = Avaiable;
         }
 
-        public void UpdatePrice(float newPrice)
+        //public void UpdatePrice(float newPrice)
+        //{
+        //    _price = newPrice;
+        //    _priceText.text = _price.ToString()+"$";
+        //    OnScoreUpdated(_scoreController.Score);
+        //}
+
+        public enum ClickType
         {
-            _price = newPrice;
-            _priceText.text = _price.ToString()+"$";
-            OnScoreUpdated(_scoreController.Score);
+            AdClick,
+            DefaultClick
         }
     }
 }
