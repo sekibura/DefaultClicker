@@ -1,4 +1,5 @@
 using Assets.Scripts;
+using SekiburaGames.DefaultClicker.Controllers;
 using SekiburaGames.DefaultClicker.System;
 using System.Collections;
 using System.Collections.Generic;

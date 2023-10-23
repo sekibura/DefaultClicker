@@ -15,7 +15,7 @@ namespace SekiburaGames.DefaultClicker.ShopItems
         public class BackgroundShopItem
         {
             public Sprite Sprite;
-            public int Price;
+            //public int Price;
             public AudioClip VoiceClip;
         }
     }

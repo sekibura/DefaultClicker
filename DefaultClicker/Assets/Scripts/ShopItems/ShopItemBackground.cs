@@ -3,24 +3,38 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static SekiburaGames.DefaultClicker.Controllers.ShopSystem;
+using static SekiburaGames.DefaultClicker.ShopItems.ShopBackgroundsAsset;
 
-public class ShopItemBackground : BaseShopItem
+namespace SekiburaGames.DefaultClicker.UI
 {
-    [SerializeField]
-    private Button _button;
+    public class ShopItemBackground : BaseShopItem
+    {
+        private BackgroundShopCategory _backgroundShopCategory;
+        [SerializeField]
+        private Image _backgroundImage;
 
-    //protected override void OnAdAction()
-    //{
-    //    throw new System.NotImplementedException();
-    //}
 
-    //protected override void OnBuyAction()
-    //{
+        protected override void Init()
+        {
+            base.Init();
+            _backgroundShopCategory = _shopSystem.GetShopCategory<BackgroundShopCategory>();
+            _buyButton.onClick.AddListener(()=> _backgroundShopCategory.Buy());
+            _backgroundShopCategory.EnableToBuyEvent += SetAvaiable;
+            _backgroundShopCategory.BackgroundUpdateEvent += OnUpdateBackground;
+            _backgroundShopCategory.NextItemPriceUpdatedEvent += OnPriceUpdate;
+            _backgroundShopCategory.CalculatePrice();
+            SetAvaiable(_backgroundShopCategory.CheckEnable());
+        }
 
-    //}
+        private void OnUpdateBackground(BackgroundShopItem current, BackgroundShopItem next)
+        {
+            _backgroundImage.sprite = current.Sprite;
+        }
 
-    //protected override void SetAvaiable(bool Avaiable)
-    //{
-    //    _button.interactable = Avaiable;
-    //}
+        private void OnPriceUpdate(float nextBGPrice)
+        {
+            _priceText.text = nextBGPrice.ToString()+"$";
+        }
+    }
 }

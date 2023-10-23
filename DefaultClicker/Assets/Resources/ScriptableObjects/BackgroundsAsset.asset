@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: BackgroundsAsset
   m_EditorClassIdentifier: 
   Items:
-  - Sprite: {fileID: 0}
-    Price: 0
+  - Sprite: {fileID: 21300000, guid: 2d5b1e385458a494fbb3c55d9e3bb994, type: 3}
+    VoiceClip: {fileID: 0}
+  - Sprite: {fileID: 21300000, guid: 7845aa03760ed214b85534b8fd163617, type: 3}
+    VoiceClip: {fileID: 0}
+  - Sprite: {fileID: 21300000, guid: 7ba33e811bfe388438e6aeb34612f60f, type: 3}
     VoiceClip: {fileID: 0}

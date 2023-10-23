@@ -1,44 +1,25 @@
 ﻿using Assets.Scripts;
+using SekiburaGames.DefaultClicker.Controllers;
 using SekiburaGames.DefaultClicker.System;
-using SekiburaGames.DefaultClicker.UI;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 
-namespace SekiburaGames.DefaultClicker.ShopItems
+namespace SekiburaGames.DefaultClicker.UI
 {
     public class BaseShopItem: MonoBehaviour
     {
         [SerializeField]
-        private Button _button;
+        protected Button _buyButton; 
         [SerializeField]
-        private Button _adButton;
-
-        private ScoreController _scoreController;
+        protected Button _adButton;
         [SerializeField]
         protected TMP_Text _priceText;
-        [SerializeField]
-        protected float _price = 10;
 
-        public float Price
-        {
-            get { return _price; }
-            set 
-            { 
-                _price = value;
-                _priceText.text = _price.ToString() + "$";
-                OnScoreUpdated(_scoreController.Score);
-            }
-        }
-        [SerializeField]
-        protected GameObject _adIcon;        
-        public Action<ClickType> ClickAction;
+        protected ShopSystem _shopSystem;
+        
+
 
         private void Start()
         {
@@ -47,82 +28,19 @@ namespace SekiburaGames.DefaultClicker.ShopItems
 
         protected virtual void Init()
         {
-            _scoreController = SystemManager.Get<ScoreController>();
-            _scoreController.ScoreUpdatedEvent += OnScoreUpdated;
-            _button.onClick.AddListener(() => { ClickAction?.Invoke(ClickType.DefaultClick);});
+            _shopSystem = SystemManager.Get<ShopSystem>();
+        }
+
+        protected virtual void SetAvaiableAD(bool Avaiable)
+        {
             if(_adButton!=null)
-                _adButton.onClick.AddListener(() => { ClickAction?.Invoke(ClickType.AdClick);});
-            OnScoreUpdated(_scoreController.Score);
-            Price = Price;
+                _adButton.interactable = Avaiable;
         }
 
-        private void OnScoreUpdated(float Score)
+        protected virtual void SetAvaiable(bool Avaiable)
         {
-            SetAvaiable(Score >= _price);
-            SetAvaiableAD();
-        }
-
-        private void SetAvaiableAD()
-        {
-            if(_adIcon != null)
-            {
-                if (_scoreController.Score < _price)
-                {
-                    _adIcon.SetActive(true);
-                    //AdMode = true;
-                }
-                else
-                {
-                    _adIcon.SetActive(false);
-                    //AdMode = true;
-                }
-            }
-        }
-
-        //public virtual void Buy()
-        //{
-        //    if (_adIcon != null)
-        //    {
-        //        if (_scoreController.Score >= _price)
-        //        {
-        //            _scoreController.UpdateScore(-_price);
-        //            OnBuyAction();
-        //        }
-        //        else
-        //        {
-        //            OnAdAction();
-        //        }
-        //    }
-        //    else
-        //    {
-        //        _scoreController.UpdateScore(-_price);
-        //        OnBuyAction();
-        //    }
-            
-        //}
-
-        //protected void OnBuyAction() { }
-        //protected void OnAdAction() 
-        //{
-        //    ClickAction?.Invoke(ClickType.AdClick);
-        //}
-
-        protected void SetAvaiable(bool Avaiable)
-        {
-            _button.interactable = Avaiable;
-        }
-
-        //public void UpdatePrice(float newPrice)
-        //{
-        //    _price = newPrice;
-        //    _priceText.text = _price.ToString()+"$";
-        //    OnScoreUpdated(_scoreController.Score);
-        //}
-
-        public enum ClickType
-        {
-            AdClick,
-            DefaultClick
+            _buyButton.interactable = Avaiable;
+            SetAvaiableAD(!Avaiable);
         }
     }
 }

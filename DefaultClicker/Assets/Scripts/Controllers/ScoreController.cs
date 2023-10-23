@@ -1,5 +1,4 @@
 ﻿using PimDeWitte.UnityMainThreadDispatcher;
-using SekiburaGames.DefaultClicker.Controllers;
 using SekiburaGames.DefaultClicker.System;
 using System;
 using System.Threading;
@@ -7,9 +6,9 @@ using Unity.VisualScripting;
 using UnityEngine;
 using Timer = System.Threading.Timer;
 
-namespace SekiburaGames.DefaultClicker.UI
+namespace SekiburaGames.DefaultClicker.Controllers
 {
-    internal class ScoreController: System.IInitializable
+    public class ScoreController: System.IInitializable
     {
         public float Score { get; private set; }
         public float ScorePower { get; private set; }
@@ -25,6 +24,14 @@ namespace SekiburaGames.DefaultClicker.UI
             InitDefaultValues();
             TimerCallback tm = new TimerCallback(Tick);
             timer = new Timer(tm, null, 0, 1000);
+        }
+
+        private void InitValuesFromSave()
+        {
+            PlayerProgressData playerProgressData = SystemManager.Get<SaveLoadController>().Load();
+            Score = playerProgressData.Score;
+            ScorePower = playerProgressData.ScorePower;
+            ScorePerSecond = playerProgressData.ScorePerSecond;
         }
 
         private void InitDefaultValues()
@@ -58,7 +65,7 @@ namespace SekiburaGames.DefaultClicker.UI
                 });
                 
             } 
-            Debug.Log("Tick");
+            //Debug.Log("Tick");
         }
 
         public bool UpdateScore(float delta)

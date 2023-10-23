@@ -19,6 +19,7 @@ namespace SekiburaGames.DefaultClicker.Controllers
                 return;
 
             _isLoaded = true;
+            ResourcesManager.LoadAllResources();
             SystemManager.Register(this);
             RegisterSystems();
             GetSystems();
@@ -29,16 +30,21 @@ namespace SekiburaGames.DefaultClicker.Controllers
 
         private void RegisterSystems()
         {
+            SystemManager.Register<SaveLoadController>();
             SystemManager.Register<ClickerGameController>();
             SystemManager.Register<ScoreController>();
             SystemManager.Register<AdSystem>();
+            SystemManager.Register<ShopSystem>();
+            
         }
 
         private void GetSystems()
         {
+            SystemManager.Get<SaveLoadController>();
             SystemManager.Get<ClickerGameController>();
             SystemManager.Get<ScoreController>();
             SystemManager.Get<AdSystem>();
+            SystemManager.Get<ShopSystem>();
         }
 
         private void SetApplicationSettings()
