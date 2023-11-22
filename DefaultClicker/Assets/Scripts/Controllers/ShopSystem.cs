@@ -5,9 +5,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using UnityEngine;
 using UnityEngine.UI;
-using static SekiburaGames.DefaultClicker.ShopItems.ShopBackgroundsAsset;
+using YG;
+using static SekiburaGames.DefaultClicker.ShopItems.ShopImageAsset;
 
 namespace SekiburaGames.DefaultClicker.Controllers
 {
@@ -15,7 +17,8 @@ namespace SekiburaGames.DefaultClicker.Controllers
     {
         private List<BaseShopCategory> _baseShopCategories = new List<BaseShopCategory>
         {
-            new BackgroundShopCategory(),
+            new ImageShopCategory("BackgroundsAsset", 1),
+            new CharacterShopCategory("CharacterAsset", 2),
         };
 
         public void Initialize()
@@ -30,12 +33,16 @@ namespace SekiburaGames.DefaultClicker.Controllers
             return _baseShopCategories.OfType<T>().FirstOrDefault();
         }
 
-
+        public IEnumerable<T> GetShopCategories<T>() where T : BaseShopCategory
+        {
+            return _baseShopCategories.OfType<T>();
+        }
 
         public abstract class BaseShopCategory
         {
             protected int _buyIteration;                // ñêîëüêî ðàç áûë êóïëåí ýòîò àéòåì
             protected ScoreController scoreController;
+            protected SaveLoadController saveLoadController;
             protected float nextItemPrice;
             public event Action BuyEvent;
             public event Action<bool> EnableToBuyEvent;
@@ -43,6 +50,7 @@ namespace SekiburaGames.DefaultClicker.Controllers
             public virtual void Init()
             {
                 scoreController = SystemManager.Get<ScoreController>();
+                saveLoadController = SystemManager.Get<SaveLoadController>();
                 
                 scoreController.ScoreUpdatedEvent += OnScoreUpdate;
                 scoreController.ScorePowerUpdatedEvent += OnScorePowerUpdate;
@@ -78,56 +86,81 @@ namespace SekiburaGames.DefaultClicker.Controllers
             {
                 return scoreController.Score >= nextItemPrice;
             }
+
+            public abstract void SaveProgress();
         }
 
-        public class BackgroundShopCategory : BaseShopCategory
+        public class ImageShopCategory: BaseShopCategory
         {
-            private ShopBackgroundsAsset _itemBackground;
-            private BackgroundShopItem _currentBackground;
-            private BackgroundShopItem _nextBackground;
-            private int _currentBackgroundIndex;
-            private int ÑurrentBackgroundIndex
+            private ShopImageAsset _imagesItem;
+            private ImageShopItem _currentImage;
+            private ImageShopItem _nextImage;
+            private int _currentImageIndex;
+            private bool _allOpened;
+            public string  AssetName { get; private set; }
+            private float _priceMultipler;
+            private int ÑurrentImageIndex
             { 
-                get => _currentBackgroundIndex; 
+                get => _currentImageIndex; 
                 set 
                 {
-                    _currentBackgroundIndex = value;
-                    _currentBackground = _itemBackground.Items.Length > _currentBackgroundIndex + 0 ? _itemBackground.Items[_currentBackgroundIndex] : null;
-                    _nextBackground = _itemBackground.Items.Length > _currentBackgroundIndex + 1 ? _itemBackground.Items[_currentBackgroundIndex + 1] : null;
-                    BackgroundUpdateEvent?.Invoke(_currentBackground, _nextBackground);
+                    _currentImageIndex = value;
+                    _currentImage = _imagesItem.Items.Length > _currentImageIndex + 0 ? _imagesItem.Items[_currentImageIndex] : null;
+                    _nextImage = _imagesItem.Items.Length > _currentImageIndex + 1 ? _imagesItem.Items[_currentImageIndex + 1] : null;
+                    ImageUpdateEvent?.Invoke(_currentImage, _nextImage);
                 } 
             }
             
-            public event Action<BackgroundShopItem, BackgroundShopItem> BackgroundUpdateEvent;
+            public event Action<ImageShopItem, ImageShopItem> ImageUpdateEvent;
+
+            public ImageShopCategory(string assetName, float priceMultipler)
+            {
+                AssetName = assetName;
+                _priceMultipler = priceMultipler;
+            }
+
             public override void Init()
             {
                 base.Init();
-                _itemBackground = ResourcesManager.GetShopBackgroundsAsset();
-                //_currentBackgroundIndex = SystemManager.Get<SaveLoadController>().Load().BackGroundIndex; 
-                ÑurrentBackgroundIndex = 0;
-                _buyIteration = 1;
+                _imagesItem = ResourcesManager.GetAssetByName(AssetName);
+                saveLoadController.LoadEvent += (x) => InitOnLoad();
+                    if (YandexGame.SDKEnabled == true)
+                    { 
+                        InitOnLoad();
+                    }
+                }
+
+            private void InitOnLoad()
+            {
+                Debug.Log($"InitOnLoad");
+                ÑurrentImageIndex = LoadCurrentImageIndex();
+                Debug.Log($"Loaded index: {ÑurrentImageIndex}");
+                _allOpened = LoadOpenedImageIndex() >= _imagesItem.Items.Length - 1;
+                //ÑurrentBackgroundIndex = 0;
+                _buyIteration = ÑurrentImageIndex + 1;
                 CalculatePrice();
                 InvokeEnableToBuyEvent();
             }
             public override void Buy()
             {
-                if(_nextBackground != null)
+                if(_nextImage != null)
                 {
                     if (scoreController.Score >= nextItemPrice)
                     {
                         _buyIteration++;
                         scoreController.UpdateScore(-nextItemPrice);
-                        ÑurrentBackgroundIndex++;
+                        ÑurrentImageIndex++;
                         CalculatePrice();
                         InvokeBuyEvent();
                         InvokeEnableToBuyEvent();
+                        //SaveProgress();
                     }
                 }
             }
 
             public override float CalculatePrice()
             {
-                if (_nextBackground == null)
+                if (_nextImage == null)
                 {
                     nextItemPrice = 0;
                     InvokeNextItemPriceUpdatedEvent(nextItemPrice);
@@ -138,8 +171,8 @@ namespace SekiburaGames.DefaultClicker.Controllers
                 float ScorePower = scoreController.ScorePower > 0 ? scoreController.ScorePower : 1;
                 float ScorePerSecond = scoreController.ScorePerSecond > 0 ? scoreController.ScorePerSecond : 1;
 
-                if (_itemBackground.Items.Length > ÑurrentBackgroundIndex)
-                    nextItemPrice = _buyIteration * 2 * ScorePower * ScorePerSecond; // expression
+                if (_imagesItem.Items.Length > ÑurrentImageIndex)
+                    nextItemPrice = _buyIteration * 2 * ScorePower * ScorePerSecond * _priceMultipler; // expression
 
                 else
                     nextItemPrice = 0;
@@ -165,10 +198,108 @@ namespace SekiburaGames.DefaultClicker.Controllers
 
             public override bool CheckEnable()
             {
-                if (_nextBackground != null)
+                if (_nextImage != null)
                     return scoreController.Score >= nextItemPrice;
                 else
                     return false;
+            }
+
+            private int LoadCurrentImageIndex()
+            {
+                int index = 0;
+                switch (AssetName)
+                {
+                    case "BackgroundsAsset":
+                        index = saveLoadController.Load().CurrentBackGroundIndex;
+                        break;
+                    case "CharacterAsset":
+                        index = saveLoadController.Load().CurrentCharacterIndex;
+                        break;
+                    default:
+                        Debug.LogError("ShopSystem. Error LoadImageIndex - Wrong AssetName value!");
+                        break;
+                }
+                return index;
+            }
+
+            private int LoadOpenedImageIndex()
+            {
+                int index = 0;
+                switch (AssetName)
+                {
+                    case "BackgroundsAsset":
+                        index = saveLoadController.Load().OpenedBackGroundIndex;
+                        break;
+                    case "CharacterAsset":
+                        index = saveLoadController.Load().OpenedCharacterIndex;
+                        break;
+                    default:
+                        Debug.LogError("ShopSystem. Error GetOpenedImageIndex - Wrong AssetName value!");
+                        break;
+                }
+                return index;
+            }
+
+            public override void SaveProgress()
+            {
+                var savesYG = saveLoadController.Load();
+                if (_allOpened)
+                {
+                    switch (AssetName)
+                    {
+                        case "BackgroundsAsset":
+                            {
+                                savesYG.OpenedBackGroundIndex = _imagesItem.Items.Length - 1;
+                                savesYG.CurrentBackGroundIndex = ÑurrentImageIndex;
+                            }
+                            break;
+                        case "CharacterAsset":
+                            {
+                                savesYG.OpenedCharacterIndex = _imagesItem.Items.Length - 1;
+                                savesYG.CurrentCharacterIndex = ÑurrentImageIndex;
+                            }
+                            break;
+                        default:
+                            Debug.LogError("ShopSystem. Error SaveProgress - Wrong AssetName value!");
+                            break;
+                    }
+                   
+                }
+                else
+                {
+                    switch (AssetName)
+                    {
+                        case "BackgroundsAsset":
+                            {
+                                savesYG.OpenedBackGroundIndex = _currentImageIndex;
+                                savesYG.CurrentBackGroundIndex = ÑurrentImageIndex;
+                            }
+                            break;
+                        case "CharacterAsset":
+                            {
+                                savesYG.OpenedCharacterIndex = _currentImageIndex;
+                                savesYG.CurrentCharacterIndex = ÑurrentImageIndex;
+                            }
+                            break;
+                        default:
+                            Debug.LogError("ShopSystem. Error SaveProgress - Wrong AssetName value!");
+                            break;
+                    }
+                }
+                saveLoadController.Save(savesYG);
+            }
+        }
+        public void Dispose()
+        {
+            foreach (var shopCat in _baseShopCategories)
+            {
+                shopCat.SaveProgress();
+            }
+        }
+        public class CharacterShopCategory : ImageShopCategory
+        {
+            public CharacterShopCategory(string assetName, float priceMultipler) : base(assetName, priceMultipler)
+            {
             }
         }
     }

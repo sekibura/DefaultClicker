@@ -4,6 +4,7 @@ using System;
 using System.Threading;
 using Unity.VisualScripting;
 using UnityEngine;
+using YG;
 using Timer = System.Threading.Timer;
 
 namespace SekiburaGames.DefaultClicker.Controllers
@@ -28,7 +29,7 @@ namespace SekiburaGames.DefaultClicker.Controllers
 
         private void InitValuesFromSave()
         {
-            PlayerProgressData playerProgressData = SystemManager.Get<SaveLoadController>().Load();
+            SavesYG playerProgressData = SystemManager.Get<SaveLoadController>().Load();
             Score = playerProgressData.Score;
             ScorePower = playerProgressData.ScorePower;
             ScorePerSecond = playerProgressData.ScorePerSecond;
@@ -70,7 +71,7 @@ namespace SekiburaGames.DefaultClicker.Controllers
 
         public bool UpdateScore(float delta)
         {
-            Debug.Log($"Update score {delta}");
+            //Debug.Log($"Update score {delta}");
             if (Score + delta < 0)
                 return false;
 

@@ -54,7 +54,9 @@ namespace SekiburaGames.DefaultClicker.Controllers
 
         private void OnDestroy()
         {
+            SystemManager.Get<ShopSystem>().Dispose();
             SystemManager.Get<ScoreController>().Dispose();
+            SystemManager.Get<SaveLoadController>().Dispose();
             SystemManager.Dispose();
         }
     }

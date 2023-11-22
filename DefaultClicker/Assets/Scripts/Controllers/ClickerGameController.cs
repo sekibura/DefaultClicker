@@ -21,7 +21,7 @@ namespace SekiburaGames.DefaultClicker.Controllers
         /// </summary>
         public void OnClick()
         {
-            Debug.Log("MainClick");
+            //Debug.Log("MainClick");
             OnClickEvent?.Invoke();
         }
     }

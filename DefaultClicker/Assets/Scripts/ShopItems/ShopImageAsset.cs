@@ -6,13 +6,13 @@ using UnityEngine;
 namespace SekiburaGames.DefaultClicker.ShopItems
 {
     [CreateAssetMenu(fileName = "BackgroundsAsset", menuName = "BackgroundsAsset")]
-    public class ShopBackgroundsAsset : ScriptableObject
+    public class ShopImageAsset : ScriptableObject
     {
-        public BackgroundShopItem[] Items;
+        public ImageShopItem[] Items;
 
 
         [Serializable]
-        public class BackgroundShopItem
+        public class ImageShopItem
         {
             public Sprite Sprite;
             //public int Price;

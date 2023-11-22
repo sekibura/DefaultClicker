@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f13ca568b1ac8a4898c6576f0f485b6, type: 3}
+  m_Name: CharacterAsset
+  m_EditorClassIdentifier: 
+  Items:
+  - Sprite: {fileID: 21300000, guid: 6b87cb3c3c8beed46b233d37f4000ebb, type: 3}
+    VoiceClip: {fileID: 0}
+  - Sprite: {fileID: 21300000, guid: 918b5d77af810a94699f1efe86454151, type: 3}
+    VoiceClip: {fileID: 0}
+  - Sprite: {fileID: 21300000, guid: 2b8b7ac574c42b140a93dab7ef78417d, type: 3}
+    VoiceClip: {fileID: 0}

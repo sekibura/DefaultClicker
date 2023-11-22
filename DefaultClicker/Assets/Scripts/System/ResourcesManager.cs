@@ -10,14 +10,33 @@ namespace SekiburaGames.DefaultClicker.System
     {
         #region ResourcesPaths
         private const string ShopBackgroundAssetPath = "ScriptableObjects/BackgroundsAsset"; 
+        private const string ShopCharacterAssetPath = "ScriptableObjects/CharacterAsset"; 
         #endregion
 
         #region Private fields
-        private static ShopBackgroundsAsset _shopBackgroundsAsset;
+        private static ShopImageAsset _shopBackgroundsAsset;
+        private static ShopImageAsset _shopCharactersAsset;
         #endregion
 
         #region Getters 
-        public static ShopBackgroundsAsset GetShopBackgroundsAsset()
+
+        public static ShopImageAsset GetAssetByName(string assetName)
+        {
+            switch (assetName)
+            {
+                case "BackgroundsAsset":
+                    return _shopBackgroundsAsset;
+                case "CharacterAsset":
+                    return _shopCharactersAsset;
+                default:
+                    return _shopBackgroundsAsset;
+            }
+        }
+        public static ShopImageAsset GetShopCharactersAsset()
+        {
+            return _shopCharactersAsset;
+        }
+        public static ShopImageAsset GetShopBackgroundsAsset()
         {
             return _shopBackgroundsAsset;
         }
@@ -25,7 +44,8 @@ namespace SekiburaGames.DefaultClicker.System
 
         public static void LoadAllResources()
         {
-            _shopBackgroundsAsset = LoadResource<ShopBackgroundsAsset>(ShopBackgroundAssetPath);
+            _shopBackgroundsAsset = LoadResource<ShopImageAsset>(ShopBackgroundAssetPath);
+            _shopCharactersAsset = LoadResource<ShopImageAsset>(ShopCharacterAssetPath);
         }
 
         public static T LoadResource<T>(string resourcePath) where T : UnityEngine.Object

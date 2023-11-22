@@ -2,13 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Experimental.RestService;
 using UnityEngine;
+using YG;
 
 namespace SekiburaGames.DefaultClicker.Controllers
 {
     public abstract class BaseSaveLoadManager
     {
-        protected PlayerProgressData currentProgressData;
-        public abstract void Save(PlayerProgressData progressData);
-        public abstract PlayerProgressData Load();
+        public abstract void Init();
+        protected SavesYG currentProgressData;
+        public abstract void Save(SavesYG progressData);
+        public abstract SavesYG Load();
     }
 }
