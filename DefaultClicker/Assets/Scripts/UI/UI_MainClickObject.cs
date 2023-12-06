@@ -21,6 +21,7 @@ namespace SekiburaGames.DefaultClicker.UI
             {
                 _gameController.OnClick();
                 _animator.Play("GirlClickAnimnation");
+                SoundManager.instance.PlaySound(SoundManager.Sound.Click);
             }
             );
         
