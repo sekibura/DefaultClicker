@@ -2,55 +2,58 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BackgroundPlayer : MonoBehaviour
+namespace SekiburaGames.DefaultClicker.Controllers
 {
-    public List<AudioClip> audioClips; // список аудиофайлов, заданный в инспекторе
-    private AudioSource audioSource;
-
-    private int currentClipIndex = 0;
-
-    private float startVolume = 0.1f; // начальная громкость
-    private float fadeTime = 1.0f; // время нарастания и затухания звука
-
-    private void Start()
+    public class BackgroundPlayer : MonoBehaviour
     {
-        audioSource = GetComponent<AudioSource>();
-        PlayNextClip();
-    }
+        public List<AudioClip> audioClips; // список аудиофайлов, заданный в инспекторе
+        private AudioSource audioSource;
 
-    private void PlayNextClip()
-    {
-        if (audioClips.Count == 0) return;
+        private int currentClipIndex = 0;
 
-        audioSource.clip = audioClips[currentClipIndex];
-        StartCoroutine(PlayWithFade());
-        currentClipIndex = (currentClipIndex + 1) % audioClips.Count;
-    }
+        private float startVolume = 0.1f; // начальная громкость
+        private float fadeTime = 1.0f; // время нарастания и затухания звука
 
-    private IEnumerator PlayWithFade()
-    {
-        audioSource.volume = 0f;
-        audioSource.Play();
-
-        float timer = 0f;
-        while (timer < fadeTime)
+        private void Start()
         {
-            timer += Time.deltaTime;
-            audioSource.volume = Mathf.Lerp(0f, startVolume, timer / fadeTime);
-            yield return null;
+            audioSource = GetComponent<AudioSource>();
+            PlayNextClip();
         }
 
-        yield return new WaitForSeconds(audioSource.clip.length - fadeTime * 2);
-
-        timer = 0f;
-        while (timer < fadeTime)
+        private void PlayNextClip()
         {
-            timer += Time.deltaTime;
-            audioSource.volume = Mathf.Lerp(startVolume, 0f, timer / fadeTime);
-            yield return null;
+            if (audioClips.Count == 0) return;
+
+            audioSource.clip = audioClips[currentClipIndex];
+            StartCoroutine(PlayWithFade());
+            currentClipIndex = (currentClipIndex + 1) % audioClips.Count;
         }
 
-        audioSource.Stop();
-        PlayNextClip();
+        private IEnumerator PlayWithFade()
+        {
+            audioSource.volume = 0f;
+            audioSource.Play();
+
+            float timer = 0f;
+            while (timer < fadeTime)
+            {
+                timer += Time.deltaTime;
+                audioSource.volume = Mathf.Lerp(0f, startVolume, timer / fadeTime);
+                yield return null;
+            }
+
+            yield return new WaitForSeconds(audioSource.clip.length - fadeTime * 2);
+
+            timer = 0f;
+            while (timer < fadeTime)
+            {
+                timer += Time.deltaTime;
+                audioSource.volume = Mathf.Lerp(startVolume, 0f, timer / fadeTime);
+                yield return null;
+            }
+
+            audioSource.Stop();
+            PlayNextClip();
+        }
     }
 }
