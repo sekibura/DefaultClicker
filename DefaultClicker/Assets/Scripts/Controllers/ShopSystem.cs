@@ -172,7 +172,7 @@ namespace SekiburaGames.DefaultClicker.Controllers
                 float ScorePerSecond = scoreController.ScorePerSecond > 0 ? scoreController.ScorePerSecond : 1;
 
                 if (_imagesItem.Items.Length > ÑurrentImageIndex)
-                    nextItemPrice = _buyIteration * 2 * ScorePower * ScorePerSecond * _priceMultipler; // expression
+                    nextItemPrice = _buyIteration * _buyIteration * _buyIteration * 2 * ScorePower * ScorePerSecond * _priceMultipler; // expression
 
                 else
                     nextItemPrice = 0;
