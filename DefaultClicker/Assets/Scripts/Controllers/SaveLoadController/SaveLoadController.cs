@@ -2,7 +2,6 @@ using SekiburaGames.DefaultClicker.System;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.RestService;
 using UnityEngine;
 using YG;
 
