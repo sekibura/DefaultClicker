@@ -61,3 +61,7 @@ MonoBehaviour:
     VoiceClip: {fileID: 0}
   - Sprite: {fileID: 21300000, guid: c742e40627cbbf64b88a1606a7a9ea1b, type: 3}
     VoiceClip: {fileID: 0}
+  - Sprite: {fileID: 21300000, guid: ee50adc068ba678428f674c072b8393c, type: 3}
+    VoiceClip: {fileID: 0}
+  - Sprite: {fileID: 21300000, guid: b4c8f825957f4a642b71beba845fe764, type: 3}
+    VoiceClip: {fileID: 0}
