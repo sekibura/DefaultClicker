@@ -1,3 +1,4 @@
+using SekiburaGames.DefaultClicker.Audio;
 using SekiburaGames.DefaultClicker.ShopItems;
 using System;
 using System.Collections;
@@ -11,11 +12,15 @@ namespace SekiburaGames.DefaultClicker.System
         #region ResourcesPaths
         private const string ShopBackgroundAssetPath = "ScriptableObjects/BackgroundsAsset"; 
         private const string ShopCharacterAssetPath = "ScriptableObjects/CharacterAsset"; 
+        private const string PhrasesCharacterAssetPath = "ScriptableObjects/PhrasesCharacterAsset"; 
+        private const string PhrasesBackgroundAssetPath = "ScriptableObjects/PhrasesBackgroundAsset"; 
         #endregion
 
         #region Private fields
         private static ShopImageAsset _shopBackgroundsAsset;
         private static ShopImageAsset _shopCharactersAsset;
+        private static PhrasesAsset _phrasesCharacterAsset;
+        private static PhrasesAsset _phrasesBackgroundAsset;
         #endregion
 
         #region Getters 
@@ -27,6 +32,10 @@ namespace SekiburaGames.DefaultClicker.System
                 case "BackgroundsAsset":
                     return _shopBackgroundsAsset;
                 case "CharacterAsset":
+                    return _shopCharactersAsset;
+                case "PhrasesCharacterAsset":
+                    return _shopCharactersAsset;
+                case "PhrasesBackgroundAsset":
                     return _shopCharactersAsset;
                 default:
                     return _shopBackgroundsAsset;
@@ -40,12 +49,22 @@ namespace SekiburaGames.DefaultClicker.System
         {
             return _shopBackgroundsAsset;
         }
+        public static PhrasesAsset GetPhraseCharacterAsset()
+        {
+            return _phrasesCharacterAsset;
+        }
+        public static PhrasesAsset GetPhraseBackgroundAsset()
+        {
+            return _phrasesBackgroundAsset;
+        }
         #endregion
 
         public static void LoadAllResources()
         {
             _shopBackgroundsAsset = LoadResource<ShopImageAsset>(ShopBackgroundAssetPath);
             _shopCharactersAsset = LoadResource<ShopImageAsset>(ShopCharacterAssetPath);
+            _phrasesCharacterAsset = LoadResource<PhrasesAsset>(PhrasesCharacterAssetPath);
+            _phrasesBackgroundAsset = LoadResource<PhrasesAsset>(PhrasesBackgroundAssetPath);
         }
 
         public static T LoadResource<T>(string resourcePath) where T : UnityEngine.Object
