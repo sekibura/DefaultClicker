@@ -9,11 +9,15 @@ namespace SekiburaGames.DefaultClicker.UI
     {
         [SerializeField]
         private LeanLocalizedTextMeshProUGUI _leanLocalizedText;
+        private IEnumerator _coroutine;
 
         public void ShowText(string translationName, float duration)
         {
             _leanLocalizedText.TranslationName = translationName;
-            StartCoroutine(ShowText(duration));
+            if(_coroutine != null)
+                StopCoroutine(_coroutine);
+            _coroutine = ShowText(duration);
+            StartCoroutine(_coroutine);
         }
 
         private IEnumerator ShowText(float duration)
@@ -37,6 +41,7 @@ namespace SekiburaGames.DefaultClicker.UI
 
         public void StartFadeIn()
         {
+            Debug.Log("StartFadeIn");
             fadeTimer = 0f;
             isFading = true;
             isFadingIn = true;
@@ -44,6 +49,7 @@ namespace SekiburaGames.DefaultClicker.UI
 
         public void StartFadeOut()
         {
+            Debug.Log("StartFadeOut");
             fadeTimer = 0f;
             isFading = true;
             isFadingIn = false;
