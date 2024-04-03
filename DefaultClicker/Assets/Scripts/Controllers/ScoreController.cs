@@ -1,6 +1,7 @@
 ﻿using PimDeWitte.UnityMainThreadDispatcher;
 using SekiburaGames.DefaultClicker.System;
 using System;
+using System.Reflection;
 using System.Threading;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -20,11 +21,32 @@ namespace SekiburaGames.DefaultClicker.Controllers
         public event Action<float> ScorePerSecondUpdatedEvent;
         Timer timer;
 
+        protected SaveLoadController saveLoadController;
+
         public void Initialize()
         {
             InitDefaultValues();
             TimerCallback tm = new TimerCallback(Tick);
             timer = new Timer(tm, null, 0, 1000);
+            saveLoadController = SystemManager.Get<SaveLoadController>();
+            saveLoadController.LoadEvent += (x) => InitOnLoad();
+            if (YandexGame.SDKEnabled == true)
+            {
+                InitOnLoad();
+            }
+        }
+
+        private void InitOnLoad()
+        {
+            Score = saveLoadController.Load().Score;
+            ScoreUpdatedEvent?.Invoke(Score);
+        }
+
+        private void SaveProgress()
+        {
+            var savesYG = saveLoadController.Load();
+            savesYG.Score = Score;
+            saveLoadController.Save(savesYG);
         }
 
         private void InitValuesFromSave()
@@ -71,7 +93,7 @@ namespace SekiburaGames.DefaultClicker.Controllers
 
         public bool UpdateScore(float delta)
         {
-            //Debug.Log($"Update score {delta}");
+            //Debug.Log($"Update score  = {delta}");
             if (Score + delta < 0)
                 return false;
 
@@ -85,8 +107,14 @@ namespace SekiburaGames.DefaultClicker.Controllers
 
         public void UpdateScorePower(float delta)
         {
-            ScorePower = ScorePower + delta > 0 ? ScorePower + delta : 0;
+            ScorePower = ScorePower + delta > 0 ? ScorePower + delta : 1;
             if (delta != 0)
+                ScorePowerUpdatedEvent?.Invoke(ScorePower);
+        }
+        public void SetScorePower(float value)
+        {
+            ScorePower =  value > 0 ? value : 1;
+            if (value != 0)
                 ScorePowerUpdatedEvent?.Invoke(ScorePower);
         }
 
@@ -100,7 +128,10 @@ namespace SekiburaGames.DefaultClicker.Controllers
         public void Dispose()
         {
             timer.Dispose();
+            SaveProgress();
+
         }
+
     }
 }
 

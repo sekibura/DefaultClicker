@@ -35,6 +35,7 @@ namespace SekiburaGames.DefaultClicker.Controllers
             SystemManager.Register<ScoreController>();
             SystemManager.Register<AdSystem>();
             SystemManager.Register<ShopSystem>();
+            SystemManager.Register<BonusController>();
             
         }
 
@@ -45,6 +46,7 @@ namespace SekiburaGames.DefaultClicker.Controllers
             SystemManager.Get<ScoreController>();
             SystemManager.Get<AdSystem>();
             SystemManager.Get<ShopSystem>();
+            SystemManager.Get<BonusController>();
         }
 
         private void SetApplicationSettings()
@@ -55,6 +57,7 @@ namespace SekiburaGames.DefaultClicker.Controllers
         private void OnDestroy()
         {
             _isLoaded = false;
+            SystemManager.Get<BonusController>().Dispose();
             SystemManager.Get<ShopSystem>().Dispose();
             SystemManager.Get<ScoreController>().Dispose();
             SystemManager.Get<SaveLoadController>().Dispose();

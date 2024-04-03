@@ -43,6 +43,7 @@ namespace SekiburaGames.DefaultClicker.UI
         }
         private void ScorePowerUpdated(float value)
         {
+            Debug.Log($"ScorePowerUpdated = {value}");
             _scorePowerTMP.text = value.ToString() + "$";
         }
         private void ScorePerSecUpdated(float value)

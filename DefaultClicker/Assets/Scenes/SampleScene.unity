@@ -1193,7 +1193,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 248.595, y: -595.2914}
+  m_AnchoredPosition: {x: 248.595, y: -378.8218}
   m_SizeDelta: {x: 670.9043, y: 108.2348}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &528624060
@@ -4668,7 +4668,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1262066712
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4686,9 +4686,9 @@ RectTransform:
   - {fileID: 2010233509}
   m_Father: {fileID: 954364988}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 248.595, y: -378.8218}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 670.9043, y: 108.2348}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1262066714
@@ -6688,14 +6688,14 @@ GameObject:
   - component: {fileID: 1860724531}
   - component: {fileID: 1860724530}
   - component: {fileID: 1860724529}
-  - component: {fileID: 1860724532}
+  - component: {fileID: 1860724533}
   m_Layer: 5
   m_Name: ButtonPowerClick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1860724527
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6713,9 +6713,9 @@ RectTransform:
   - {fileID: 982472710}
   m_Father: {fileID: 954364988}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 248.595, y: -487.0566}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 670.9043, y: 108.2348}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1860724529
@@ -6800,7 +6800,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1860724526}
   m_CullTransparentMesh: 1
---- !u!114 &1860724532
+--- !u!114 &1860724533
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6809,12 +6809,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1860724526}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9047d11bf643ff94b84840a1bef117bd, type: 3}
+  m_Script: {fileID: 11500000, guid: 4d6029b94cf256340835f9d7152cb39c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _buyButton: {fileID: 0}
+  _buyButton: {fileID: 1860724529}
   _adButton: {fileID: 982472713}
   _priceText: {fileID: 1463079167}
+  _deltaScorePower: 1
 --- !u!1 &1882808767
 GameObject:
   m_ObjectHideFlags: 0

@@ -19,13 +19,20 @@ namespace YG
         // Ваши сохранения
 
         // ...
-        public int Score = 0;
-        public int ScorePower = 1;
+        public float Score = 0;
+
+        public float ScorePower = 1;
+        public int ScorePowerIndex = 0;
+
         public int ScorePerSecond = 0;
+        public int ScorePerSecondIndex = 0;
+
         public int CurrentBackGroundIndex = 0;
         public int OpenedBackGroundIndex = 0;
+
         public int CurrentCharacterIndex = 0;
         public int OpenedCharacterIndex = 0;
+
         public int CurrentOutfitIndex = 0;
         public int OpenedOutfitIndex = 0;
 
@@ -36,15 +43,22 @@ namespace YG
         public SavesYG()
         {
             // Допустим, задать значения по умолчанию для отдельных элементов массива
-             Score = 0;
-             ScorePower = 1;
-             ScorePerSecond = 0;
-             CurrentBackGroundIndex = 0;
-             OpenedBackGroundIndex = 0;
-             CurrentCharacterIndex = 0;
-             OpenedCharacterIndex = 0;
-             CurrentOutfitIndex = 0;
-             OpenedOutfitIndex = 0;
+            Score = 0;
+
+            ScorePower = 1;
+            ScorePowerIndex = 0;
+
+            ScorePerSecond = 0;
+            ScorePerSecondIndex = 0;
+
+            CurrentBackGroundIndex = 0;
+            OpenedBackGroundIndex = 0;
+
+            CurrentCharacterIndex = 0;
+            OpenedCharacterIndex = 0;
+
+            CurrentOutfitIndex = 0;
+            OpenedOutfitIndex = 0;
         }
     }
 }

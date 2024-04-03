@@ -32,7 +32,7 @@ namespace SekiburaGames.DefaultClicker.Effects
 
         private void Clicked(Vector2 position)
         {
-            Debug.Log("Touch Position : " + position);
+            //Debug.Log("Touch Position : " + position);
             var worldPosition = _camera.ScreenToWorldPoint(position);
             worldPosition.z = 0;
             _particleSystem.transform.position = worldPosition;
