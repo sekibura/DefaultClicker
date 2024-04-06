@@ -13,8 +13,11 @@ namespace SekiburaGames.DefaultClicker.UI
             if (BackButton != null)
                 BackButton.onClick.AddListener(() => {
                     ViewManager.ShowLast();
+                    OnBackButton();
                 });
         }
+
+        public virtual void OnBackButton() { }
         public virtual void Hide() => gameObject.SetActive(false);
         public virtual void Show(object parameter = null) => gameObject.SetActive(true);
 

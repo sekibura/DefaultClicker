@@ -1,4 +1,5 @@
 using SekiburaGames.DefaultClicker.Controllers;
+using SekiburaGames.DefaultClicker.System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -30,6 +31,7 @@ namespace SekiburaGames.DefaultClicker.UI
         [SerializeField]
         private Button _resetWindowCloseBtn;
 
+        protected SaveLoadController saveLoadController;
 
         public override void Initialize()
         {
@@ -39,6 +41,14 @@ namespace SekiburaGames.DefaultClicker.UI
             _resetBtn.onClick.AddListener(() => _resetWindow.SetActive(true));
             _resetSavesBtn.onClick.AddListener(() => { YandexGame.ResetSaveProgress(); _resetWindow.SetActive(false); });
             _resetWindowCloseBtn.onClick.AddListener(() => _resetWindow.SetActive(false));
+
+            SystemManager.Get(out saveLoadController);
+            saveLoadController.LoadEvent += (x) => LoadSettings();
+            if (YandexGame.SDKEnabled == true)
+            {
+                LoadSettings();
+            }
+            
         }
 
         public override void Show(object parameter = null)
@@ -48,20 +58,27 @@ namespace SekiburaGames.DefaultClicker.UI
             _languageChooseController.UpdateButtonStates();
             SlidersUpdateValue();
         }
-    
+
+        public override void OnBackButton()
+        {
+            if (YandexGame.SDKEnabled == true)
+            {
+                SaveSettings();
+            }
+        }
+
 
         private void SlidersUpdateValue()
         {
             _isSetSliderValues = true;
-            float FXVolume;
-            _audioMixer.audioMixer.GetFloat("FXVolume", out FXVolume);
-            _sliderDialogs.value = Mathf.InverseLerp(-80, 0, FXVolume);
+            float dialogs;
+            _audioMixer.audioMixer.GetFloat("Dialogs", out dialogs);            
+            _sliderDialogs.value = Mathf.InverseLerp(-80, 0, dialogs);
 
-
-
-            float MusicVolume;
-            _audioMixer.audioMixer.GetFloat("MusicVolume", out MusicVolume);
-            _sliderMusic.value = Mathf.InverseLerp(-80, 0, MusicVolume);
+            float music;
+            _audioMixer.audioMixer.GetFloat("Music", out music);
+            _sliderMusic.value = Mathf.InverseLerp(-80, 0, music);
+            Debug.Log($"FXVolume MusicVolume {dialogs} {music}");
             _isSetSliderValues = false;
         }
 
@@ -79,6 +96,27 @@ namespace SekiburaGames.DefaultClicker.UI
                 return;
             //Set Mixer voluve
             _audioMixer.audioMixer.SetFloat("Music", Mathf.Lerp(-80, 0, value));
+        }
+
+        private void LoadSettings()
+        {
+            var saveData = saveLoadController.Load();
+            Debug.Log($"Load settings = {saveData.SettingsDialogVolume} {saveData.SettingsMusicVolume} {saveData.lang}");
+            //_sliderDialogs.value = saveData.SettingsDialogVolume;
+            //_sliderMusic.value = saveData.SettingsMusicVolume;
+            OnMusicSliderChange(saveData.SettingsMusicVolume);
+            OnSoundDialogsSliderChange(saveData.SettingsDialogVolume);
+            _languageChooseController.SetLanguage(saveData.lang);
+        }
+
+        private void SaveSettings()
+        {
+            var saveData = saveLoadController.Load();
+            saveData.SettingsDialogVolume = _sliderDialogs.value;
+            saveData.SettingsMusicVolume = _sliderMusic.value;
+            saveData.lang = _languageChooseController.Language;
+            Debug.Log($"Save settings = {_sliderDialogs.value} {_sliderMusic.value} {_languageChooseController.Language}");
+            saveLoadController.Save(saveData);
         }
     }
 }

@@ -11,6 +11,7 @@ namespace SekiburaGames.DefaultClicker.UI
     {
         [SerializeField]
         private LanguageButton[] _languageButtons;
+        public string Language { get; private set; }
 
         private void Start()
         {
@@ -24,10 +25,10 @@ namespace SekiburaGames.DefaultClicker.UI
             {
                 btn._btn.onClick.AddListener(() =>
                 {
-                    string language = btn._language;
-                    Lean.Localization.LeanLocalization.SetCurrentLanguageAll(language);
+                    Language = btn._language;
+                    Lean.Localization.LeanLocalization.SetCurrentLanguageAll(Language);
                     UpdateButtonStates();
-                    Debug.Log($"Set language {language}");
+                    Debug.Log($"Set language {Language}");
                 });
             }
         }
@@ -44,6 +45,12 @@ namespace SekiburaGames.DefaultClicker.UI
             }
         }
 
+        public void SetLanguage(string language)
+        {
+            Lean.Localization.LeanLocalization.SetCurrentLanguageAll(language);
+            UpdateButtonStates();
+            Debug.Log($"Set language {language}");
+        }
 
         [Serializable]
         private class LanguageButton
