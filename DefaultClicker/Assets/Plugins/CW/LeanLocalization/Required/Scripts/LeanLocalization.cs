@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using Lean.Common;
 using CW.Common;
+using System.Linq;
 
 namespace Lean.Localization
 {
@@ -27,13 +28,6 @@ namespace Lean.Localization
 			WhenChangedAlt
 		}
 
-		public enum FontSize
-		{
-			Default,
-			Big,
-			ExtraBig
-		}
-
 		public const string HelpUrlPrefix = LeanCommon.HelpUrlPrefix + "LeanLocalization#";
 
 		public const string ComponentPathPrefix = "Lean/Localization/Lean ";
@@ -55,12 +49,8 @@ namespace Lean.Localization
 		[SerializeField]
 		private string currentLanguage;
 
-        [LeanLanguageName]
-        [SerializeField]
-        private FontSize currentFontSize = FontSize.Default;
-
-        /// <summary>How should the cultures be used to detect the user's device language?</summary>
-        public DetectType DetectLanguage { set { detectLanguage = value; } get { return detectLanguage; } } [SerializeField] private DetectType detectLanguage = DetectType.SystemLanguage;
+		/// <summary>How should the cultures be used to detect the user's device language?</summary>
+		public DetectType DetectLanguage { set { detectLanguage = value; } get { return detectLanguage; } } [SerializeField] private DetectType detectLanguage = DetectType.SystemLanguage;
 
 		/// <summary>If the application is started and no language has been loaded or auto detected, this language will be used.</summary>
 		public string DefaultLanguage { set { defaultLanguage = value; } get { return defaultLanguage; } } [SerializeField] [LeanLanguageName] private string defaultLanguage;
@@ -108,31 +98,8 @@ namespace Lean.Localization
 			}
 		}
 
-        public FontSize CurrentFontSize
-        {
-            set
-            {
-                if (currentFontSize != value)
-                {
-                    currentFontSize = value;
-
-                    if (saveLoad != SaveLoadType.None)
-                    {
-                        SaveNow();
-                    }
-
-                    UpdateTranslations();
-                }
-            }
-
-            get
-            {
-                return currentFontSize;
-            }
-        }
-
-        /// <summary>When rebuilding translations this method is called from any <b>LeanSource</b> components that define a token.</summary>
-        public static void RegisterToken(string name, LeanToken token)
+		/// <summary>When rebuilding translations this method is called from any <b>LeanSource</b> components that define a token.</summary>
+		public static void RegisterToken(string name, LeanToken token)
 		{
 			if (string.IsNullOrEmpty(name) == false && token != null && CurrentTokens.ContainsKey(name) == false)
 			{
@@ -185,15 +152,13 @@ namespace Lean.Localization
 			if (saveLoad == SaveLoadType.WhenChanged)
 			{
 				PlayerPrefs.SetString("LeanLocalization.CurrentLanguage", currentLanguage);
-            }
+			}
 			else if (saveLoad == SaveLoadType.WhenChangedAlt)
 			{
 				PlayerPrefs.SetString("LeanLocalization.CurrentLanguageAlt", currentLanguage);
 			}
 
-            PlayerPrefs.SetInt("LeanLocalization.CurrentFontSize", (int)currentFontSize);
-
-            PlayerPrefs.Save();
+			PlayerPrefs.Save();
 		}
 
 		private void LoadNow()
@@ -206,8 +171,7 @@ namespace Lean.Localization
 			{
 				currentLanguage = PlayerPrefs.GetString("LeanLocalization.CurrentLanguageAlt");
 			}
-            currentFontSize =  (FontSize)PlayerPrefs.GetInt("LeanLocalization.CurrentFontSize");
-        }
+		}
 
 		/// <summary>This sets the current language using the specified language name.</summary>
 		public void SetCurrentLanguage(string newLanguage)
@@ -224,16 +188,8 @@ namespace Lean.Localization
 			}
 		}
 
-        public static void SetCurrentFontSizeAll(FontSize fontSize)
-        {
-            foreach (var instance in Instances)
-            {
-                instance.CurrentFontSize = fontSize;
-            }
-        }
-
-        /// <summary>This returns the <b>CurrentLanguage</b> value from the first <b>LeanLocalization</b> instance in the scene if it exists, or null.</summary>
-        public static string GetFirstCurrentLanguage()
+		/// <summary>This returns the <b>CurrentLanguage</b> value from the first <b>LeanLocalization</b> instance in the scene if it exists, or null.</summary>
+		public static string GetFirstCurrentLanguage()
 		{
 			if (Instances.Count > 0)
 			{
@@ -243,16 +199,7 @@ namespace Lean.Localization
 			return null;
 		}
 
-        public static FontSize GetCurrentFontSize()
-        {
-            if (Instances.Count > 0)
-            {
-                return Instances[0].CurrentFontSize;
-            }
-
-            return FontSize.Default;
-        }
-        public static LeanLocalization GetOrCreateInstance()
+		public static LeanLocalization GetOrCreateInstance()
 		{
 			if (Instances.Count == 0)
 			{
@@ -981,18 +928,55 @@ namespace Lean.Localization.Editor
 			var rectC = rectA; rectC.xMin = rectC.xMax - 35.0f;
 			EditorGUI.LabelField(rectA, "Languages", EditorStyles.boldLabel);
 			languagesFilter = EditorGUI.TextField(rectB, "", languagesFilter);
-			BeginDisabled(string.IsNullOrEmpty(languagesFilter) == true || LeanLocalization.CurrentLanguages.ContainsKey(languagesFilter) == true);
+			//BeginDisabled(string.IsNullOrEmpty(languagesFilter) == true || LeanLocalization.CurrentLanguages.ContainsKey(languagesFilter) == true);
 				if (GUI.Button(rectC, "Add", EditorStyles.miniButton) == true)
 				{
-					var language = LeanLocalization.AddLanguageToFirst(languagesFilter);
+					if (string.IsNullOrEmpty(languagesFilter) == true)
+					{
+						var menu = new GenericMenu();
 
-					LeanLocalization.UpdateTranslations();
+						var languagePrefabs = AssetDatabase.FindAssets("t:GameObject").
+							Select((guid) => AssetDatabase.LoadAssetAtPath<GameObject>(AssetDatabase.GUIDToAssetPath(guid))).
+							Where((prefab) => prefab.GetComponent<LeanLanguage>() != null);
+						
+						foreach (var languagePrefab in languagePrefabs)
+						{
+							if (LeanLocalization.CurrentLanguages.ContainsKey(languagePrefab.name) == true)
+							{
+								menu.AddItem(new GUIContent(languagePrefab.name), true, () => {});
+							}
+							else
+							{
+								menu.AddItem(new GUIContent(languagePrefab.name), false, () =>
+									{
+										if (LeanLocalization.Instances.Count > 0)
+										{
+											var language = UnityEditor.PrefabUtility.InstantiatePrefab(languagePrefab, LeanLocalization.Instances[0].transform);
 
-					Selection.activeObject = language;
+											LeanLocalization.UpdateTranslations();
 
-					EditorGUIUtility.PingObject(language);
+											Selection.activeObject = language;
+
+											EditorGUIUtility.PingObject(language);
+										}
+									});
+							}
+						}
+
+						menu.ShowAsContext();
+					}
+					else
+					{
+						var language = LeanLocalization.AddLanguageToFirst(languagesFilter);
+
+						LeanLocalization.UpdateTranslations();
+
+						Selection.activeObject = language;
+
+						EditorGUIUtility.PingObject(language);
+					}
 				}
-			EndDisabled();
+			//EndDisabled();
 
 			if (LeanLocalization.CurrentLanguages.Count > 0 || string.IsNullOrEmpty(languagesFilter) == false)
 			{

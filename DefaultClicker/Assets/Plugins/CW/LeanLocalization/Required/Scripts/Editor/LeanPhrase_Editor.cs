@@ -6,8 +6,7 @@ using CW.Common;
 #if UNITY_EDITOR
 namespace Lean.Localization.Editor
 {
-    using System;
-    using UnityEditor;
+	using UnityEditor;
 	using TARGET = LeanPhrase;
 
 	[CanEditMultipleObjects]
@@ -177,19 +176,15 @@ namespace Lean.Localization.Editor
 			try
 			{
 				var url       = string.Format("https://translate.googleapis.com/translate_a/single?client=gtx&sl={0}&tl={1}&dt=t&q={2}", languageCodeInput, languageCodeOutput, System.Web.HttpUtility.UrlEncode(wordInput));
-                Debug.Log(url);
 				var webClient = new System.Net.WebClient { Encoding = System.Text.Encoding.UTF8 };
-				Debug.Log(1);
 				var result    = webClient.DownloadString(url);
-				Debug.Log(result);
 
 				wordOutput = result.Substring(4, result.IndexOf("\",\"", 4, System.StringComparison.Ordinal) - 4);
 
 				return true;
 			}
-			catch (Exception e)
+			catch
 			{
-				Debug.Log(e.Message);
 				return false;
 			}
 		}
