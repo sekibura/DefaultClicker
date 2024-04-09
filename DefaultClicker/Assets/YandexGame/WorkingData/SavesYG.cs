@@ -36,6 +36,10 @@ namespace YG
         public int CurrentOutfitIndex = 0;
         public int OpenedOutfitIndex = 0;
 
+        public float SettingsMusicVolume = 1; // 0-1
+        public float SettingsDialogVolume = 1; // 0-1
+        public string lang = "Russian"; 
+
         // Поля (сохранения) можно удалять и создавать новые. При обновлении игры сохранения ломаться не должны
 
 
