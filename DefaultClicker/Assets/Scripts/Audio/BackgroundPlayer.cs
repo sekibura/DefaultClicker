@@ -17,6 +17,7 @@ namespace SekiburaGames.DefaultClicker.Controllers
         private void Start()
         {
             audioSource = GetComponent<AudioSource>();
+            audioClips.Shuffle();
             PlayNextClip();
         }
 
