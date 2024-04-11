@@ -1,6 +1,8 @@
+using SekiburaGames.DefaultClicker.System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using YG;
 
 namespace SekiburaGames.DefaultClicker.Controllers
 {
@@ -18,7 +20,33 @@ namespace SekiburaGames.DefaultClicker.Controllers
         {
             audioSource = GetComponent<AudioSource>();
             audioClips.Shuffle();
+
+            YandexGame.OpenFullAdEvent += OpenAd;
+            YandexGame.CloseFullAdEvent += CloseAd;
+            YandexGame.OpenVideoEvent += OpenAd;
+            YandexGame.CloseVideoEvent += CloseAd;
+
             PlayNextClip();
+        }
+
+        private void OpenAd()
+        {
+            audioSource.Pause();
+        }
+
+        private void CloseAd()
+        {
+            audioSource.Play();
+        }
+
+        public static void DisplayList(List<AudioClip> list)
+        {
+            string s = "";
+            foreach (var item in list)
+            {
+                s += $"{item.name} ";
+            }
+            Debug.Log(s);
         }
 
         private void PlayNextClip()
@@ -56,5 +84,7 @@ namespace SekiburaGames.DefaultClicker.Controllers
             audioSource.Stop();
             PlayNextClip();
         }
+
+
     }
 }
