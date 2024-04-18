@@ -13,9 +13,25 @@ MonoBehaviour:
   m_Name: CharacterAsset
   m_EditorClassIdentifier: 
   Items:
-  - Sprite: {fileID: 21300000, guid: 6b87cb3c3c8beed46b233d37f4000ebb, type: 3}
+  - Sprite: {fileID: 21300000, guid: f544797d1a76ceb4aa45a71dfde701e0, type: 3}
     VoiceClip: {fileID: 0}
-  - Sprite: {fileID: 21300000, guid: 918b5d77af810a94699f1efe86454151, type: 3}
+  - Sprite: {fileID: 21300000, guid: a92fb3064c49b7e41bb3b36e2fa66b26, type: 3}
     VoiceClip: {fileID: 0}
-  - Sprite: {fileID: 21300000, guid: 2b8b7ac574c42b140a93dab7ef78417d, type: 3}
+  - Sprite: {fileID: 21300000, guid: 87a6264a2623cc74b8a621d835d39943, type: 3}
+    VoiceClip: {fileID: 0}
+  - Sprite: {fileID: 21300000, guid: 9739493763566a845af4c2bece116968, type: 3}
+    VoiceClip: {fileID: 0}
+  - Sprite: {fileID: 21300000, guid: e5602415118cf88419bc6f7d311a6bbd, type: 3}
+    VoiceClip: {fileID: 0}
+  - Sprite: {fileID: 21300000, guid: 0358494b2c03d0e4c91d85dbbd1ddb6c, type: 3}
+    VoiceClip: {fileID: 0}
+  - Sprite: {fileID: 21300000, guid: 5f70608489c11bd428d2c28e31bbdc35, type: 3}
+    VoiceClip: {fileID: 0}
+  - Sprite: {fileID: 21300000, guid: 72ebde77cade30241a36864aff38edd1, type: 3}
+    VoiceClip: {fileID: 0}
+  - Sprite: {fileID: 21300000, guid: c10707dcd441ca748bec937f00f5b2b8, type: 3}
+    VoiceClip: {fileID: 0}
+  - Sprite: {fileID: 21300000, guid: c3702ce530263074f9b03e33f35d7913, type: 3}
+    VoiceClip: {fileID: 0}
+  - Sprite: {fileID: 21300000, guid: 36db842c27af2c2458532150bc511d81, type: 3}
     VoiceClip: {fileID: 0}
