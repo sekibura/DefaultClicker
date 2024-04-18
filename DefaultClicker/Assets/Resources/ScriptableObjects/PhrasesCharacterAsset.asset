@@ -13,5 +13,19 @@ MonoBehaviour:
   m_Name: PhrasesCharacterAsset
   m_EditorClassIdentifier: 
   Phrases:
-  - VoicePhrase: {fileID: 8300000, guid: bfd9745467f486042b9d145cb372ffd2, type: 3}
-    TranslationName: Phrases/Hello
+  - VoicePhrase: {fileID: 8300000, guid: aa4741e6bd4d636419eb8326ddbc0315, type: 3}
+    TranslationName: Phrases/Ph21
+  - VoicePhrase: {fileID: 8300000, guid: 37e231fb7f4a46d439cbc638ba5347d6, type: 3}
+    TranslationName: Phrases/Ph22
+  - VoicePhrase: {fileID: 8300000, guid: 7811c329d31d286488d0d0d7c3403d88, type: 3}
+    TranslationName: Phrases/Ph23
+  - VoicePhrase: {fileID: 8300000, guid: 19761b5d32a8fbf49b9cef79e72d4adf, type: 3}
+    TranslationName: Phrases/Ph24
+  - VoicePhrase: {fileID: 8300000, guid: 0b32a1c94646e6d4fa6c011f0d9b37b3, type: 3}
+    TranslationName: Phrases/Ph25
+  - VoicePhrase: {fileID: 8300000, guid: 65dbc09c5d2dd264ab515a4d1888a7a5, type: 3}
+    TranslationName: Phrases/Ph26
+  - VoicePhrase: {fileID: 8300000, guid: ae0b8bc4147b52b4eb7f5fecf0418e89, type: 3}
+    TranslationName: Phrases/Ph27
+  - VoicePhrase: {fileID: 8300000, guid: 879f464ad5124494283dc93f5bd53ebc, type: 3}
+    TranslationName: Phrases/Ph28
