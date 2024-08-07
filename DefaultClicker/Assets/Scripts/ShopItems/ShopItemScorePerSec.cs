@@ -1,5 +1,3 @@
-using SekiburaGames.DefaultClicker.UI;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,31 +6,31 @@ using YG;
 
 namespace SekiburaGames.DefaultClicker.UI
 {
-    public class ShopItemPowerClick : BaseShopItem
+    public class ShopItemScorePerSec : BaseShopItem
     {
-        private ClickPowerShopCategory _clickPowerShopCategory;
+        private ScorePerSecShopCategory _scorePerSecondCat;
         [SerializeField]
-        private float _deltaScorePower = 1; 
+        private float _deltaScorePerSecond = 1;
         protected override void Init()
         {
             base.Init();
-            _clickPowerShopCategory = _shopSystem.GetShopCategory<ClickPowerShopCategory>();
+            _scorePerSecondCat = _shopSystem.GetShopCategory<ScorePerSecShopCategory>();
 
             if(_buyButton!=null)
-                _buyButton.onClick.AddListener(() => _clickPowerShopCategory.Buy(_deltaScorePower));
+                _buyButton.onClick.AddListener(() => _scorePerSecondCat.Buy(_deltaScorePerSecond));
             if (_adButton != null)
                 _adButton.onClick.AddListener(() => OnAdClick());
 
-            _clickPowerShopCategory.EnableToBuyEvent += SetAvaiable;
-            _clickPowerShopCategory.ClickPowerUpdateEvent += OnClickPowerUpdateEvent;
-            _clickPowerShopCategory.NextItemPriceUpdatedEvent += OnPriceUpdate;
-            _clickPowerShopCategory.CalculatePrice();
-            SetAvaiable(_clickPowerShopCategory.CheckEnable());
+            _scorePerSecondCat.EnableToBuyEvent += SetAvaiable;
+            _scorePerSecondCat.ScorePerSecUpdateEvent += OnClickPowerUpdateEvent;
+            _scorePerSecondCat.NextItemPriceUpdatedEvent += OnPriceUpdate;
+            _scorePerSecondCat.CalculatePrice();
+            SetAvaiable(_scorePerSecondCat.CheckEnable());
         }
 
         private void OnClickPowerUpdateEvent(float value)
         {
-            
+
         }
 
         private void OnAdClick()
@@ -40,7 +38,7 @@ namespace SekiburaGames.DefaultClicker.UI
             /// TODO
             /// Show AD
             Debug.Log("OnAdClick");
-            YandexGame.RewVideoShow(0);
+            YandexGame.RewVideoShow(1);
         }
 
         protected override void SetAvaiableAD(bool Avaiable)

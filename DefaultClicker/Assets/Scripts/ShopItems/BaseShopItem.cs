@@ -39,7 +39,8 @@ namespace SekiburaGames.DefaultClicker.UI
 
         protected virtual void SetAvaiable(bool Avaiable)
         {
-            _buyButton.interactable = Avaiable;
+            if (_buyButton != null)
+                _buyButton.interactable = Avaiable;
             SetAvaiableAD(!Avaiable);
         }
     }

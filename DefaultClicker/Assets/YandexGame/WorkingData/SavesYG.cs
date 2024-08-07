@@ -24,7 +24,7 @@ namespace YG
         public float ScorePower = 1;
         public int ScorePowerIndex = 0;
 
-        public int ScorePerSecond = 0;
+        public float ScorePerSecond = 0;
         public int ScorePerSecondIndex = 0;
 
         public int CurrentBackGroundIndex = 0;

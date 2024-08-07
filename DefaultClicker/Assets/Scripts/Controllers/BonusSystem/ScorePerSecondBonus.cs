@@ -2,34 +2,33 @@ using SekiburaGames.DefaultClicker.System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 namespace SekiburaGames.DefaultClicker.Controllers
 {
-    /// <summary>
-    /// Временный бонус к силе клика
-    /// </summary>
-    public class ClickScoreBonus : BaseBonus
+    public class ScorePerSecondBonus : BaseBonus
     {
+
         private float _scoreDelta;
         private float _bonusAdder;
         private ScoreController _scoreController;
 
-        public ClickScoreBonus()
+        public ScorePerSecondBonus()
         {
             _scoreController = SystemManager.Get<ScoreController>();
         }
 
         public override void Apply(object o)
         {
-            Debug.Log($"Apply bonus ClickScoreBonus");
+            Debug.Log($"Apply bonus ScorePerSecondBonus");
 
             _bonusAdder = (float)o;
-            _scoreController.UpdateScorePower(_bonusAdder);
+            _scoreController.UpdateScorePerSecond(_bonusAdder);
         }
 
         public override void RemoveBonus()
         {
-            _scoreController.UpdateScorePower(-_bonusAdder);
-            Debug.Log($"Remove bonus ClickScoreBonus");
+            _scoreController.UpdateScorePerSecond(-_bonusAdder);
+            Debug.Log($"Remove bonus ScorePerSecondBonus");
         }
     }
 }

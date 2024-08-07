@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using YG;
 
 namespace SekiburaGames.DefaultClicker.UI
 {
@@ -18,23 +19,27 @@ namespace SekiburaGames.DefaultClicker.UI
         private TMP_Text _scorePowerTMP;
 
         private ScoreController _scoreController;
+        private SaveLoadController _saveLoadController;
 
 
         void Start()
         {
             _scoreController = SystemManager.Get<ScoreController>();
+            _saveLoadController = SystemManager.Get<SaveLoadController>();
+
+            _saveLoadController.LoadEvent += (a) => Init();
             Init();
+            _scoreController.ScoreUpdatedEvent += ScoreUpdated;
+            _scoreController.ScorePerSecondUpdatedEvent += ScorePerSecUpdated;
+            _scoreController.ScorePowerUpdatedEvent += ScorePowerUpdated;
         }
 
         private void Init()
         {
-            _scoreTMP.text = _scoreController.Score.ToString() + "$";
-            _scorePowerTMP.text = _scoreController.ScorePower.ToString() + "$";
-            _scorePerSecTMP.text = _scoreController.ScorePerSecond.ToString() + "$";
-
-            _scoreController.ScoreUpdatedEvent += ScoreUpdated;
-            _scoreController.ScorePerSecondUpdatedEvent += ScorePerSecUpdated;
-            _scoreController.ScorePowerUpdatedEvent += ScorePowerUpdated;
+            SavesYG saveData = _saveLoadController.Load();
+            _scoreTMP.text = saveData.Score.ToString() + "$";
+            _scorePowerTMP.text = saveData.ScorePower.ToString() + "$";
+            _scorePerSecTMP.text = saveData.ScorePerSecond.ToString() + "$";
         }
 
         private void ScoreUpdated(float value)

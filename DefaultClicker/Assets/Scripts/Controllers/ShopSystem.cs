@@ -20,6 +20,7 @@ namespace SekiburaGames.DefaultClicker.Controllers
             new ImageShopCategory("BackgroundsAsset", 1),
             new CharacterShopCategory("CharacterAsset", 2),
             new ClickPowerShopCategory(),
+            new ScorePerSecShopCategory(),
         };
 
         public void Initialize()
@@ -154,7 +155,7 @@ namespace SekiburaGames.DefaultClicker.Controllers
                         CalculatePrice();
                         InvokeBuyEvent();
                         InvokeEnableToBuyEvent();
-                        //SaveProgress();
+                        SaveProgress();
                     }
                 }
             }
@@ -335,11 +336,16 @@ namespace SekiburaGames.DefaultClicker.Controllers
                 float delta = 0;
                 if (obj != null)
                     delta = (float)obj;
-                scoreController.UpdateScorePower(delta);
-                _buyIteration++;
-                CalculatePrice();
-                InvokeBuyEvent();
-                InvokeEnableToBuyEvent();
+                if (scoreController.Score >= nextItemPrice)
+                {
+                    scoreController.UpdateScore(-nextItemPrice);
+                    scoreController.UpdateScorePower(delta);
+                    _buyIteration++;
+                    CalculatePrice();
+                    InvokeBuyEvent();
+                    InvokeEnableToBuyEvent();
+                    SaveProgress();
+                }
             }
 
             public override float CalculatePrice()
@@ -377,6 +383,87 @@ namespace SekiburaGames.DefaultClicker.Controllers
             {
                 float value = saveLoadController.Load().ScorePower;
                 scoreController.SetScorePower(value);
+                return value;
+            }
+        }
+
+        public class ScorePerSecShopCategory : BaseShopCategory
+        {
+            public event Action<float> ScorePerSecUpdateEvent;
+            private float _defaultPrice = 20;
+
+            public override void Init()
+            {
+                base.Init();
+                base.Init();
+                saveLoadController.LoadEvent += (x) => InitOnLoad();
+                if (YandexGame.SDKEnabled == true)
+                {
+                    InitOnLoad();
+                }
+            }
+
+            private void InitOnLoad()
+            {
+                LoadScorePerSec();
+                LoadIndex();
+
+
+                CalculatePrice();
+                InvokeEnableToBuyEvent();
+            }
+            public override void Buy(object obj = null)
+            {
+                float delta = 0;
+                if (obj != null)
+                    delta = (float)obj;
+                if (scoreController.Score >= nextItemPrice)
+                {
+                    scoreController.UpdateScore(-nextItemPrice);
+                    scoreController.UpdateScorePerSecond(delta);
+                    _buyIteration++;
+                    CalculatePrice();
+                    InvokeBuyEvent();
+                    InvokeEnableToBuyEvent();
+                    SaveProgress();
+                }
+            }
+
+            public override float CalculatePrice()
+            {
+                if (_buyIteration != 0)
+                    nextItemPrice = _defaultPrice +  _buyIteration * 2 * _buyIteration * _buyIteration * _buyIteration * 10; // expression 
+                else
+                    nextItemPrice = _defaultPrice;
+
+                InvokeNextItemPriceUpdatedEvent(nextItemPrice);
+                return nextItemPrice;
+            }
+
+            public override void SaveProgress()
+            {
+                var savesYG = saveLoadController.Load();
+                savesYG.ScorePerSecond = scoreController.ScorePerSecond;
+                savesYG.ScorePerSecondIndex = _buyIteration;
+                saveLoadController.Save(savesYG);
+            }
+
+            protected override void OnScoreUpdate(float newScore)
+            {
+                InvokeEnableToBuyEvent();
+            }
+
+            private int LoadIndex()
+            {
+                int value = saveLoadController.Load().ScorePerSecondIndex;
+                _buyIteration = value;
+                return value;
+            }
+
+            private float LoadScorePerSec()
+            {
+                float value = saveLoadController.Load().ScorePerSecond;
+                scoreController.SetScorePerSec(value);
                 return value;
             }
         }

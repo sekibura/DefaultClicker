@@ -2,10 +2,11 @@
 using SekiburaGames.DefaultClicker.System;
 using System;
 using System.Reflection;
-using System.Threading;
+//using System.Threading;
 using Unity.VisualScripting;
 using UnityEngine;
 using YG;
+using static SekiburaGames.DefaultClicker.Controllers.TimersController;
 using Timer = System.Threading.Timer;
 
 namespace SekiburaGames.DefaultClicker.Controllers
@@ -19,15 +20,18 @@ namespace SekiburaGames.DefaultClicker.Controllers
         public event Action<float> ScoreUpdatedEvent;
         public event Action<float> ScorePowerUpdatedEvent;
         public event Action<float> ScorePerSecondUpdatedEvent;
-        Timer timer;
+        TimerData timer;
+        TimerData timerSave;
 
         protected SaveLoadController saveLoadController;
 
         public void Initialize()
         {
             InitDefaultValues();
-            TimerCallback tm = new TimerCallback(Tick);
-            timer = new Timer(tm, null, 0, 1000);
+
+            timer = TimersController.Instance.StartTimer(() => Tick(), 1, true);
+            timerSave = TimersController.Instance.StartTimer(() => SaveTick(), 10, true);
+
             saveLoadController = SystemManager.Get<SaveLoadController>();
             saveLoadController.LoadEvent += (x) => InitOnLoad();
             if (YandexGame.SDKEnabled == true)
@@ -78,7 +82,7 @@ namespace SekiburaGames.DefaultClicker.Controllers
                 UpdateScore(ScorePower);
         }
 
-        private void Tick(object obj)
+        private void Tick()
         {
             if (GameStateManager.Instance.State == GameStateManager.GameState.InGame)
             {
@@ -116,6 +120,10 @@ namespace SekiburaGames.DefaultClicker.Controllers
             ScorePower =  value > 0 ? value : 1;
             if (value != 0)
                 ScorePowerUpdatedEvent?.Invoke(ScorePower);
+        } 
+        public void SetScorePerSec(float value)
+        {
+            ScorePerSecond =  value > 0 ? value : 0;
         }
 
         public void UpdateScorePerSecond(float delta)
@@ -125,11 +133,17 @@ namespace SekiburaGames.DefaultClicker.Controllers
                 ScorePerSecondUpdatedEvent?.Invoke(ScorePerSecond);
         }
 
+        private void SaveTick()
+        {
+            Debug.Log("Auto save");
+            SaveProgress();
+        }
+
         public void Dispose()
         {
-            timer.Dispose();
+            TimersController.Instance.StopTimer(timer);
+            TimersController.Instance.StopTimer(timerSave);
             SaveProgress();
-
         }
 
     }

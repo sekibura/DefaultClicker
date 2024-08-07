@@ -3,10 +3,8 @@ using SekiburaGames.DefaultClicker.System;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Timers;
 using UnityEngine;
 using YG;
-using YG.Example;
 
 namespace SekiburaGames.DefaultClicker.Controllers
 {
@@ -14,7 +12,6 @@ namespace SekiburaGames.DefaultClicker.Controllers
     {
         public Action<Type, float, object> OnBonusAdded;
         public Action<Type> OnBonusRemoved;
-        private Timer _timer;
 
 
         private List<BaseBonus> _bonuses = new List<BaseBonus>();
@@ -30,27 +27,16 @@ namespace SekiburaGames.DefaultClicker.Controllers
             var newBonus = new T();
             _bonuses.Add(newBonus);
             OnBonusAdded?.Invoke(typeof(T), duration, o);
-            _timer = new Timer(duration * 1000);
-            _timer.AutoReset = true;
-            _timer.Elapsed += (sender, e) => RemoveBonus(newBonus, _timer);
-            _timer.Start(); 
+            newBonus.timerData = TimersController.Instance.StartTimer(() => RemoveBonus(newBonus), duration, false);
             newBonus.Apply(o);
-            Debug.Log($"Add bonus");
         }
 
-        private void RemoveBonus(BaseBonus baseBonus, Timer timer)
+        private void RemoveBonus(BaseBonus baseBonus)
         {
             UnityMainThreadDispatcher.Instance().Enqueue(() =>
             {
-               
-            
-                Debug.Log($"Remove bonus ");
-                if (timer != null)
-                {
-                    timer.Stop();
-                    timer.Dispose();
-                }
-            
+                TimersController.Instance.StopTimer(baseBonus.timerData);
+
                 baseBonus.RemoveBonus();
                 _bonuses.Remove(baseBonus);
                 OnBonusRemoved?.Invoke(baseBonus.GetType());
@@ -59,12 +45,16 @@ namespace SekiburaGames.DefaultClicker.Controllers
 
         // Подписанный метод получения награды
         // 0 - Получение бонуса ClickScoreBonus
+        // 1 - Получение бонуса ScorePerSecond
         void Rewarded(int id)
         {
             switch (id)
             {
                case 0:
-                    AddBonus<ClickScoreBonus>(5, (object)10f);
+                    AddBonus<ClickScoreBonus>(10, (object)10f);
+                    break;
+                case 1:
+                    AddBonus<ScorePerSecondBonus>(10, (object)10f);
                     break;
             }
         }
@@ -73,13 +63,11 @@ namespace SekiburaGames.DefaultClicker.Controllers
         {
             for (int i = 0; i < _bonuses.Count; i++)
             {
-                RemoveBonus(_bonuses[i], null);
+                RemoveBonus(_bonuses[i]);
             }
-      
+
             // Отписываемся от события открытия рекламы в OnDisable
             YandexGame.RewardVideoEvent -= Rewarded;
         }
-
-
     }
 }

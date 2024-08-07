@@ -47,8 +47,7 @@ namespace SekiburaGames.DefaultClicker.UI
             if (YandexGame.SDKEnabled == true)
             {
                 LoadSettings();
-            }
-            
+            }            
         }
 
         public override void Show(object parameter = null)
@@ -101,12 +100,12 @@ namespace SekiburaGames.DefaultClicker.UI
         private void LoadSettings()
         {
             var saveData = saveLoadController.Load();
-            Debug.Log($"Load settings = {saveData.SettingsDialogVolume} {saveData.SettingsMusicVolume} {saveData.lang}");
-            //_sliderDialogs.value = saveData.SettingsDialogVolume;
-            //_sliderMusic.value = saveData.SettingsMusicVolume;
+            Debug.Log($"Load settings = {saveData.SettingsDialogVolume} | {saveData.SettingsMusicVolume} | {saveData.lang}");
             OnMusicSliderChange(saveData.SettingsMusicVolume);
             OnSoundDialogsSliderChange(saveData.SettingsDialogVolume);
             _languageChooseController.SetLanguage(saveData.lang);
+            _languageChooseController.UpdateButtonStates();
+            SlidersUpdateValue();
         }
 
         private void SaveSettings()
