@@ -21,20 +21,23 @@ namespace SekiburaGames.DefaultClicker.Controllers
             audioSource = GetComponent<AudioSource>();
             audioClips.Shuffle();
 
-            YandexGame.OpenFullAdEvent += OpenAd;
-            YandexGame.CloseFullAdEvent += CloseAd;
-            YandexGame.OpenVideoEvent += OpenAd;
-            YandexGame.CloseVideoEvent += CloseAd;
+            YandexGame.OpenFullAdEvent += PauseMusic;
+            YandexGame.CloseFullAdEvent += PlayMusic;
+            YandexGame.OpenVideoEvent += PauseMusic;
+            YandexGame.CloseVideoEvent += PlayMusic;
+            YandexGame.onHideWindowGame += PauseMusic;
+            YandexGame.onShowWindowGame += PlayMusic;
+   
 
             PlayNextClip();
         }
 
-        private void OpenAd()
+        private void PauseMusic()
         {
             audioSource.Pause();
         }
 
-        private void CloseAd()
+        private void PlayMusic()
         {
             audioSource.Play();
         }
