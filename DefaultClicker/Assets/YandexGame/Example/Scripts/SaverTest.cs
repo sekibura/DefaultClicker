@@ -5,46 +5,42 @@ namespace YG.Example
 {
     public class SaverTest : MonoBehaviour
     {
-        //[SerializeField] InputField integerText;
-        //[SerializeField] InputField stringifyText;
-        //[SerializeField] Text systemSavesText;
-        //[SerializeField] Toggle[] booleanArrayToggle;
+        [SerializeField] InputField integerText;
+        [SerializeField] InputField stringifyText;
+        [SerializeField] Toggle[] booleanArrayToggle;
 
-        //private void OnEnable() => YandexGame.GetDataEvent += GetLoad;
-        //private void OnDisable() => YandexGame.GetDataEvent -= GetLoad;
+        private void OnEnable() => YandexGame.GetDataEvent += GetLoad;
+        private void OnDisable() => YandexGame.GetDataEvent -= GetLoad;
 
-        //private void Awake()
-        //{
-        //    if (YandexGame.SDKEnabled)
-        //        GetLoad();
-        //}
+        private void Awake()
+        {
+            if (YandexGame.SDKEnabled)
+                GetLoad();
+        }
 
-        //public void Save()
-        //{
-        //    YandexGame.savesData.money = int.Parse(integerText.text);
-        //    YandexGame.savesData.newPlayerName = stringifyText.text.ToString();
+        public void Save()
+        {
+            YandexGame.savesData.money = int.Parse(integerText.text);
+            YandexGame.savesData.newPlayerName = stringifyText.text.ToString();
 
-        //    for (int i = 0; i < booleanArrayToggle.Length; i++)
-        //        YandexGame.savesData.openLevels[i] = booleanArrayToggle[i].isOn;
-        //    YandexGame.SaveProgress();
-        //}
+            for (int i = 0; i < booleanArrayToggle.Length; i++)
+                YandexGame.savesData.openLevels[i] = booleanArrayToggle[i].isOn;
 
-        //public void Load() => YandexGame.LoadProgress();
+            YandexGame.SaveProgress();
+        }
 
-        //public void GetLoad()
-        //{
-        //    integerText.text = string.Empty;
-        //    stringifyText.text = string.Empty;
+        public void Load() => YandexGame.LoadProgress();
 
-        //    integerText.placeholder.GetComponent<Text>().text = YandexGame.savesData.money.ToString();
-        //    stringifyText.placeholder.GetComponent<Text>().text = YandexGame.savesData.newPlayerName;
+        public void GetLoad()
+        {
+            integerText.text = string.Empty;
+            stringifyText.text = string.Empty;
 
-        //    for (int i = 0; i < booleanArrayToggle.Length; i++)
-        //        booleanArrayToggle[i].isOn = YandexGame.savesData.openLevels[i];
+            integerText.placeholder.GetComponent<Text>().text = YandexGame.savesData.money.ToString();
+            stringifyText.placeholder.GetComponent<Text>().text = YandexGame.savesData.newPlayerName;
 
-        //    systemSavesText.text = $"Language - {YandexGame.savesData.language}\n" +
-        //    $"First Session - {YandexGame.savesData.isFirstSession}\n" +
-        //    $"Prompt Done - {YandexGame.savesData.promptDone}\n";
-        //}
+            for (int i = 0; i < booleanArrayToggle.Length; i++)
+                booleanArrayToggle[i].isOn = YandexGame.savesData.openLevels[i];
+        }
     }
 }
