@@ -1,0 +1,27 @@
+{
+    "idSave": 168,
+    "isFirstSession": false,
+    "language": "ru",
+    "promptDone": false,
+    "money": 1,
+    "newPlayerName": "Hello!",
+    "openLevels": [
+        false,
+        false,
+        false
+    ],
+    "Score": 3980.0,
+    "ScorePower": 2.0,
+    "ScorePowerIndex": 1,
+    "ScorePerSecond": 2.0,
+    "ScorePerSecondIndex": 2,
+    "CurrentBackGroundIndex": 2,
+    "OpenedBackGroundIndex": 2,
+    "CurrentCharacterIndex": 2,
+    "OpenedCharacterIndex": 2,
+    "CurrentOutfitIndex": 0,
+    "OpenedOutfitIndex": 0,
+    "SettingsMusicVolume": 1.0,
+    "SettingsDialogVolume": 1.0,
+    "lang": "Russian"
+}
