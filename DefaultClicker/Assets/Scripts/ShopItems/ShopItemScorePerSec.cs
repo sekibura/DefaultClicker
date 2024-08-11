@@ -18,8 +18,6 @@ namespace SekiburaGames.DefaultClicker.UI
 
             if(_buyButton!=null)
                 _buyButton.onClick.AddListener(() => _scorePerSecondCat.Buy(_deltaScorePerSecond));
-            if (_adButton != null)
-                _adButton.onClick.AddListener(() => OnAdClick());
 
             _scorePerSecondCat.EnableToBuyEvent += SetAvaiable;
             _scorePerSecondCat.ScorePerSecUpdateEvent += OnClickPowerUpdateEvent;
@@ -31,19 +29,6 @@ namespace SekiburaGames.DefaultClicker.UI
         private void OnClickPowerUpdateEvent(float value)
         {
 
-        }
-
-        private void OnAdClick()
-        {
-            /// TODO
-            /// Show AD
-            Debug.Log("OnAdClick");
-            YandexGame.RewVideoShow(1);
-        }
-
-        protected override void SetAvaiableAD(bool Avaiable)
-        {
-            _adButton.interactable = true;
         }
 
         private void OnPriceUpdate(float nextBGPrice)
