@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: BackgroundsAsset
   m_EditorClassIdentifier: 
   Items:
-  - Sprite: {fileID: 21300000, guid: ee50adc068ba678428f674c072b8393c, type: 3}
+  - Sprite: {fileID: 21300000, guid: a827117611a29e24f882c8c82c8d60ee, type: 3}
     VoiceClip: {fileID: 0}
   - Sprite: {fileID: 21300000, guid: b4c8f825957f4a642b71beba845fe764, type: 3}
     VoiceClip: {fileID: 0}
-  - Sprite: {fileID: 21300000, guid: 2f46f6cb6f79c4345a0c92663057c053, type: 3}
+  - Sprite: {fileID: 21300000, guid: c9432836fad0a014181d887d5676e4f3, type: 3}
     VoiceClip: {fileID: 0}
   - Sprite: {fileID: 21300000, guid: b671d8e8c1145b446b6d9569771b4d25, type: 3}
     VoiceClip: {fileID: 0}
