@@ -38,7 +38,7 @@ namespace SekiburaGames.DefaultClicker.UI
             /// TODO
             /// Show AD
             Debug.Log("OnAdClick");
-            YandexGame.RewVideoShow(1);
+            YandexGame.RewVideoShow((int)Constants.AdTypes.ScorePerSec);
             DisableButtonForSeconds();
         }
     }

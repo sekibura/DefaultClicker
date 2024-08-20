@@ -33,7 +33,7 @@ namespace SekiburaGames.DefaultClicker.UI
             /// TODO
             /// Show AD
             Debug.Log("OnAdClick");
-            YandexGame.RewVideoShow(0);
+            YandexGame.RewVideoShow((int)Constants.AdTypes.PowerClick);
             DisableButtonForSeconds();
         }
     }
