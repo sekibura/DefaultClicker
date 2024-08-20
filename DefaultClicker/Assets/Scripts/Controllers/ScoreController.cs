@@ -13,13 +13,13 @@ namespace SekiburaGames.DefaultClicker.Controllers
 {
     public class ScoreController: System.IInitializable
     {
-        public float Score { get; private set; }
+        public double Score { get; private set; }
         public float ScorePower { get; private set; }
         public float ScorePerSecond { get; private set; }
 
-        public event Action<float> ScoreUpdatedEvent;
-        public event Action<float> ScorePowerUpdatedEvent;
-        public event Action<float> ScorePerSecondUpdatedEvent;
+        public event Action<double> ScoreUpdatedEvent;
+        public event Action<double> ScorePowerUpdatedEvent;
+        public event Action<double> ScorePerSecondUpdatedEvent;
         TimerData timer;
         TimerData timerSave;
 
@@ -95,7 +95,7 @@ namespace SekiburaGames.DefaultClicker.Controllers
             //Debug.Log("Tick");
         }
 
-        public bool UpdateScore(float delta)
+        public bool UpdateScore(double delta)
         {
             //Debug.Log($"Update score  = {delta}");
             if (Score + delta < 0)

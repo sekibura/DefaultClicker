@@ -33,7 +33,7 @@ namespace SekiburaGames.DefaultClicker.UI
             
         }
 
-        private void OnPriceUpdate(float nextBGPrice)
+        private void OnPriceUpdate(double nextBGPrice)
         {
             if (_priceText != null)
                 _priceText.text = nextBGPrice.ToString() + "$";

@@ -38,7 +38,7 @@ namespace SekiburaGames.DefaultClicker.UI
             _image.sprite = current.Sprite;
         }
 
-        private void OnPriceUpdate(float nextBGPrice)
+        private void OnPriceUpdate(double nextBGPrice)
         {
             _priceText.text = nextBGPrice.ToString()+"$";
         }

@@ -45,10 +45,10 @@ namespace SekiburaGames.DefaultClicker.Controllers
             protected int _buyIteration;                // ñêîëüêî ðàç áûë êóïëåí ýòîò àéòåì
             protected ScoreController scoreController;
             protected SaveLoadController saveLoadController;
-            protected float nextItemPrice;
+            protected double nextItemPrice;
             public event Action BuyEvent;
             public event Action<bool> EnableToBuyEvent;
-            public event Action<float> NextItemPriceUpdatedEvent;
+            public event Action<double> NextItemPriceUpdatedEvent;
             public virtual void Init()
             {
                 scoreController = SystemManager.Get<ScoreController>();
@@ -59,13 +59,13 @@ namespace SekiburaGames.DefaultClicker.Controllers
                 scoreController.ScorePerSecondUpdatedEvent += OnScorePerSecUpdate;
             }
 
-            protected virtual void OnScoreUpdate(float newScore) { }
-            protected virtual void OnScorePowerUpdate(float newScore) { }
-            protected virtual void OnScorePerSecUpdate(float newScore) { }
+            protected virtual void OnScoreUpdate(double newScore) { }
+            protected virtual void OnScorePowerUpdate(double newScore) { }
+            protected virtual void OnScorePerSecUpdate(double newScore) { }
 
             public abstract void Buy(object obj = null);
 
-            public abstract float CalculatePrice();
+            public abstract double CalculatePrice();
 
             protected void InvokeBuyEvent()
             {
@@ -80,7 +80,7 @@ namespace SekiburaGames.DefaultClicker.Controllers
             {
                 EnableToBuyEvent?.Invoke(CheckEnable());
             }
-            protected void InvokeNextItemPriceUpdatedEvent(float value)
+            protected void InvokeNextItemPriceUpdatedEvent(double value)
             {
                 NextItemPriceUpdatedEvent?.Invoke(value);
             }
@@ -94,14 +94,14 @@ namespace SekiburaGames.DefaultClicker.Controllers
 
         public class ImageShopCategory: BaseShopCategory
         {
-            private ShopImageAsset _imagesItem;
-            private ImageShopItem _currentImage;
-            private ImageShopItem _nextImage;
-            private int _currentImageIndex;
-            private bool _allOpened;
+            protected ShopImageAsset _imagesItem;
+            protected ImageShopItem _currentImage;
+            protected ImageShopItem _nextImage;
+            protected int _currentImageIndex;
+            protected bool _allOpened;
             public string  AssetName { get; private set; }
             private float _priceMultipler;
-            private int ÑurrentImageIndex
+            protected int ÑurrentImageIndex
             { 
                 get => _currentImageIndex; 
                 set 
@@ -160,7 +160,7 @@ namespace SekiburaGames.DefaultClicker.Controllers
                 }
             }
 
-            public override float CalculatePrice()
+            public override double CalculatePrice()
             {
                 if (_nextImage == null)
                 {
@@ -174,7 +174,10 @@ namespace SekiburaGames.DefaultClicker.Controllers
                 float ScorePerSecond = scoreController.ScorePerSecond > 0 ? scoreController.ScorePerSecond : 1;
 
                 if (_imagesItem.Items.Length > ÑurrentImageIndex)
-                    nextItemPrice = _buyIteration * _buyIteration * _buyIteration * 2 * ScorePower * ScorePower * ScorePerSecond * ScorePerSecond * _priceMultipler; // expression
+                {
+                    //nextItemPrice = _buyIteration * _buyIteration * _buyIteration * 2 * ScorePower * ScorePower * ScorePerSecond * ScorePerSecond * _priceMultipler; // expression
+                    nextItemPrice = PriceFunctions.CalcBackgroundPrice(_buyIteration);
+                }
 
                 else
                     nextItemPrice = 0;
@@ -183,17 +186,17 @@ namespace SekiburaGames.DefaultClicker.Controllers
                 return nextItemPrice;
             }
 
-            protected override void OnScorePowerUpdate(float newScore)
+            protected override void OnScorePowerUpdate(double newScore)
             {
                 CalculatePrice();
             }
 
-            protected override void OnScorePerSecUpdate(float newScore)
+            protected override void OnScorePerSecUpdate(double newScore)
             {
                 CalculatePrice();
             }
 
-            protected override void OnScoreUpdate(float newScore)
+            protected override void OnScoreUpdate(double newScore)
             {
                 InvokeEnableToBuyEvent();
             }
@@ -303,6 +306,31 @@ namespace SekiburaGames.DefaultClicker.Controllers
             public CharacterShopCategory(string assetName, float priceMultipler) : base(assetName, priceMultipler)
             {
             }
+
+            public override double CalculatePrice()
+            {
+                if (_nextImage == null)
+                {
+                    nextItemPrice = 0;
+                    InvokeNextItemPriceUpdatedEvent(nextItemPrice);
+                    return nextItemPrice;
+                }
+
+
+                float ScorePower = scoreController.ScorePower > 0 ? scoreController.ScorePower : 1;
+                float ScorePerSecond = scoreController.ScorePerSecond > 0 ? scoreController.ScorePerSecond : 1;
+
+                if (_imagesItem.Items.Length > ÑurrentImageIndex)
+                {
+                    nextItemPrice = PriceFunctions.CalcPriceCharacter(_buyIteration);
+                }
+
+                else
+                    nextItemPrice = 0;
+
+                InvokeNextItemPriceUpdatedEvent(nextItemPrice);
+                return nextItemPrice;
+            }
         }
 
         public class ClickPowerShopCategory : BaseShopCategory
@@ -348,12 +376,13 @@ namespace SekiburaGames.DefaultClicker.Controllers
                 }
             }
 
-            public override float CalculatePrice()
+            public override double CalculatePrice()
             {
                 if (_buyIteration != 0)
-                    nextItemPrice = _buyIteration * 2 * _buyIteration * _buyIteration * _buyIteration * 10; // expression 
+                    nextItemPrice = PriceFunctions.CalcPriceClickScore(_buyIteration);
+                //nextItemPrice = _buyIteration * 2 * _buyIteration * _buyIteration * _buyIteration * 10; // expression 
                 else
-                    nextItemPrice = _defaultPrice;
+                    nextItemPrice = PriceFunctions.BasePriceClickScore;
 
                 InvokeNextItemPriceUpdatedEvent(nextItemPrice);
                 return nextItemPrice;
@@ -367,7 +396,7 @@ namespace SekiburaGames.DefaultClicker.Controllers
                 saveLoadController.Save(savesYG);
             }
 
-            protected override void OnScoreUpdate(float newScore)
+            protected override void OnScoreUpdate(double newScore)
             {
                 InvokeEnableToBuyEvent();
             }
@@ -390,7 +419,7 @@ namespace SekiburaGames.DefaultClicker.Controllers
         public class ScorePerSecShopCategory : BaseShopCategory
         {
             public event Action<float> ScorePerSecUpdateEvent;
-            private float _defaultPrice = 20;
+            //private float _defaultPrice = 20;
 
             public override void Init()
             {
@@ -429,12 +458,13 @@ namespace SekiburaGames.DefaultClicker.Controllers
                 }
             }
 
-            public override float CalculatePrice()
+            public override double CalculatePrice()
             {
                 if (_buyIteration != 0)
-                    nextItemPrice = _defaultPrice +  _buyIteration * 2 * _buyIteration * _buyIteration * _buyIteration * 10; // expression 
+                    nextItemPrice = PriceFunctions.CalcPricePerSec(_buyIteration);
+                //nextItemPrice = _defaultPrice +  _buyIteration * 2 * _buyIteration * _buyIteration * _buyIteration * 10; // expression 
                 else
-                    nextItemPrice = _defaultPrice;
+                    nextItemPrice = PriceFunctions.BasePricePerSec;
 
                 InvokeNextItemPriceUpdatedEvent(nextItemPrice);
                 return nextItemPrice;
@@ -448,7 +478,7 @@ namespace SekiburaGames.DefaultClicker.Controllers
                 saveLoadController.Save(savesYG);
             }
 
-            protected override void OnScoreUpdate(float newScore)
+            protected override void OnScoreUpdate(double newScore)
             {
                 InvokeEnableToBuyEvent();
             }

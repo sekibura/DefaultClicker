@@ -42,16 +42,16 @@ namespace SekiburaGames.DefaultClicker.UI
             _scorePerSecTMP.text = saveData.ScorePerSecond.ToString() + "$";
         }
 
-        private void ScoreUpdated(float value)
+        private void ScoreUpdated(double value)
         {
             _scoreTMP.text = value.ToString() + "$";
         }
-        private void ScorePowerUpdated(float value)
+        private void ScorePowerUpdated(double value)
         {
             Debug.Log($"ScorePowerUpdated = {value}");
             _scorePowerTMP.text = value.ToString() + "$";
         }
-        private void ScorePerSecUpdated(float value)
+        private void ScorePerSecUpdated(double value)
         {
             _scorePerSecTMP.text = value.ToString() + "$";
         }
