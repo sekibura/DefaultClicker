@@ -9,9 +9,13 @@ using static Codice.CM.WorkspaceServer.WorkspaceTreeDataStore;
 [UnityEngine.ExecuteInEditMode]
 public class SpriteSizeChanger : EditorWindow
 {
+    [HideInInspector]
     private Texture2D texture;
     private VerticalSide verticalSide;
     private HorizontalSide horizontalSide;
+    private bool toExpand = false;
+    private bool sameName = false;
+    private SpriteSizeChangerParameterSO sizeChangerParameter;
 
     [MenuItem("Tools/SpriteSizeChanger")]
     static void Init()
@@ -22,32 +26,28 @@ public class SpriteSizeChanger : EditorWindow
 
     void OnGUI()
     {
-        //GUILayout.BeginVertical();
-
         GUILayout.Label("Sprite for size changing:", EditorStyles.boldLabel);
-        //GUILayout.BeginHorizontal();
-        //GUILayout.FlexibleSpace();
-        //GUILayout.Label("Sprite: ", EditorStyles.wordWrappedLabel);
-        //doDownload = EditorGUILayout.Toggle(doDownload);
-        texture = (Texture2D)EditorGUILayout.ObjectField("Sprite:", texture, typeof(Texture2D), true);
-        //verticalSide = (VerticalSide)EditorGUILayout.ObjectField("Sprite:", verticalSide, typeof(VerticalSide), true);
-        
+        //texture = (Texture2D)EditorGUILayout.ObjectField("Sprite:", texture, typeof(Texture2D), true);
+        sizeChangerParameter = (SpriteSizeChangerParameterSO)EditorGUILayout.ObjectField("sizeChangerParameterSO:", sizeChangerParameter, typeof(SpriteSizeChangerParameterSO), true);
         verticalSide = (VerticalSide)EditorGUILayout.EnumPopup("Vertical side for cahnge", verticalSide);
         horizontalSide = (HorizontalSide)EditorGUILayout.EnumPopup("Horizontal side for cahnge", horizontalSide);
-
-
-        //GUILayout.FlexibleSpace();
-        //GUILayout.EndHorizontal();
-        //GUILayout.Label("Если не загружать список с сервера, будет использован файл, находящийся в папке \\CombApp\\BuildUtils", EditorStyles.helpBox);
-        //device = (BuildDeviceType)EditorGUILayout.EnumPopup("Устройство:", device);
-
-        //GUILayout.EndVertical();
+        toExpand = EditorGUILayout.Toggle("To expand?", toExpand);
+        sameName = EditorGUILayout.Toggle("Same name", sameName);
         if (GUILayout.Button("Generate"))
         {
-            var newSize = CalcNewSize();
-            var newTexture = ResizeTexture(newSize);
-            SaveNewTexture(newTexture);
-
+            foreach (var txtr in sizeChangerParameter.textures)
+            {
+                texture = txtr;
+                if ((texture.width % 4f == 0) && (texture.height % 4f == 0))
+                {
+                    Debug.Log("This sprite already x4!");
+                    continue;
+                }
+                var newSize = CalcNewSize();
+                var newTexture = ResizeTexture(newSize);
+                SaveNewTexture(newTexture);
+            }
+           
         }
     }
 
@@ -55,12 +55,22 @@ public class SpriteSizeChanger : EditorWindow
     {
         float width = texture.width;
         float height = texture.height;
+        int newWidth;
+        int newHeight;
 
         // Вычисляем новые размеры, кратные 4
-        int newWidth = Mathf.CeilToInt(width / 4f) * 4;
-        int newHeight = Mathf.CeilToInt(height / 4f) * 4;
+        if (toExpand)
+        {
+            newWidth = Mathf.CeilToInt(width / 4f) * 4;
+            newHeight = Mathf.CeilToInt(height / 4f) * 4;
+        }
+        else
+        {
+            newWidth = Mathf.FloorToInt(width / 4f) * 4;
+            newHeight = Mathf.FloorToInt(height / 4f) * 4;
+        }
 
-        Debug.Log($"{width}|{height} - {newWidth}|{newHeight}");
+        //Debug.Log($"{width}|{height} - {newWidth}|{newHeight}");
         return new Vector2Int(newWidth, newHeight);
     }
 
@@ -100,8 +110,8 @@ public class SpriteSizeChanger : EditorWindow
             default:
                 break;
         }
-        //newTexture.SetPixels(newX, newY, texture.width, texture.height, texture.GetPixels()); 
-        //newTexture.SetPixels(texture.GetPixels());
+
+        SetTextureImporterFormat(texture, true);
         Color emptyPixel = new Color(0, 0, 0, 0);
         for (int x = 0; x < newSize.x; x++)
         {
@@ -113,7 +123,7 @@ public class SpriteSizeChanger : EditorWindow
                     newTexture.SetPixel(x, y, texture.GetPixel(x - newX, y - newY));
             }
         }
-
+        SetTextureImporterFormat(texture, false);
         newTexture.Apply();
         return newTexture;
     }
@@ -130,9 +140,26 @@ public class SpriteSizeChanger : EditorWindow
         string newFileName = Path.Combine(Path.GetDirectoryName(sourceFileName), $"{Path.GetFileNameWithoutExtension(sourceFileName)}_{newTexture.width}_{newTexture.height}{Path.GetExtension(sourceFileName)}");
 
 
-        Debug.Log(sourceFileName);
-        Debug.Log(newFileName);
-        File.WriteAllBytes(newFileName, bytes);
+        string resultPath = sameName ? sourceFileName : newFileName;
+        Debug.Log(resultPath);
+        File.WriteAllBytes(resultPath, bytes);
+   
+    }
+
+    public static void SetTextureImporterFormat(Texture2D texture, bool isReadable)
+    {
+        if (null == texture) return;
+
+        string assetPath = AssetDatabase.GetAssetPath(texture);
+        var tImporter = AssetImporter.GetAtPath(assetPath) as TextureImporter;
+        if (tImporter != null)
+        {
+            tImporter.textureType = TextureImporterType.Sprite;
+            tImporter.isReadable = isReadable;
+
+            AssetDatabase.ImportAsset(assetPath);
+            AssetDatabase.Refresh();
+        }
     }
 
     public enum VerticalSide
@@ -148,4 +175,5 @@ public class SpriteSizeChanger : EditorWindow
         Right,
         Both
     }
+
 }
