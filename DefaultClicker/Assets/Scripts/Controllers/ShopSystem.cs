@@ -115,6 +115,11 @@ namespace SekiburaGames.DefaultClicker.Controllers
             
             public event Action<ImageShopItem, ImageShopItem> ImageUpdateEvent;
 
+            public ImageShopItem GetCurrentImage()
+            {
+                return _currentImage;
+            }
+
             public ImageShopCategory(string assetName, float priceMultipler)
             {
                 AssetName = assetName;

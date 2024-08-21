@@ -21,9 +21,6 @@ namespace SekiburaGames.DefaultClicker.UI
         protected override void Init()
         {
             base.Init();
-            //var a = _shopSystem.GetShopCategories<ImageShopCategory>();
-            //var b = _shopSystem.GetShopCategories<ImageShopCategory>().Where(x => x.AssetName == ImageAssetName);
-            //var c = _shopSystem.GetShopCategories<ImageShopCategory>().Where(x => x.AssetName == ImageAssetName).FirstOrDefault();
             _imageShopCategory = _shopSystem.GetShopCategories<ImageShopCategory>().Where(x => x.AssetName == ImageAssetName).FirstOrDefault();
             _buyButton.onClick.AddListener(()=> _imageShopCategory.Buy());
             _imageShopCategory.EnableToBuyEvent += SetAvaiable;
@@ -31,6 +28,8 @@ namespace SekiburaGames.DefaultClicker.UI
             _imageShopCategory.NextItemPriceUpdatedEvent += OnPriceUpdate;
             _imageShopCategory.CalculatePrice();
             SetAvaiable(_imageShopCategory.CheckEnable());
+            OnUpdateBackground(_imageShopCategory.GetCurrentImage(), null);
+            
         }
 
         private void OnUpdateBackground(ImageShopItem current, ImageShopItem next)
