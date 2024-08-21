@@ -14,6 +14,7 @@ namespace SekiburaGames.DefaultClicker.Controllers
     {
         private PhrasesAsset _phrasesCharacterAsset;
         private PhrasesAsset _phrasesBackgroundAsset;
+        private PhrasesAsset _phrasesBuysAsset;
         [SerializeField]
         private AudioSource _audioSource;
         [SerializeField]
@@ -24,8 +25,11 @@ namespace SekiburaGames.DefaultClicker.Controllers
             //_audioSource = GetComponent<AudioSource>();
             _phrasesCharacterAsset = ResourcesManager.GetPhraseCharacterAsset();
             _phrasesBackgroundAsset = ResourcesManager.GetPhraseBackgroundAsset();
+            _phrasesBuysAsset = ResourcesManager.GetPhraseBuysAsset();
             SystemManager.Get<ShopSystem>().GetShopCategory<CharacterShopCategory>().BuyEvent += OnCharacterBuy;
             SystemManager.Get<ShopSystem>().GetShopCategory<ImageShopCategory>().BuyEvent += OnBackgroundBuy;
+            SystemManager.Get<ShopSystem>().GetShopCategory<ClickPowerShopCategory>().BuyEvent += OnItemBuy;
+            SystemManager.Get<ShopSystem>().GetShopCategory<ScorePerSecShopCategory>().BuyEvent += OnItemBuy;
         }
 
         private void OnCharacterBuy()
@@ -50,6 +54,19 @@ namespace SekiburaGames.DefaultClicker.Controllers
                 _audioSource.clip = _phrasesBackgroundAsset.Phrases[numberPhrase].VoicePhrase;
                 _audioSource.Play();
                 _phrasesLocalizedText.ShowText(_phrasesBackgroundAsset.Phrases[numberPhrase].TranslationName, _audioSource.clip.length + 2);
+            });
+    
+        }
+        
+        private void OnItemBuy()
+        {
+            UnityMainThreadDispatcher.Instance().Enqueue(() =>
+            {
+                int numberPhrase = Random.Range(0, _phrasesBuysAsset.Phrases.Length);
+                Debug.Log(numberPhrase);
+                _audioSource.clip = _phrasesBuysAsset.Phrases[numberPhrase].VoicePhrase;
+                _audioSource.Play();
+                _phrasesLocalizedText.ShowText(_phrasesBuysAsset.Phrases[numberPhrase].TranslationName, _audioSource.clip.length + 2);
             });
     
         }

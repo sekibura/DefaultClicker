@@ -14,6 +14,7 @@ namespace SekiburaGames.DefaultClicker.System
         private const string ShopCharacterAssetPath = "ScriptableObjects/CharacterAsset"; 
         private const string PhrasesCharacterAssetPath = "ScriptableObjects/PhrasesCharacterAsset"; 
         private const string PhrasesBackgroundAssetPath = "ScriptableObjects/PhrasesBackgroundAsset"; 
+        private const string PhrasesBuysAssetPath = "ScriptableObjects/PhrasesBuysAsset"; 
         #endregion
 
         #region Private fields
@@ -21,6 +22,7 @@ namespace SekiburaGames.DefaultClicker.System
         private static ShopImageAsset _shopCharactersAsset;
         private static PhrasesAsset _phrasesCharacterAsset;
         private static PhrasesAsset _phrasesBackgroundAsset;
+        private static PhrasesAsset _phrasesBuysAsset;
         #endregion
 
         #region Getters 
@@ -57,6 +59,10 @@ namespace SekiburaGames.DefaultClicker.System
         {
             return _phrasesBackgroundAsset;
         }
+        public static PhrasesAsset GetPhraseBuysAsset()
+        {
+            return _phrasesBuysAsset;
+        }
         #endregion
 
         public static void LoadAllResources()
@@ -65,6 +71,7 @@ namespace SekiburaGames.DefaultClicker.System
             _shopCharactersAsset = LoadResource<ShopImageAsset>(ShopCharacterAssetPath);
             _phrasesCharacterAsset = LoadResource<PhrasesAsset>(PhrasesCharacterAssetPath);
             _phrasesBackgroundAsset = LoadResource<PhrasesAsset>(PhrasesBackgroundAssetPath);
+            _phrasesBuysAsset = LoadResource<PhrasesAsset>(PhrasesBuysAssetPath);
         }
 
         public static T LoadResource<T>(string resourcePath) where T : UnityEngine.Object

@@ -253,6 +253,65 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u0417\u0434\u0435\u0441\u044C \u0442\u0430\u043A \u043A\u0440\u0430\u0441\u0438\u0432\u043E!"
     Object: {fileID: 0}
+--- !u!1 &812274233735402555
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7174957764098337816}
+  - component: {fileID: 4817579276999221055}
+  m_Layer: 0
+  m_Name: UI/ADStartAfterNSeconds
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7174957764098337816
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 812274233735402555}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1127700739724075011}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4817579276999221055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 812274233735402555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: Russian
+    Text: "\u0420\u0435\u043A\u043B\u0430\u043C\u0430 \u043D\u0430\u0447\u043D\u0435\u0442\u0441\u044F
+      \u0447\u0435\u0440\u0435\u0437"
+    Object: {fileID: 0}
+  - Language: English
+    Text: Advertising will start in
+    Object: {fileID: 0}
+  - Language: Spanish
+    Text: "La publicidad comenzar\xE1 en"
+    Object: {fileID: 0}
+  - Language: Japanese
+    Text: "\u306B\u5E83\u544A\u304C\u958B\u59CB\u3055\u308C\u307E\u3059"
+    Object: {fileID: 0}
 --- !u!1 &1302237207918388963
 GameObject:
   m_ObjectHideFlags: 0
@@ -566,6 +625,114 @@ MonoBehaviour:
     Text: "\u042D\u0442\u043E \u043C\u0435\u0441\u0442\u043E \u043F\u0440\u043E\u0441\u0442\u043E
       \u0438\u0434\u0435\u0430\u043B\u044C\u043D\u043E \u0434\u043B\u044F \u0444\u043E\u0442\u043E\u0441\u0435\u0441\u0441\u0438\u0439."
     Object: {fileID: 0}
+--- !u!1 &2008249007091871455
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2450694004995295423}
+  - component: {fileID: 8827761078362882932}
+  m_Layer: 0
+  m_Name: PhrasesBuy/YouRich
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2450694004995295423
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008249007091871455}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1127700739724075011}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8827761078362882932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008249007091871455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: Russian
+    Text: "\u0421\u0435\u043C\u043F\u0430\u0439, \u0442\u044B \u0442\u0430\u043A\u043E\u0439
+      \u0449\u0435\u0434\u0440\u044B\u0439!"
+    Object: {fileID: 0}
+--- !u!1 &2100720823143386661
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8804164964458512062}
+  - component: {fileID: 2697357582415448448}
+  m_Layer: 0
+  m_Name: Font
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8804164964458512062
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2100720823143386661}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1127700739724075011}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2697357582415448448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2100720823143386661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 1
+  entries:
+  - Language: English
+    Text: 
+    Object: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - Language: Russian
+    Text: 
+    Object: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - Language: Spanish
+    Text: 
+    Object: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - Language: Japanese
+    Text: 
+    Object: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
 --- !u!1 &2309066666203698424
 GameObject:
   m_ObjectHideFlags: 0
@@ -615,6 +782,64 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u0422\u044B \u043D\u0435 \u0445\u043E\u0447\u0435\u0448\u044C \u043F\u043E\u0439\u0442\u0438
       \u0441\u043E \u043C\u043D\u043E\u0439?"
+    Object: {fileID: 0}
+--- !u!1 &2346444734986208907
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1385094886936919609}
+  - component: {fileID: 3268629135012618207}
+  m_Layer: 0
+  m_Name: Phrases/Uwu
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1385094886936919609
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2346444734986208907}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1127700739724075011}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3268629135012618207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2346444734986208907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: (>w<)
+    Object: {fileID: 0}
+  - Language: Spanish
+    Text: (>w<)
+    Object: {fileID: 0}
+  - Language: Japanese
+    Text: (>w<)
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: (>w<)
     Object: {fileID: 0}
 --- !u!1 &2400793953526973222
 GameObject:
@@ -928,6 +1153,56 @@ MonoBehaviour:
   - Language: English
     Text: Settings
     Object: {fileID: 0}
+--- !u!1 &3637684841236091485
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7014368020994264495}
+  - component: {fileID: 5230189113274064828}
+  m_Layer: 0
+  m_Name: PhrasesBuy/Ph4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7014368020994264495
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3637684841236091485}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1127700739724075011}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5230189113274064828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3637684841236091485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: Russian
+    Text: "\u042D\u0442\u043E \u0432\u0441\u0435 \u043C\u043D\u0435? \u042D\u0442\u043E
+      \u043F\u0440\u0430\u0432\u0434\u0430 \u043C\u043D\u0435??"
+    Object: {fileID: 0}
 --- !u!1 &3753877930366353939
 GameObject:
   m_ObjectHideFlags: 0
@@ -977,6 +1252,58 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u0425\u043E\u0447\u0443 \u043E\u0441\u0442\u0430\u0442\u044C\u0441\u044F
       \u0437\u0434\u0435\u0441\u044C \u043D\u0430\u0432\u0441\u0435\u0433\u0434\u0430."
+    Object: {fileID: 0}
+--- !u!1 &3873062421741109468
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1997264760024796557}
+  - component: {fileID: 6148625535918504399}
+  m_Layer: 0
+  m_Name: UI/Clicks
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1997264760024796557
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3873062421741109468}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1127700739724075011}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6148625535918504399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3873062421741109468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: Russian
+    Text: "\u041A\u043B\u0438\u043A\u0438"
+    Object: {fileID: 0}
+  - Language: English
+    Text: Clicks
     Object: {fileID: 0}
 --- !u!1 &3977970019235643996
 GameObject:
@@ -1580,6 +1907,56 @@ MonoBehaviour:
     Text: "\u0423\u0441\u0438\u043B\u0435\u043D\u0438\u0435 \u043A\u043B\u0438\u043A\u0430
       +10 \u043D\u0430 10 \u0441\u0435\u043A\u0443\u043D\u0434"
     Object: {fileID: 0}
+--- !u!1 &5983904933103196795
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5562431616798625188}
+  - component: {fileID: 1576657985681615824}
+  m_Layer: 0
+  m_Name: PhrasesBuy/Ph2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5562431616798625188
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5983904933103196795}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1127700739724075011}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1576657985681615824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5983904933103196795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: Russian
+    Text: "\u0422\u044B \u043C\u0435\u043D\u044F \u0441\u043E\u0432\u0441\u0435\u043C
+      \u0438\u0437\u0431\u0430\u043B\u0443\u0435\u0448\u044C, \u0441\u0435\u043C\u043F\u0430\u0439!"
+    Object: {fileID: 0}
 --- !u!1 &6076680818828460591
 GameObject:
   m_ObjectHideFlags: 0
@@ -1731,6 +2108,56 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: English
     Text: 
+    Object: {fileID: 0}
+--- !u!1 &6950194199653318474
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1801312681655496691}
+  - component: {fileID: 6280581623138358453}
+  m_Layer: 0
+  m_Name: PhrasesBuy/Ph3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1801312681655496691
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6950194199653318474}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1127700739724075011}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6280581623138358453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6950194199653318474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: Russian
+    Text: "\u0423 \u0442\u0435\u0431\u044F \u0442\u0430\u043A \u043C\u043D\u043E\u0433\u043E
+      \u0434\u0435\u043D\u0435\u0433, \u0442\u044B \u0431\u043E\u0433\u0430\u0442\u044B\u0439?"
     Object: {fileID: 0}
 --- !u!1 &6958739638214811040
 GameObject:
@@ -2362,6 +2789,14 @@ Transform:
   - {fileID: 331960711378044615}
   - {fileID: 4211747259037307101}
   - {fileID: 1739715428741526517}
+  - {fileID: 1385094886936919609}
+  - {fileID: 7174957764098337816}
+  - {fileID: 8804164964458512062}
+  - {fileID: 2450694004995295423}
+  - {fileID: 5562431616798625188}
+  - {fileID: 1801312681655496691}
+  - {fileID: 7014368020994264495}
+  - {fileID: 1997264760024796557}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2936494742032915301
