@@ -13,13 +13,65 @@ namespace SekiburaGames.DefaultClicker.Controllers
 {
     public class ScoreController: System.IInitializable
     {
-        public double Score { get; private set; }
-        public float ScorePower { get; private set; }
-        public float ScorePerSecond { get; private set; }
+        #region props
+        private double _score;
+        public double Score 
+        {
+            get
+            {
+                return _score;
+            }
+            private set
+            {
+                _score = value;
+                ScoreUpdatedEvent?.Invoke(Score);
+            }
+        }
+
+        private float _scorePower;
+        public float ScorePower 
+        {
+            get
+            {
+                return _scorePower;
+            }
+            private set
+            {
+                _scorePower = value;
+                ScorePowerUpdatedEvent?.Invoke(ScorePower);
+            }
+        }
+
+        private float _scorePerSecond;
+        public float ScorePerSecond { 
+            get 
+            { 
+                return _scorePerSecond; 
+            }
+            private set
+            {
+                _scorePerSecond = value;
+                ScorePerSecondUpdatedEvent?.Invoke(ScorePerSecond);
+            }
+        }
+
+        private uint _clicks;
+        public uint Clicks
+        {
+            get { return _clicks; }
+            private set 
+            { 
+                _clicks = value;
+                ClicksUpdatedEvent?.Invoke(Clicks);
+            }
+        }
+
+        #endregion
 
         public event Action<double> ScoreUpdatedEvent;
         public event Action<double> ScorePowerUpdatedEvent;
         public event Action<double> ScorePerSecondUpdatedEvent;
+        public event Action<uint> ClicksUpdatedEvent;
         TimerData timer;
         TimerData timerSave;
 
@@ -27,7 +79,7 @@ namespace SekiburaGames.DefaultClicker.Controllers
 
         public void Initialize()
         {
-            InitDefaultValues();
+            //InitDefaultValues();
 
             timer = TimersController.Instance.StartTimer(() => Tick(), 1, true);
             timerSave = TimersController.Instance.StartTimer(() => SaveTick(), 10, true);
@@ -43,6 +95,7 @@ namespace SekiburaGames.DefaultClicker.Controllers
         private void InitOnLoad()
         {
             Score = saveLoadController.Load().Score;
+            Clicks = saveLoadController.Load().Clicks;
             ScoreUpdatedEvent?.Invoke(Score);
         }
 
@@ -50,23 +103,25 @@ namespace SekiburaGames.DefaultClicker.Controllers
         {
             var savesYG = saveLoadController.Load();
             savesYG.Score = Score;
+            savesYG.Clicks = Clicks;
             saveLoadController.Save(savesYG);
         }
 
-        private void InitValuesFromSave()
-        {
-            SavesYG playerProgressData = SystemManager.Get<SaveLoadController>().Load();
-            Score = playerProgressData.Score;
-            ScorePower = playerProgressData.ScorePower;
-            ScorePerSecond = playerProgressData.ScorePerSecond;
-        }
+        //private void InitValuesFromSave()
+        //{
+        //    SavesYG playerProgressData = SystemManager.Get<SaveLoadController>().Load();
+        //    Score = playerProgressData.Score;
+        //    ScorePower = playerProgressData.ScorePower;
+        //    ScorePerSecond = playerProgressData.ScorePerSecond;
+        //    Clicks = playerProgressData.Clicks;
+        //}
 
-        private void InitDefaultValues()
-        {
-            Score = 0;
-            ScorePower = 1;
-            ScorePerSecond = 0;
-        }
+        //private void InitDefaultValues()
+        //{
+        //    Score = 0;
+        //    ScorePower = 1;
+        //    ScorePerSecond = 0;
+        //}
 
         public void Init(float score, float scorePower, float scorePerSecond)
         {
@@ -75,11 +130,13 @@ namespace SekiburaGames.DefaultClicker.Controllers
             ScorePerSecond = scorePerSecond;
         }
 
-
         public void OnClick()
         {
             if (GameStateManager.Instance.State == GameStateManager.GameState.InGame)
+            {
                 UpdateScore(ScorePower);
+                UpdateClick();
+            }
         }
 
         private void Tick()
@@ -107,6 +164,12 @@ namespace SekiburaGames.DefaultClicker.Controllers
                 ScoreUpdatedEvent?.Invoke(Score);
 
             return true;
+        }
+        
+        public void UpdateClick()
+        {
+            Clicks++;
+            //ClicksUpdatedEvent?.Invoke(Clicks);
         }
 
         public void UpdateScorePower(float delta)

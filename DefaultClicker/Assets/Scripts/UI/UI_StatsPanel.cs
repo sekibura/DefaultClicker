@@ -17,10 +17,11 @@ namespace SekiburaGames.DefaultClicker.UI
         private TMP_Text _scorePerSecTMP;
         [SerializeField]
         private TMP_Text _scorePowerTMP;
+        [SerializeField]
+        private TMP_Text _clickCountTMP;
 
         private ScoreController _scoreController;
         private SaveLoadController _saveLoadController;
-
 
         void Start()
         {
@@ -32,6 +33,7 @@ namespace SekiburaGames.DefaultClicker.UI
             _scoreController.ScoreUpdatedEvent += ScoreUpdated;
             _scoreController.ScorePerSecondUpdatedEvent += ScorePerSecUpdated;
             _scoreController.ScorePowerUpdatedEvent += ScorePowerUpdated;
+            _scoreController.ClicksUpdatedEvent += ClicksUpdated;
         }
 
         private void Init()
@@ -40,6 +42,7 @@ namespace SekiburaGames.DefaultClicker.UI
             _scoreTMP.text = saveData.Score.ToString() + "$";
             _scorePowerTMP.text = saveData.ScorePower.ToString() + "$";
             _scorePerSecTMP.text = saveData.ScorePerSecond.ToString() + "$";
+            _clickCountTMP.text = saveData.Clicks.ToString();
         }
 
         private void ScoreUpdated(double value)
@@ -55,7 +58,9 @@ namespace SekiburaGames.DefaultClicker.UI
         {
             _scorePerSecTMP.text = value.ToString() + "$";
         }
-
-
+        private void ClicksUpdated(uint value)
+        {
+            _clickCountTMP.text = value.ToString();
+        }
     }
 }

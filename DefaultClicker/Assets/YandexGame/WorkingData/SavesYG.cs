@@ -19,7 +19,8 @@ namespace YG
         // Ваши сохранения
 
         // ...
-        public float Score = 0;
+        public double Score = 0;
+        public uint Clicks = 0;
 
         public float ScorePower = 1;
         public int ScorePowerIndex = 0;

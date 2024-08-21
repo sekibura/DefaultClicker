@@ -31,6 +31,7 @@ namespace SekiburaGames.DefaultClicker.Controllers
         {
             Debug.Log("SAVE "+JsonUtility.ToJson(saveData).ToString());
             saveLoadManager.Save(saveData);
+            YandexGame.NewLeaderboardScores("maxScoreLB", Convert.ToInt64(saveData.Clicks));
         }
         public void Dispose()
         {
