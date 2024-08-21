@@ -18,25 +18,25 @@ namespace SekiburaGames.DefaultClicker.Controllers
         }
 
         public static float BasePriceCharacter = 100f;
-        public static float MultiplerPriceCharacter = 7.4f;
+        public static float MultiplerPriceCharacter = 2.5f;
         // 11 max price = 49239910319
         public static double CalcPriceCharacter(int iteration)
         {
-            return Math.Round(BaseBackgroundPrice * Math.Pow(MultiplerBackgroundPrice, iteration));
+            return Math.Round(BasePriceCharacter * Math.Pow(MultiplerPriceCharacter, iteration));
         }
         
         public static float BasePriceClickScore = 100f;
         public static float MultiplerPriceClickScore = 1.3f;
         public static double CalcPriceClickScore(int iteration)
         {
-            return Math.Round(BaseBackgroundPrice * Math.Pow(MultiplerBackgroundPrice, iteration));
+            return Math.Round(BasePriceClickScore * Math.Pow(MultiplerPriceClickScore, iteration));
         }
         
         public static float BasePricePerSec = 100f;
         public static float MultiplerPricePerSec = 1.3f;
         public static double CalcPricePerSec(int iteration)
         {
-            return Math.Round(BaseBackgroundPrice * Math.Pow(MultiplerBackgroundPrice, iteration));
+            return Math.Round(BasePricePerSec * Math.Pow(MultiplerPricePerSec, iteration));
         }
     }
 }
