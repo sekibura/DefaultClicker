@@ -86,7 +86,7 @@ namespace SekiburaGames.DefaultClicker.UI
             if (_isSetSliderValues)
                 return;
             //Set Mixer voluve
-            _audioMixer.audioMixer.SetFloat("Dialogs", Mathf.Lerp(-80, 0, value));
+            _audioMixer.audioMixer.SetFloat("Dialogs", Mathf.Log10(value) * 20);
         }
 
         private void OnMusicSliderChange(float value)
@@ -94,7 +94,7 @@ namespace SekiburaGames.DefaultClicker.UI
             if (_isSetSliderValues)
                 return;
             //Set Mixer voluve
-            _audioMixer.audioMixer.SetFloat("Music", Mathf.Lerp(-80, 0, value));
+            _audioMixer.audioMixer.SetFloat("Music", Mathf.Log10(value) * 20);
         }
 
         private void LoadSettings()
