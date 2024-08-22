@@ -50,6 +50,12 @@ MonoBehaviour:
     Text: "\u042F \u0432\u043B\u044E\u0431\u0438\u043B\u0430\u0441\u044C \u0432 \u044D\u0442\u0443
       \u0430\u0442\u043C\u043E\u0441\u0444\u0435\u0440\u0443."
     Object: {fileID: 0}
+  - Language: English
+    Text: I fell in love with this atmosphere.
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Bu atmosfere a\u015F\u0131k oldum."
+    Object: {fileID: 0}
 --- !u!1 &209438841014181358
 GameObject:
   m_ObjectHideFlags: 0
@@ -102,6 +108,9 @@ MonoBehaviour:
   - Language: English
     Text: Reset progress
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: "\u0130lerlemeyi s\u0131f\u0131rla"
+    Object: {fileID: 0}
 --- !u!1 &388163285622434743
 GameObject:
   m_ObjectHideFlags: 0
@@ -151,6 +160,12 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u042F \u0442\u0435\u0431\u044F \u0440\u0430\u043D\u044C\u0448\u0435 \u0437\u0434\u0435\u0441\u044C
       \u043D\u0435 \u0432\u0438\u0434\u0435\u043B\u0430..."
+    Object: {fileID: 0}
+  - Language: English
+    Text: I haven't seen you here before...
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Seni daha \xF6nce burada g\xF6rmemi\u015Ftim..."
     Object: {fileID: 0}
 --- !u!1 &617235222566851541
 GameObject:
@@ -204,6 +219,9 @@ MonoBehaviour:
   - Language: English
     Text: Change girl
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: "K\u0131z\u0131 de\u011Fi\u015Ftir"
+    Object: {fileID: 0}
 --- !u!1 &635927356306377719
 GameObject:
   m_ObjectHideFlags: 0
@@ -252,6 +270,12 @@ MonoBehaviour:
   entries:
   - Language: Russian
     Text: "\u0417\u0434\u0435\u0441\u044C \u0442\u0430\u043A \u043A\u0440\u0430\u0441\u0438\u0432\u043E!"
+    Object: {fileID: 0}
+  - Language: English
+    Text: It's so beautiful here!
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Buras\u0131 \xE7ok g\xFCzel!"
     Object: {fileID: 0}
 --- !u!1 &812274233735402555
 GameObject:
@@ -312,6 +336,9 @@ MonoBehaviour:
   - Language: Japanese
     Text: "\u306B\u5E83\u544A\u304C\u958B\u59CB\u3055\u308C\u307E\u3059"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Reklamlar ba\u015Flayacak"
+    Object: {fileID: 0}
 --- !u!1 &1302237207918388963
 GameObject:
   m_ObjectHideFlags: 0
@@ -364,6 +391,9 @@ MonoBehaviour:
   - Language: English
     Text: Change room
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Oday\u0131 de\u011Fi\u015Ftir"
+    Object: {fileID: 0}
 --- !u!1 &1407680198938596386
 GameObject:
   m_ObjectHideFlags: 0
@@ -414,6 +444,12 @@ MonoBehaviour:
     Text: "\u0423 \u043C\u0435\u043D\u044F \u043D\u0430 \u0441\u0435\u0440\u0434\u0446\u0435
       \u043E\u0441\u0442\u0430\u043B\u0441\u044F \u0441\u043B\u0435\u0434 \u043E\u0442
       \u044D\u0442\u043E\u0433\u043E \u043C\u0435\u0441\u0442\u0430."
+    Object: {fileID: 0}
+  - Language: English
+    Text: This place left a mark on my heart.
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Buras\u0131 kalbimde iz b\u0131rakt\u0131."
     Object: {fileID: 0}
 --- !u!1 &1455106864791076290
 GameObject:
@@ -466,6 +502,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: English
     Text: Hello!
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: Merhaba!
     Object: {fileID: 0}
 --- !u!1 &1665370690375937442
 GameObject:
@@ -525,6 +564,9 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u041F\u0440\u0438\u0432\u0435\u0442"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: Merhaba
+    Object: {fileID: 0}
 --- !u!1 &1806102846736830745
 GameObject:
   m_ObjectHideFlags: 0
@@ -574,6 +616,12 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u042F \u0443\u0436\u0435 \u043F\u043E\u043B\u044E\u0431\u0438\u043B\u0430
       \u044D\u0442\u043E \u043C\u0435\u0441\u0442\u043E!"
+    Object: {fileID: 0}
+  - Language: English
+    Text: I already love this place!
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Buray\u0131 zaten seviyorum!"
     Object: {fileID: 0}
 --- !u!1 &1902217685623271797
 GameObject:
@@ -625,6 +673,12 @@ MonoBehaviour:
     Text: "\u042D\u0442\u043E \u043C\u0435\u0441\u0442\u043E \u043F\u0440\u043E\u0441\u0442\u043E
       \u0438\u0434\u0435\u0430\u043B\u044C\u043D\u043E \u0434\u043B\u044F \u0444\u043E\u0442\u043E\u0441\u0435\u0441\u0441\u0438\u0439."
     Object: {fileID: 0}
+  - Language: English
+    Text: This place is simply ideal for photo shoots.
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Buras\u0131 foto\u011Fraf \xE7ekimleri i\xE7in ideal."
+    Object: {fileID: 0}
 --- !u!1 &2008249007091871455
 GameObject:
   m_ObjectHideFlags: 0
@@ -674,6 +728,18 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u0421\u0435\u043C\u043F\u0430\u0439, \u0442\u044B \u0442\u0430\u043A\u043E\u0439
       \u0449\u0435\u0434\u0440\u044B\u0439!"
+    Object: {fileID: 0}
+  - Language: English
+    Text: Senpai, you are so generous!
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Senpai, \xE7ok c\xF6mertsin!"
+    Object: {fileID: 0}
+  - Language: Spanish
+    Text: "\xA1Senpai, eres tan generoso!"
+    Object: {fileID: 0}
+  - Language: Japanese
+    Text: "\u5148\u8F29\u3001\u512A\u3057\u3044\u3067\u3059\u306D\uFF01"
     Object: {fileID: 0}
 --- !u!1 &2100720823143386661
 GameObject:
@@ -733,6 +799,9 @@ MonoBehaviour:
   - Language: Japanese
     Text: 
     Object: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - Language: Turkish
+    Text: 
+    Object: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
 --- !u!1 &2309066666203698424
 GameObject:
   m_ObjectHideFlags: 0
@@ -782,6 +851,12 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u0422\u044B \u043D\u0435 \u0445\u043E\u0447\u0435\u0448\u044C \u043F\u043E\u0439\u0442\u0438
       \u0441\u043E \u043C\u043D\u043E\u0439?"
+    Object: {fileID: 0}
+  - Language: English
+    Text: Don't you want to come with me?
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: Benimle gelmek istemiyor musun?
     Object: {fileID: 0}
 --- !u!1 &2346444734986208907
 GameObject:
@@ -841,6 +916,9 @@ MonoBehaviour:
   - Language: Russian
     Text: (>w<)
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: (>w<)
+    Object: {fileID: 0}
 --- !u!1 &2400793953526973222
 GameObject:
   m_ObjectHideFlags: 0
@@ -892,6 +970,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: English
     Text: Force autoclick
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Otomatik t\u0131klamay\u0131 zorla"
     Object: {fileID: 0}
 --- !u!1 &2575418710646939128
 GameObject:
@@ -951,6 +1032,9 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u0414\u043E\u0431\u0440\u043E\u0435 \u0443\u0442\u0440\u043E"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: "G\xFCnayd\u0131n"
+    Object: {fileID: 0}
 --- !u!1 &2742266882319243099
 GameObject:
   m_ObjectHideFlags: 0
@@ -1000,6 +1084,12 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u0423 \u043C\u0435\u043D\u044F \u043D\u0435\u0442 \u0441\u043B\u043E\u0432..."
     Object: {fileID: 0}
+  - Language: English
+    Text: I have no words...
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "s\xF6z\xFCm yok..."
+    Object: {fileID: 0}
 --- !u!1 &3321260965617541550
 GameObject:
   m_ObjectHideFlags: 0
@@ -1048,6 +1138,12 @@ MonoBehaviour:
   entries:
   - Language: Russian
     Text: "\u0413\u0440\u043E\u043C\u043A\u043E\u0441\u0442\u044C \u043C\u0443\u0437\u044B\u043A\u0438"
+    Object: {fileID: 0}
+  - Language: English
+    Text: Music volume
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "M\xFCzik hacmi"
     Object: {fileID: 0}
 --- !u!1 &3506136976911952664
 GameObject:
@@ -1101,6 +1197,9 @@ MonoBehaviour:
   - Language: English
     Text: Change outfit
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: "K\u0131yafeti de\u011Fi\u015Ftir"
+    Object: {fileID: 0}
 --- !u!1 &3599807326595021196
 GameObject:
   m_ObjectHideFlags: 0
@@ -1153,6 +1252,9 @@ MonoBehaviour:
   - Language: English
     Text: Settings
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: Ayarlar
+    Object: {fileID: 0}
 --- !u!1 &3637684841236091485
 GameObject:
   m_ObjectHideFlags: 0
@@ -1203,6 +1305,12 @@ MonoBehaviour:
     Text: "\u042D\u0442\u043E \u0432\u0441\u0435 \u043C\u043D\u0435? \u042D\u0442\u043E
       \u043F\u0440\u0430\u0432\u0434\u0430 \u043C\u043D\u0435??"
     Object: {fileID: 0}
+  - Language: English
+    Text: 'Is this all for me? '
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Bunlar\u0131n hepsi benim i\xE7in mi?"
+    Object: {fileID: 0}
 --- !u!1 &3753877930366353939
 GameObject:
   m_ObjectHideFlags: 0
@@ -1252,6 +1360,12 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u0425\u043E\u0447\u0443 \u043E\u0441\u0442\u0430\u0442\u044C\u0441\u044F
       \u0437\u0434\u0435\u0441\u044C \u043D\u0430\u0432\u0441\u0435\u0433\u0434\u0430."
+    Object: {fileID: 0}
+  - Language: English
+    Text: I want to stay here forever.
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: Sonsuza kadar burada kalmak istiyorum.
     Object: {fileID: 0}
 --- !u!1 &3873062421741109468
 GameObject:
@@ -1305,6 +1419,9 @@ MonoBehaviour:
   - Language: English
     Text: Clicks
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: "T\u0131klamalar"
+    Object: {fileID: 0}
 --- !u!1 &3977970019235643996
 GameObject:
   m_ObjectHideFlags: 0
@@ -1354,6 +1471,12 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u0427\u0443\u0432\u0441\u0442\u0432\u0443\u044E \u0441\u0435\u0431\u044F
       \u043A\u0430\u043A \u0432 \u0441\u043A\u0430\u0437\u043A\u0435..."
+    Object: {fileID: 0}
+  - Language: English
+    Text: I feel like I'm in a fairy tale...
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Kendimi bir masal\u0131n i\xE7inde gibi hissediyorum..."
     Object: {fileID: 0}
 --- !u!1 &3993184242263746721
 GameObject:
@@ -1405,6 +1528,12 @@ MonoBehaviour:
     Text: "\u042F \u0447\u0443\u0432\u0441\u0442\u0432\u0443\u044E \u0441\u0435\u0431\u044F
       \u0437\u0434\u0435\u0441\u044C \u043A\u0430\u043A \u0434\u043E\u043C\u0430."
     Object: {fileID: 0}
+  - Language: English
+    Text: I feel at home here.
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: Burada kendimi evimde hissediyorum.
+    Object: {fileID: 0}
 --- !u!1 &4043992514751969314
 GameObject:
   m_ObjectHideFlags: 0
@@ -1453,6 +1582,12 @@ MonoBehaviour:
   entries:
   - Language: Russian
     Text: "\u0422\u044B \u0437\u0430\u0431\u0430\u0432\u043D\u044B\u0439!"
+    Object: {fileID: 0}
+  - Language: English
+    Text: You're funny!
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "\xC7ok komiksin!"
     Object: {fileID: 0}
 --- !u!1 &4252695274875020240
 GameObject:
@@ -1504,6 +1639,12 @@ MonoBehaviour:
     Text: "\u042D\u0442\u043E \u043C\u0435\u0441\u0442\u043E \u0438\u0437\u043B\u0443\u0447\u0430\u0435\u0442
       \u043E\u0441\u043E\u0431\u0443\u044E \u0440\u043E\u043C\u0430\u043D\u0442\u0438\u043A\u0443."
     Object: {fileID: 0}
+  - Language: English
+    Text: This place exudes a special romance.
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Buras\u0131 \xF6zel bir romantizm yay\u0131yor."
+    Object: {fileID: 0}
 --- !u!1 &4370349867183399395
 GameObject:
   m_ObjectHideFlags: 0
@@ -1554,6 +1695,12 @@ MonoBehaviour:
     Text: "\u0414\u0430\u043D\u043D\u044B\u0435 \u043F\u0440\u043E\u0433\u0440\u0435\u0441\u0441\u0430
       \u0431\u0443\u0434\u0443\u0442 \u0443\u0434\u0430\u043B\u0435\u043D\u044B,
       \u0432\u044B \u0443\u0432\u0435\u0440\u0435\u043D\u044B?"
+    Object: {fileID: 0}
+  - Language: English
+    Text: Progress data will be deleted, are you sure?
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "\u0130lerleme verileri silinecek, emin misiniz?"
     Object: {fileID: 0}
 --- !u!1 &4422764278067211346
 GameObject:
@@ -1607,6 +1754,9 @@ MonoBehaviour:
   - Language: English
     Text: Change background
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Arka plan\u0131 de\u011Fi\u015Ftir"
+    Object: {fileID: 0}
 --- !u!1 &4556823198160198288
 GameObject:
   m_ObjectHideFlags: 0
@@ -1655,6 +1805,12 @@ MonoBehaviour:
   entries:
   - Language: Russian
     Text: "\u042F \u0434\u0443\u043C\u0430\u044E \u043E \u0442\u0435\u0431\u0435..."
+    Object: {fileID: 0}
+  - Language: English
+    Text: I think about you...
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "seni d\xFC\u015F\xFCn\xFCyorum..."
     Object: {fileID: 0}
 --- !u!1 &5074512753167584800
 GameObject:
@@ -1705,6 +1861,12 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u0412\u0440\u0435\u043C\u044F \u0437\u0434\u0435\u0441\u044C \u043F\u0440\u043E\u0441\u0442\u043E
       \u043E\u0441\u0442\u0430\u043D\u0430\u0432\u043B\u0438\u0432\u0430\u0435\u0442\u0441\u044F!"
+    Object: {fileID: 0}
+  - Language: English
+    Text: Time simply stops here!
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: Zaman burada duruyor!
     Object: {fileID: 0}
 --- !u!1 &5128370157768645345
 GameObject:
@@ -1758,6 +1920,9 @@ MonoBehaviour:
   - Language: English
     Text: Language
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: Dil
+    Object: {fileID: 0}
 --- !u!1 &5206259399175720512
 GameObject:
   m_ObjectHideFlags: 0
@@ -1806,6 +1971,12 @@ MonoBehaviour:
   entries:
   - Language: Russian
     Text: "\u041F\u0440\u043E\u0441\u0442\u043E \u0432\u043E\u043B\u0448\u0435\u0431\u0441\u0442\u0432\u043E!"
+    Object: {fileID: 0}
+  - Language: English
+    Text: Simply magic!
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Basit\xE7e sihir!"
     Object: {fileID: 0}
 --- !u!1 &5696653434699656305
 GameObject:
@@ -1857,6 +2028,12 @@ MonoBehaviour:
     Text: "\u0423\u0441\u0438\u043B\u0435\u043D\u0438\u0435 \u0430\u0432\u0442\u043E\u043A\u043B\u0438\u043A\u0430
       +10 \u043D\u0430 10 \u0441\u0435\u043A\u0443\u043D\u0434"
     Object: {fileID: 0}
+  - Language: English
+    Text: Autoclick boost +10 for 10 seconds
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Otomatik t\u0131klama deste\u011Fi 10 saniye boyunca +10"
+    Object: {fileID: 0}
 --- !u!1 &5796284115017037935
 GameObject:
   m_ObjectHideFlags: 0
@@ -1906,6 +2083,12 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u0423\u0441\u0438\u043B\u0435\u043D\u0438\u0435 \u043A\u043B\u0438\u043A\u0430
       +10 \u043D\u0430 10 \u0441\u0435\u043A\u0443\u043D\u0434"
+    Object: {fileID: 0}
+  - Language: English
+    Text: Click boost +10 for 10 seconds
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "10 saniye boyunca +10'u g\xFC\xE7lendir'e t\u0131klay\u0131n"
     Object: {fileID: 0}
 --- !u!1 &5983904933103196795
 GameObject:
@@ -1957,6 +2140,18 @@ MonoBehaviour:
     Text: "\u0422\u044B \u043C\u0435\u043D\u044F \u0441\u043E\u0432\u0441\u0435\u043C
       \u0438\u0437\u0431\u0430\u043B\u0443\u0435\u0448\u044C, \u0441\u0435\u043C\u043F\u0430\u0439!"
     Object: {fileID: 0}
+  - Language: English
+    Text: You're spoiling me completely, senpai!
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Beni tamamen \u015F\u0131mart\u0131yorsun senpai!"
+    Object: {fileID: 0}
+  - Language: Spanish
+    Text: "\xA1Me est\xE1s malcriando por completo, senpai!"
+    Object: {fileID: 0}
+  - Language: Japanese
+    Text: "\u5B8C\u5168\u306B\u7518\u3084\u304B\u3057\u3066\u307E\u3059\u306D\u3001\u5148\u8F29\uFF01"
+    Object: {fileID: 0}
 --- !u!1 &6076680818828460591
 GameObject:
   m_ObjectHideFlags: 0
@@ -2007,6 +2202,12 @@ MonoBehaviour:
     Text: "\u0417\u0434\u0435\u0441\u044C \u0442\u0430\u043A \u0441\u043F\u043E\u043A\u043E\u0439\u043D\u043E
       \u0438 \u0443\u044E\u0442\u043D\u043E."
     Object: {fileID: 0}
+  - Language: English
+    Text: It's so calm and cozy here.
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Buras\u0131 \xE7ok sakin ve rahat."
+    Object: {fileID: 0}
 --- !u!1 &6342674061471078660
 GameObject:
   m_ObjectHideFlags: 0
@@ -2055,6 +2256,12 @@ MonoBehaviour:
   entries:
   - Language: Russian
     Text: "\u042D\u0442\u043E \u043C\u0435\u0441\u0442\u043E \u043E\u0447\u0430\u0440\u043E\u0432\u0430\u0442\u0435\u043B\u044C\u043D\u043E\u0435!"
+    Object: {fileID: 0}
+  - Language: English
+    Text: This place is charming!
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Buras\u0131 b\xFCy\xFCleyici!"
     Object: {fileID: 0}
 --- !u!1 &6812757019566337321
 GameObject:
@@ -2107,7 +2314,10 @@ MonoBehaviour:
       \u043E\u0441\u043E\u0431\u0435\u043D\u043D\u043E\u0435."
     Object: {fileID: 0}
   - Language: English
-    Text: 
+    Text: Everything about this place is special.
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Bu yerle ilgili her \u015Fey \xF6zeldir."
     Object: {fileID: 0}
 --- !u!1 &6950194199653318474
 GameObject:
@@ -2159,6 +2369,12 @@ MonoBehaviour:
     Text: "\u0423 \u0442\u0435\u0431\u044F \u0442\u0430\u043A \u043C\u043D\u043E\u0433\u043E
       \u0434\u0435\u043D\u0435\u0433, \u0442\u044B \u0431\u043E\u0433\u0430\u0442\u044B\u0439?"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: O kadar paran var, zengin misin?
+    Object: {fileID: 0}
+  - Language: English
+    Text: You have so much money, are you rich?
+    Object: {fileID: 0}
 --- !u!1 &6958739638214811040
 GameObject:
   m_ObjectHideFlags: 0
@@ -2207,6 +2423,12 @@ MonoBehaviour:
   entries:
   - Language: Russian
     Text: "\u041F\u0440\u0438\u0432\u0435\u0442! \u042F... \u044D\u044D\u044D..."
+    Object: {fileID: 0}
+  - Language: English
+    Text: 'Hello! '
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: Merhaba!
     Object: {fileID: 0}
 --- !u!1 &7228886136098104930
 GameObject:
@@ -2257,6 +2479,12 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u0410  \u043C\u043E\u0436\u043D\u043E \u0441 \u0442\u043E\u0431\u043E\u0439
       \u043F\u043E\u0434\u0440\u0443\u0436\u0438\u0442\u044C\u0441\u044F?"
+    Object: {fileID: 0}
+  - Language: English
+    Text: Can I make friends with you?
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Seninle arkada\u015F olabilir miyim?"
     Object: {fileID: 0}
 --- !u!1 &7622364202019134301
 GameObject:
@@ -2309,6 +2537,12 @@ MonoBehaviour:
       \u044D\u0442\u043E \u043C\u0435\u0441\u0442\u043E, \u043E\u043D\u043E \u043C\u043D\u0435
       \u043E\u0447\u0435\u043D\u044C \u043D\u0440\u0430\u0432\u0438\u0442\u0441\u044F."
     Object: {fileID: 0}
+  - Language: English
+    Text: I don't want to leave this place, I really like it.
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Buray\u0131 b\u0131rakmak istemiyorum, buray\u0131 ger\xE7ekten seviyorum."
+    Object: {fileID: 0}
 --- !u!1 &7636067693083234325
 GameObject:
   m_ObjectHideFlags: 0
@@ -2357,6 +2591,12 @@ MonoBehaviour:
   entries:
   - Language: Russian
     Text: "\u0413\u0440\u043E\u043C\u043A\u043E\u0441\u0442\u044C \u0440\u0435\u043F\u043B\u0438\u043A"
+    Object: {fileID: 0}
+  - Language: English
+    Text: Cue volume
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "\u0130\u015Faret ses d\xFCzeyi"
     Object: {fileID: 0}
 --- !u!1 &7894577879889851805
 GameObject:
@@ -2408,6 +2648,12 @@ MonoBehaviour:
     Text: "\u042F \u0431\u044B \u0445\u043E\u0442\u0435\u043B\u0430 \u0436\u0438\u0442\u044C
       \u0437\u0434\u0435\u0441\u044C!"
     Object: {fileID: 0}
+  - Language: English
+    Text: I would love to live here!
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Burada ya\u015Famay\u0131 \xE7ok isterim!"
+    Object: {fileID: 0}
 --- !u!1 &8037860556231062299
 GameObject:
   m_ObjectHideFlags: 0
@@ -2456,6 +2702,12 @@ MonoBehaviour:
   entries:
   - Language: Russian
     Text: "\u041C\u043C\u043C... \u041F\u0440\u0438\u044F\u0442\u043D\u043E \u043F\u043E\u0437\u043D\u0430\u043A\u043E\u043C\u0438\u0442\u044C\u0441\u044F!"
+    Object: {fileID: 0}
+  - Language: English
+    Text: Mmm... Nice to meet you!
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Mmm... Tan\u0131\u015Ft\u0131\u011F\u0131m\u0131za memnun oldum!"
     Object: {fileID: 0}
 --- !u!1 &8300411640800113049
 GameObject:
@@ -2507,6 +2759,12 @@ MonoBehaviour:
     Text: "\u0418\u0434\u0435\u0430\u043B\u044C\u043D\u043E\u0435 \u043C\u0435\u0441\u0442\u043E
       \u0434\u043B\u044F \u043E\u0442\u0434\u044B\u0445\u0430."
     Object: {fileID: 0}
+  - Language: English
+    Text: An ideal place to relax.
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Dinlenmek i\xE7in ideal bir yer."
+    Object: {fileID: 0}
 --- !u!1 &8543555382170258407
 GameObject:
   m_ObjectHideFlags: 0
@@ -2555,6 +2813,12 @@ MonoBehaviour:
   entries:
   - Language: Russian
     Text: "\u0423\u0441\u0438\u043B\u0438\u0442\u044C \u043A\u043B\u0438\u043A"
+    Object: {fileID: 0}
+  - Language: English
+    Text: Upgrade click
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Y\xFCkseltme t\u0131klamas\u0131"
     Object: {fileID: 0}
 --- !u!1 &8586409171556007649
 GameObject:
@@ -2605,6 +2869,12 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u0416\u0435\u043B\u0430\u044E \u0432\u0435\u0440\u043D\u0443\u0442\u044C\u0441\u044F
       \u0441\u044E\u0434\u0430 \u0441\u043D\u043E\u0432\u0430 \u0438 \u0441\u043D\u043E\u0432\u0430!"
+    Object: {fileID: 0}
+  - Language: English
+    Text: I wish to come back here again and again!
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: Buraya tekrar tekrar gelmek isterim!
     Object: {fileID: 0}
 --- !u!1 &8645850318446075759
 GameObject:
@@ -2658,6 +2928,9 @@ MonoBehaviour:
   - Language: English
     Text: Cancel
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: "\u0130ptal etmek"
+    Object: {fileID: 0}
 --- !u!1 &8928712245084218680
 GameObject:
   m_ObjectHideFlags: 0
@@ -2708,6 +2981,12 @@ MonoBehaviour:
     Text: "\u041C\u043D\u0435 \u043D\u0440\u0430\u0432\u0438\u0442\u0441\u044F \u0442\u0432\u043E\u044F
       \u0444\u0443\u0442\u0431\u043E\u043B\u043A\u0430!"
     Object: {fileID: 0}
+  - Language: English
+    Text: I like your T-shirt!
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Ti\u015F\xF6rt\xFCn\xFC be\u011Fendim!"
+    Object: {fileID: 0}
 --- !u!1 &8995960903426056966
 GameObject:
   m_ObjectHideFlags: 0
@@ -2742,6 +3021,7 @@ Transform:
   - {fileID: 751934905436867697}
   - {fileID: 932060993664662130}
   - {fileID: 4273004403382789374}
+  - {fileID: 7253469957941486547}
   - {fileID: 9185698929303698392}
   - {fileID: 6729101673011804136}
   - {fileID: 9161911342141530017}
@@ -2868,6 +3148,9 @@ MonoBehaviour:
   - Language: English
     Text: OK
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: TAMAM
+    Object: {fileID: 0}
 --- !u!1 &9174339403442211372
 GameObject:
   m_ObjectHideFlags: 0
@@ -2917,6 +3200,12 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u0417\u0434\u0435\u0441\u044C \u0435\u0441\u0442\u044C \u043E\u0441\u043E\u0431\u0430\u044F
       \u044D\u043D\u0435\u0440\u0433\u0435\u0442\u0438\u043A\u0430."
+    Object: {fileID: 0}
+  - Language: English
+    Text: There is a special energy here.
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Burada \xF6zel bir enerji var."
     Object: {fileID: 0}
 --- !u!1001 &1864042049839170572
 PrefabInstance:
@@ -3177,4 +3466,66 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1527055450098318974, guid: adef00e2be323654ca5fa825a2cc3c72, type: 3}
   m_PrefabInstance: {fileID: 3350099825887582848}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8185486559949020589
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1127700739724075011}
+    m_Modifications:
+    - target: {fileID: 765358623864573794, guid: 35a3dae85cd5a964b90a635df664d9b0, type: 3}
+      propertyPath: m_Name
+      value: Turkish
+      objectReference: {fileID: 0}
+    - target: {fileID: 1527055450098318974, guid: 35a3dae85cd5a964b90a635df664d9b0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1527055450098318974, guid: 35a3dae85cd5a964b90a635df664d9b0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1527055450098318974, guid: 35a3dae85cd5a964b90a635df664d9b0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1527055450098318974, guid: 35a3dae85cd5a964b90a635df664d9b0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1527055450098318974, guid: 35a3dae85cd5a964b90a635df664d9b0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1527055450098318974, guid: 35a3dae85cd5a964b90a635df664d9b0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1527055450098318974, guid: 35a3dae85cd5a964b90a635df664d9b0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1527055450098318974, guid: 35a3dae85cd5a964b90a635df664d9b0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1527055450098318974, guid: 35a3dae85cd5a964b90a635df664d9b0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1527055450098318974, guid: 35a3dae85cd5a964b90a635df664d9b0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 35a3dae85cd5a964b90a635df664d9b0, type: 3}
+--- !u!4 &7253469957941486547 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1527055450098318974, guid: 35a3dae85cd5a964b90a635df664d9b0, type: 3}
+  m_PrefabInstance: {fileID: 8185486559949020589}
   m_PrefabAsset: {fileID: 0}
