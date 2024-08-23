@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: SpriteSizeChangerParameter
   m_EditorClassIdentifier: 
   textures:
-  - {fileID: 2800000, guid: 330d9b1e41ee7c94e96a5352ed3aec6b, type: 3}
-  - {fileID: 2800000, guid: 6252957b4ec869744a560c5f02985072, type: 3}
-  - {fileID: 2800000, guid: 631cc21a50a7f0346897febfa9fc1ff0, type: 3}
-  - {fileID: 2800000, guid: 501504ae63381764d96510c28f5b5f3a, type: 3}
+  - {fileID: 2800000, guid: 2e29402e22cac1447b6459962f08f0cf, type: 3}
+  - {fileID: 2800000, guid: 87163a2cbf3bf22409931db9c46e3d41, type: 3}
+  - {fileID: 2800000, guid: 8684b7ee19625344a8c5da0429cd7d6b, type: 3}
+  - {fileID: 2800000, guid: 41659586587e0de458d9e047fa6b7b42, type: 3}
+  - {fileID: 2800000, guid: 0d5d19216427ec2428ca7362e284da62, type: 3}
+  - {fileID: 2800000, guid: 676faf3029a4dc047be53e6f6afddd40, type: 3}
