@@ -13,6 +13,12 @@ namespace SekiburaGames.DefaultClicker.Controllers
 {
     public class ScoreController: System.IInitializable
     {
+#if !UNITY_EDITOR
+        private bool isTesting = false;
+#else
+        private bool isTesting = false;
+#endif
+
         #region props
         private double _score;
         public double Score 
@@ -97,6 +103,11 @@ namespace SekiburaGames.DefaultClicker.Controllers
             Score = saveLoadController.Load().Score;
             Clicks = saveLoadController.Load().Clicks;
             ScoreUpdatedEvent?.Invoke(Score);
+
+#if UNITY_EDITOR
+            if(isTesting)
+                Score = double.MaxValue;
+#endif
         }
 
         private void SaveProgress()
