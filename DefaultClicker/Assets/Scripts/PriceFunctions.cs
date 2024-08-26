@@ -18,7 +18,7 @@ namespace SekiburaGames.DefaultClicker.Controllers
         }
 
         public static float BasePriceCharacter = 100f;
-        public static float MultiplerPriceCharacter = 2.5f;
+        public static float MultiplerPriceCharacter = 2.1f;
         // 11 max price = 49239910319
         public static double CalcPriceCharacter(int iteration)
         {

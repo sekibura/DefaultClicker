@@ -27,6 +27,11 @@ namespace SekiburaGames.DefaultClicker.Controllers
             YandexGame.CloseVideoEvent += PlayMusic;
             YandexGame.onHideWindowGame += PauseMusic;
             YandexGame.onShowWindowGame += PlayMusic;
+            YandexGame.ErrorFullAdEvent += PlayMusic;
+            YandexGame.ErrorVideoEvent += PlayMusic;
+            SystemManager.Get<ClickerGameController>().OnClickEvent += PlayMusic;
+
+
    
 
             PlayNextClip();
@@ -34,12 +39,42 @@ namespace SekiburaGames.DefaultClicker.Controllers
 
         private void PauseMusic()
         {
-            audioSource.Pause();
+            //audioSource.Pause();
+            AudioListener.pause = true;
+            Debug.Log($"AudioListener.pause = {AudioListener.pause} - audioSource.isPlaying = {audioSource.isPlaying}");
         }
 
         private void PlayMusic()
         {
-            audioSource.Play();
+           // AudioListener.pause = false;
+
+            //if (!audioSource.isPlaying)
+            //    audioSource.UnPause();
+            Debug.Log($"AudioListener.pause = {AudioListener.pause} - audioSource.isPlaying = {audioSource.isPlaying}");
+            StartCoroutine(ChangeMusicState(true));        
+        }
+
+        IEnumerator ChangeMusicState(bool state)
+        {
+            yield return new WaitForSeconds(2);
+
+            if (state)
+            {
+                AudioListener.pause = false;
+
+                if (!audioSource.isPlaying)
+                    audioSource.UnPause();
+            }
+            else
+            { 
+                audioSource.Pause();
+                AudioListener.pause = true;
+            }
+
+            if(!audioSource.isPlaying)
+                audioSource.Play();
+            Debug.Log($"AudioListener.pause = {AudioListener.pause}"); 
+
         }
 
         public static void DisplayList(List<AudioClip> list)
