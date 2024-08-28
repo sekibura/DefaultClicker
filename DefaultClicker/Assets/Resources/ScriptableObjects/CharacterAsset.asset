@@ -15,10 +15,6 @@ MonoBehaviour:
   Items:
   - Sprite: {fileID: 21300000, guid: d3526ca7caf7b314090249040079b8f3, type: 3}
     VoiceClip: {fileID: 0}
-  - Sprite: {fileID: 21300000, guid: 1ba85c0e164b3474593ef23b7c1f2322, type: 3}
-    VoiceClip: {fileID: 0}
-  - Sprite: {fileID: 21300000, guid: f544797d1a76ceb4aa45a71dfde701e0, type: 3}
-    VoiceClip: {fileID: 0}
   - Sprite: {fileID: 21300000, guid: bccffc1f602667e49aa34ee164f7e390, type: 3}
     VoiceClip: {fileID: 0}
   - Sprite: {fileID: 21300000, guid: c6744a83fbe1d4b4584c82e29ec2442e, type: 3}
@@ -27,35 +23,23 @@ MonoBehaviour:
     VoiceClip: {fileID: 0}
   - Sprite: {fileID: 21300000, guid: c57999f40a2c9fb4b977380ea6608c84, type: 3}
     VoiceClip: {fileID: 0}
-  - Sprite: {fileID: 21300000, guid: d2d26c1164b7c1243a8da0bd509c5cc6, type: 3}
-    VoiceClip: {fileID: 0}
   - Sprite: {fileID: 21300000, guid: 87a6264a2623cc74b8a621d835d39943, type: 3}
     VoiceClip: {fileID: 0}
   - Sprite: {fileID: 21300000, guid: 013d832d1c1e12d418739ff0bb5e09b2, type: 3}
     VoiceClip: {fileID: 0}
   - Sprite: {fileID: 21300000, guid: 745b3a0acb9b5a04ab157696210af9be, type: 3}
     VoiceClip: {fileID: 0}
-  - Sprite: {fileID: 21300000, guid: e6c5a3fcc034dd2459f26e91c8a3db04, type: 3}
-    VoiceClip: {fileID: 0}
   - Sprite: {fileID: 21300000, guid: f9c2915a8fece7f4498078b01cce6a9d, type: 3}
     VoiceClip: {fileID: 0}
   - Sprite: {fileID: 21300000, guid: 63c53cd580dacda4eb93ef6d44c2950b, type: 3}
-    VoiceClip: {fileID: 0}
-  - Sprite: {fileID: 21300000, guid: d7e17717a62ff4b4eb6e6eab58b6c333, type: 3}
     VoiceClip: {fileID: 0}
   - Sprite: {fileID: 21300000, guid: 2e29402e22cac1447b6459962f08f0cf, type: 3}
     VoiceClip: {fileID: 0}
   - Sprite: {fileID: 21300000, guid: 4f5d8f6cd5c53a3439733e4a80cc32c4, type: 3}
     VoiceClip: {fileID: 0}
-  - Sprite: {fileID: 21300000, guid: ce274cebfe8e9ce43b4b72a6bd7da617, type: 3}
-    VoiceClip: {fileID: 0}
   - Sprite: {fileID: 21300000, guid: b94ce5d50839f3d45bb457c1c56deb91, type: 3}
     VoiceClip: {fileID: 0}
-  - Sprite: {fileID: 21300000, guid: 87163a2cbf3bf22409931db9c46e3d41, type: 3}
-    VoiceClip: {fileID: 0}
   - Sprite: {fileID: 21300000, guid: 8684b7ee19625344a8c5da0429cd7d6b, type: 3}
-    VoiceClip: {fileID: 0}
-  - Sprite: {fileID: 21300000, guid: 41659586587e0de458d9e047fa6b7b42, type: 3}
     VoiceClip: {fileID: 0}
   - Sprite: {fileID: 21300000, guid: daab1885a76b8584ebc4c6976daa7d38, type: 3}
     VoiceClip: {fileID: 0}
@@ -67,11 +51,9 @@ MonoBehaviour:
     VoiceClip: {fileID: 0}
   - Sprite: {fileID: 21300000, guid: 93f711e185dce4b4097e03221be43af9, type: 3}
     VoiceClip: {fileID: 0}
-  - Sprite: {fileID: 21300000, guid: 0d5d19216427ec2428ca7362e284da62, type: 3}
+  - Sprite: {fileID: 21300000, guid: 7ad699cc1ae8ef14085b402300a8cb96, type: 3}
     VoiceClip: {fileID: 0}
   - Sprite: {fileID: 21300000, guid: 6b7fdead16be2304ab14b393f7f40485, type: 3}
-    VoiceClip: {fileID: 0}
-  - Sprite: {fileID: 21300000, guid: 7ad699cc1ae8ef14085b402300a8cb96, type: 3}
     VoiceClip: {fileID: 0}
   - Sprite: {fileID: 21300000, guid: 912aef3ee58c9204bb8d4f0f07e2168f, type: 3}
     VoiceClip: {fileID: 0}
@@ -80,8 +62,6 @@ MonoBehaviour:
   - Sprite: {fileID: 21300000, guid: 960c0c55cddd86947ba06ea28c0d1d1e, type: 3}
     VoiceClip: {fileID: 0}
   - Sprite: {fileID: 21300000, guid: 2dc39923ad2d44d4781a4c1b499fa0d8, type: 3}
-    VoiceClip: {fileID: 0}
-  - Sprite: {fileID: 21300000, guid: 676faf3029a4dc047be53e6f6afddd40, type: 3}
     VoiceClip: {fileID: 0}
   - Sprite: {fileID: 21300000, guid: c0f980e6cda75db4da5ebb6ddf349580, type: 3}
     VoiceClip: {fileID: 0}
