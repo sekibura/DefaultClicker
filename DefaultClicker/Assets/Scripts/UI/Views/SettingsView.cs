@@ -1,3 +1,4 @@
+using PimDeWitte.UnityMainThreadDispatcher;
 using SekiburaGames.DefaultClicker.Controllers;
 using SekiburaGames.DefaultClicker.System;
 using System.Collections;
@@ -33,6 +34,11 @@ namespace SekiburaGames.DefaultClicker.UI
 
         protected SaveLoadController saveLoadController;
 
+        [SerializeField]
+        private bool _showAD = true;
+        private float _adDelay = 30;
+        private float _lastTimeAD;
+
         public override void Initialize()
         {
             base.Initialize();
@@ -56,28 +62,25 @@ namespace SekiburaGames.DefaultClicker.UI
             _resetWindow.SetActive(false);
             _languageChooseController.UpdateButtonStates();
             SlidersUpdateValue();
+            FindAnyObjectByType<TimerBeforeAdsYG>().ToShow = false;
         }
+
 
         public override void OnBackButton()
         {
+            base.OnBackButton();
             if (YandexGame.SDKEnabled == true)
             {
                 SaveSettings();
             }
         }
 
-
         private void SlidersUpdateValue()
         {
             _isSetSliderValues = true;
-            float dialogs;
-            _audioMixer.audioMixer.GetFloat("Dialogs", out dialogs);            
-            _sliderDialogs.value = Mathf.InverseLerp(-80, 0, dialogs);
-
-            float music;
-            _audioMixer.audioMixer.GetFloat("Music", out music);
-            _sliderMusic.value = Mathf.InverseLerp(-80, 0, music);
-            Debug.Log($"FXVolume MusicVolume {dialogs} {music}");
+            var saveData = saveLoadController.Load(); 
+            _sliderDialogs.value = saveData.SettingsDialogVolume;
+            _sliderMusic.value = saveData.SettingsMusicVolume;
             _isSetSliderValues = false;
         }
 
@@ -105,7 +108,7 @@ namespace SekiburaGames.DefaultClicker.UI
             OnSoundDialogsSliderChange(saveData.SettingsDialogVolume);
             _languageChooseController.SetLanguage(saveData.lang);
             _languageChooseController.UpdateButtonStates();
-            SlidersUpdateValue();
+            //SlidersUpdateValue();
         }
 
         private void SaveSettings()

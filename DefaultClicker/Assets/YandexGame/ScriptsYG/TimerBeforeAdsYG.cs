@@ -23,6 +23,8 @@ namespace YG
 
         private int objSecCounter;
 
+        public bool ToShow = true;
+
         private void Start()
         {
             if (secondsPanelObject)
@@ -41,6 +43,13 @@ namespace YG
         {
             while (true)
             {
+                if (!ToShow)
+                {
+                    yield return new WaitForSeconds(2.0f);
+                    continue;
+                }
+                    
+
                 if (YandexGame.timerShowAd >= YandexGame.Instance.infoYG.fullscreenAdInterval
                     && Time.timeScale != 0)
                 {

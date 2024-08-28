@@ -1002,7 +1002,7 @@ MonoBehaviour:
   m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.729
+  m_Value: 0.0001
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -4058,6 +4058,7 @@ MonoBehaviour:
   _resetWindow: {fileID: 883031580}
   _resetSavesBtn: {fileID: 973887503}
   _resetWindowCloseBtn: {fileID: 330318687}
+  _showAD: 1
 --- !u!222 &668406001
 CanvasRenderer:
   m_ObjectHideFlags: 0

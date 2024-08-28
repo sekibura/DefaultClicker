@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using YG;
 
 namespace SekiburaGames.DefaultClicker.UI
 {
@@ -18,6 +19,8 @@ namespace SekiburaGames.DefaultClicker.UI
         private bool _remember = true;
         [SerializeField]
         private bool _hideLast = true;
+
+
 
         private void Start()
         {
