@@ -1,5 +1,5 @@
 {
-    "idSave": 1437,
+    "idSave": 1779,
     "isFirstSession": false,
     "language": "ru",
     "promptDone": false,
@@ -10,19 +10,19 @@
         false,
         false
     ],
-    "Score": 3443.0,
-    "Clicks": 197,
+    "Score": 19980.0,
+    "Clicks": 353,
     "ScorePower": 1.0,
     "ScorePowerIndex": 0,
     "ScorePerSecond": 20.0,
     "ScorePerSecondIndex": 0,
-    "CurrentBackGroundIndex": 3,
-    "OpenedBackGroundIndex": 3,
-    "CurrentCharacterIndex": 1,
-    "OpenedCharacterIndex": 1,
+    "CurrentBackGroundIndex": 5,
+    "OpenedBackGroundIndex": 5,
+    "CurrentCharacterIndex": 4,
+    "OpenedCharacterIndex": 4,
     "CurrentOutfitIndex": 0,
     "OpenedOutfitIndex": 0,
-    "SettingsMusicVolume": 1.0,
-    "SettingsDialogVolume": 1.0,
-    "lang": "Russian"
+    "SettingsMusicVolume": 0.3912939131259918,
+    "SettingsDialogVolume": 0.2359836846590042,
+    "lang": ""
 }
