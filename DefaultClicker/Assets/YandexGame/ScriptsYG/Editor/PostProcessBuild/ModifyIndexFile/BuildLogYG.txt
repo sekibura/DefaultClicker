@@ -1,2 +1,0 @@
-Build path: D:/GameDev/Reps/Clicker/DefaultClicker/DefaultClicker/Builds
-Build number: 38
