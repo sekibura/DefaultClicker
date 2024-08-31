@@ -13,17 +13,15 @@ MonoBehaviour:
   m_Name: CharacterAsset
   m_EditorClassIdentifier: 
   Items:
-  - Sprite: {fileID: 21300000, guid: d3526ca7caf7b314090249040079b8f3, type: 3}
-    VoiceClip: {fileID: 0}
   - Sprite: {fileID: 21300000, guid: bccffc1f602667e49aa34ee164f7e390, type: 3}
     VoiceClip: {fileID: 0}
   - Sprite: {fileID: 21300000, guid: c6744a83fbe1d4b4584c82e29ec2442e, type: 3}
     VoiceClip: {fileID: 0}
   - Sprite: {fileID: 21300000, guid: 03074921d1b1cb24d8fb4c7dc57ef70f, type: 3}
     VoiceClip: {fileID: 0}
-  - Sprite: {fileID: 21300000, guid: c57999f40a2c9fb4b977380ea6608c84, type: 3}
+  - Sprite: {fileID: 21300000, guid: 8684b7ee19625344a8c5da0429cd7d6b, type: 3}
     VoiceClip: {fileID: 0}
-  - Sprite: {fileID: 21300000, guid: 87a6264a2623cc74b8a621d835d39943, type: 3}
+  - Sprite: {fileID: 21300000, guid: c57999f40a2c9fb4b977380ea6608c84, type: 3}
     VoiceClip: {fileID: 0}
   - Sprite: {fileID: 21300000, guid: 013d832d1c1e12d418739ff0bb5e09b2, type: 3}
     VoiceClip: {fileID: 0}
@@ -35,11 +33,9 @@ MonoBehaviour:
     VoiceClip: {fileID: 0}
   - Sprite: {fileID: 21300000, guid: 2e29402e22cac1447b6459962f08f0cf, type: 3}
     VoiceClip: {fileID: 0}
+  - Sprite: {fileID: 21300000, guid: d3526ca7caf7b314090249040079b8f3, type: 3}
+    VoiceClip: {fileID: 0}
   - Sprite: {fileID: 21300000, guid: 4f5d8f6cd5c53a3439733e4a80cc32c4, type: 3}
-    VoiceClip: {fileID: 0}
-  - Sprite: {fileID: 21300000, guid: b94ce5d50839f3d45bb457c1c56deb91, type: 3}
-    VoiceClip: {fileID: 0}
-  - Sprite: {fileID: 21300000, guid: 8684b7ee19625344a8c5da0429cd7d6b, type: 3}
     VoiceClip: {fileID: 0}
   - Sprite: {fileID: 21300000, guid: daab1885a76b8584ebc4c6976daa7d38, type: 3}
     VoiceClip: {fileID: 0}
@@ -47,13 +43,13 @@ MonoBehaviour:
     VoiceClip: {fileID: 0}
   - Sprite: {fileID: 21300000, guid: 72ebde77cade30241a36864aff38edd1, type: 3}
     VoiceClip: {fileID: 0}
+  - Sprite: {fileID: 21300000, guid: b94ce5d50839f3d45bb457c1c56deb91, type: 3}
+    VoiceClip: {fileID: 0}
   - Sprite: {fileID: 21300000, guid: 229ac714bbcccbe468e8554982ba8cb3, type: 3}
     VoiceClip: {fileID: 0}
   - Sprite: {fileID: 21300000, guid: 93f711e185dce4b4097e03221be43af9, type: 3}
     VoiceClip: {fileID: 0}
   - Sprite: {fileID: 21300000, guid: 7ad699cc1ae8ef14085b402300a8cb96, type: 3}
-    VoiceClip: {fileID: 0}
-  - Sprite: {fileID: 21300000, guid: 6b7fdead16be2304ab14b393f7f40485, type: 3}
     VoiceClip: {fileID: 0}
   - Sprite: {fileID: 21300000, guid: 912aef3ee58c9204bb8d4f0f07e2168f, type: 3}
     VoiceClip: {fileID: 0}
@@ -63,5 +59,9 @@ MonoBehaviour:
     VoiceClip: {fileID: 0}
   - Sprite: {fileID: 21300000, guid: 2dc39923ad2d44d4781a4c1b499fa0d8, type: 3}
     VoiceClip: {fileID: 0}
+  - Sprite: {fileID: 21300000, guid: 6b7fdead16be2304ab14b393f7f40485, type: 3}
+    VoiceClip: {fileID: 0}
   - Sprite: {fileID: 21300000, guid: c0f980e6cda75db4da5ebb6ddf349580, type: 3}
+    VoiceClip: {fileID: 0}
+  - Sprite: {fileID: 21300000, guid: 87a6264a2623cc74b8a621d835d39943, type: 3}
     VoiceClip: {fileID: 0}
