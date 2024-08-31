@@ -50,10 +50,10 @@ namespace SekiburaGames.DefaultClicker.Controllers
         {
             switch (id)
             {
-               case (int)Constants.AdTypes.PowerClick:
+               case (int)ClickerConstants.AdTypes.PowerClick:
                     AddBonus<ClickScoreBonus>(10, (object)10f);
                     break;
-                case (int)Constants.AdTypes.ScorePerSec:
+                case (int)ClickerConstants.AdTypes.ScorePerSec:
                     AddBonus<ScorePerSecondBonus>(10, (object)10f);
                     break;
             }
