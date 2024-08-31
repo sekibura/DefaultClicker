@@ -3,29 +3,29 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using YG;
+//using YG;
 
 public class YGSaveLoadManager: BaseSaveLoadManager
 {
-    public override void Init()
-    {
-        //YandexGame.GetDataEvent += () => Load();
-    }
+    //public override void Init()
+    //{
+    //    //YandexGame.GetDataEvent += () => Load();
+    //}
 
-    public override SavesYG Load()
-    {
-        return YandexGame.savesData;
-    }
+    //public override SavesYG Load()
+    //{
+    //    return YandexGame.savesData;
+    //}
 
-    public override void Save(SavesYG progressData)
-    {
-        YandexGame.savesData = progressData;
-        YandexGame.SaveProgress();
-    }
-    public void Save()
-    {
-        YandexGame.SaveProgress();
-    }
+    //public override void Save(SavesYG progressData)
+    //{
+    //    YandexGame.savesData = progressData;
+    //    YandexGame.SaveProgress();
+    //}
+    //public void Save()
+    //{
+    //    YandexGame.SaveProgress();
+    //}
 
     
 

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static SekiburaGames.DefaultClicker.Controllers.ShopSystem;
-using YG;
+//using YG;
 
 namespace SekiburaGames.DefaultClicker.UI
 {
@@ -38,7 +38,7 @@ namespace SekiburaGames.DefaultClicker.UI
             /// TODO
             /// Show AD
             Debug.Log("OnAdClick");
-            YandexGame.RewVideoShow((int)Constants.AdTypes.ScorePerSec);
+            //YandexGame.RewVideoShow((int)Constants.AdTypes.ScorePerSec);
             DisableButtonForSeconds();
         }
     }

@@ -4,7 +4,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using YG;
+//using YG;
 
 namespace SekiburaGames.DefaultClicker.Controllers
 {
@@ -19,7 +19,7 @@ namespace SekiburaGames.DefaultClicker.Controllers
         public void Initialize()
         {
             // Подписываемся на событие открытия рекламы в OnEnable
-            YandexGame.RewardVideoEvent += Rewarded;
+            //YandexGame.RewardVideoEvent += Rewarded;
         }
 
         public void AddBonus<T>(float duration, object o = null) where T : BaseBonus, new()
@@ -67,7 +67,7 @@ namespace SekiburaGames.DefaultClicker.Controllers
             }
 
             // Отписываемся от события открытия рекламы в OnDisable
-            YandexGame.RewardVideoEvent -= Rewarded;
+            //YandexGame.RewardVideoEvent -= Rewarded;
         }
     }
 }

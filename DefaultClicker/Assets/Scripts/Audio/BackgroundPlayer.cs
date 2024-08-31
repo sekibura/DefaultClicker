@@ -2,7 +2,7 @@ using SekiburaGames.DefaultClicker.System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using YG;
+//using YG;
 
 namespace SekiburaGames.DefaultClicker.Controllers
 {
@@ -21,14 +21,14 @@ namespace SekiburaGames.DefaultClicker.Controllers
             audioSource = GetComponent<AudioSource>();
             audioClips.Shuffle();
 
-            YandexGame.OpenFullAdEvent += PauseMusic;
-            YandexGame.CloseFullAdEvent += PlayMusic;
-            YandexGame.OpenVideoEvent += PauseMusic;
-            YandexGame.CloseVideoEvent += PlayMusic;
-            YandexGame.onHideWindowGame += PauseMusic;
-            YandexGame.onShowWindowGame += PlayMusic;
-            YandexGame.ErrorFullAdEvent += PlayMusic;
-            YandexGame.ErrorVideoEvent += PlayMusic;
+            //YandexGame.OpenFullAdEvent += PauseMusic;
+            //YandexGame.CloseFullAdEvent += PlayMusic;
+            //YandexGame.OpenVideoEvent += PauseMusic;
+            //YandexGame.CloseVideoEvent += PlayMusic;
+            //YandexGame.onHideWindowGame += PauseMusic;
+            //YandexGame.onShowWindowGame += PlayMusic;
+            //YandexGame.ErrorFullAdEvent += PlayMusic;
+            //YandexGame.ErrorVideoEvent += PlayMusic;
             SystemManager.Get<ClickerGameController>().OnClickEvent += PlayMusic;
 
 

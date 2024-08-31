@@ -8,7 +8,7 @@ using System.Linq;
 using System.Reflection;
 using UnityEngine;
 using UnityEngine.UI;
-using YG;
+//using YG;
 using static SekiburaGames.DefaultClicker.ShopItems.ShopImageAsset;
 
 namespace SekiburaGames.DefaultClicker.Controllers
@@ -130,11 +130,11 @@ namespace SekiburaGames.DefaultClicker.Controllers
             {
                 base.Init();
                 _imagesItem = ResourcesManager.GetAssetByName(AssetName);
-                saveLoadController.LoadEvent += (x) => InitOnLoad();
-                if (YandexGame.SDKEnabled == true)
-                { 
-                        InitOnLoad();
-                }
+                //saveLoadController.LoadEvent += (x) => InitOnLoad();
+                //if (YandexGame.SDKEnabled == true)
+                //{ 
+                //        InitOnLoad();
+                //}
             }
 
             private void InitOnLoad()
@@ -220,10 +220,10 @@ namespace SekiburaGames.DefaultClicker.Controllers
                 switch (AssetName)
                 {
                     case "BackgroundsAsset":
-                        index = saveLoadController.Load().CurrentBackGroundIndex;
+                        //index = saveLoadController.Load().CurrentBackGroundIndex;
                         break;
                     case "CharacterAsset":
-                        index = saveLoadController.Load().CurrentCharacterIndex;
+                        //index = saveLoadController.Load().CurrentCharacterIndex;
                         break;
                     default:
                         Debug.LogError("ShopSystem. Error LoadImageIndex - Wrong AssetName value!");
@@ -238,10 +238,10 @@ namespace SekiburaGames.DefaultClicker.Controllers
                 switch (AssetName)
                 {
                     case "BackgroundsAsset":
-                        index = saveLoadController.Load().OpenedBackGroundIndex;
+                        //index = saveLoadController.Load().OpenedBackGroundIndex;
                         break;
                     case "CharacterAsset":
-                        index = saveLoadController.Load().OpenedCharacterIndex;
+                        //index = saveLoadController.Load().OpenedCharacterIndex;
                         break;
                     default:
                         Debug.LogError("ShopSystem. Error GetOpenedImageIndex - Wrong AssetName value!");
@@ -252,21 +252,21 @@ namespace SekiburaGames.DefaultClicker.Controllers
 
             public override void SaveProgress()
             {
-                var savesYG = saveLoadController.Load();
+                //var savesYG = saveLoadController.Load();
                 if (_allOpened)
                 {
                     switch (AssetName)
                     {
                         case "BackgroundsAsset":
                             {
-                                savesYG.OpenedBackGroundIndex = _imagesItem.Items.Length - 1;
-                                savesYG.CurrentBackGroundIndex = ÑurrentImageIndex;
+                                //savesYG.OpenedBackGroundIndex = _imagesItem.Items.Length - 1;
+                                //savesYG.CurrentBackGroundIndex = ÑurrentImageIndex;
                             }
                             break;
                         case "CharacterAsset":
                             {
-                                savesYG.OpenedCharacterIndex = _imagesItem.Items.Length - 1;
-                                savesYG.CurrentCharacterIndex = ÑurrentImageIndex;
+                                //savesYG.OpenedCharacterIndex = _imagesItem.Items.Length - 1;
+                                //savesYG.CurrentCharacterIndex = ÑurrentImageIndex;
                             }
                             break;
                         default:
@@ -281,14 +281,14 @@ namespace SekiburaGames.DefaultClicker.Controllers
                     {
                         case "BackgroundsAsset":
                             {
-                                savesYG.OpenedBackGroundIndex = _currentImageIndex;
-                                savesYG.CurrentBackGroundIndex = ÑurrentImageIndex;
+                                //savesYG.OpenedBackGroundIndex = _currentImageIndex;
+                                //savesYG.CurrentBackGroundIndex = ÑurrentImageIndex;
                             }
                             break;
                         case "CharacterAsset":
                             {
-                                savesYG.OpenedCharacterIndex = _currentImageIndex;
-                                savesYG.CurrentCharacterIndex = ÑurrentImageIndex;
+                                //savesYG.OpenedCharacterIndex = _currentImageIndex;
+                                //savesYG.CurrentCharacterIndex = ÑurrentImageIndex;
                             }
                             break;
                         default:
@@ -296,7 +296,7 @@ namespace SekiburaGames.DefaultClicker.Controllers
                             break;
                     }
                 }
-                saveLoadController.Save(savesYG);
+                //saveLoadController.Save(savesYG);
             }
         }
         public void Dispose()
@@ -347,11 +347,11 @@ namespace SekiburaGames.DefaultClicker.Controllers
             {
                 base.Init();
                 base.Init();
-                saveLoadController.LoadEvent += (x) => InitOnLoad();
-                if (YandexGame.SDKEnabled == true)
-                {
-                    InitOnLoad();
-                }
+                //saveLoadController.LoadEvent += (x) => InitOnLoad();
+                //if (YandexGame.SDKEnabled == true)
+                //{
+                //    InitOnLoad();
+                //}
             }
 
             private void InitOnLoad()
@@ -395,10 +395,10 @@ namespace SekiburaGames.DefaultClicker.Controllers
 
             public override void SaveProgress()
             {
-                var savesYG = saveLoadController.Load();
-                savesYG.ScorePower = scoreController.ScorePower;
-                savesYG.ScorePowerIndex = _buyIteration;
-                saveLoadController.Save(savesYG);
+                //var savesYG = saveLoadController.Load();
+                //savesYG.ScorePower = scoreController.ScorePower;
+                //savesYG.ScorePowerIndex = _buyIteration;
+                //saveLoadController.Save(savesYG);
             }
 
             protected override void OnScoreUpdate(double newScore)
@@ -408,16 +408,18 @@ namespace SekiburaGames.DefaultClicker.Controllers
 
             private int LoadIndex()
             {
-                int value = saveLoadController.Load().ScorePowerIndex;
-                _buyIteration = value;
-                return value;
+                //int value = saveLoadController.Load().ScorePowerIndex;
+                //_buyIteration = value;
+                //return value;
+                return 0;
             }
 
             private float LoadClickPower()
             {
-                float value = saveLoadController.Load().ScorePower;
-                scoreController.SetScorePower(value);
-                return value;
+                //    float value = saveLoadController.Load().ScorePower;
+                //scoreController.SetScorePower(value);
+                //return value;
+                return 0;
             }
         }
 
@@ -428,13 +430,13 @@ namespace SekiburaGames.DefaultClicker.Controllers
 
             public override void Init()
             {
-                base.Init();
-                base.Init();
-                saveLoadController.LoadEvent += (x) => InitOnLoad();
-                if (YandexGame.SDKEnabled == true)
-                {
-                    InitOnLoad();
-                }
+                //base.Init();
+                //base.Init();
+                //saveLoadController.LoadEvent += (x) => InitOnLoad();
+                //if (YandexGame.SDKEnabled == true)
+                //{
+                //    InitOnLoad();
+                //}
             }
 
             private void InitOnLoad()
@@ -477,10 +479,10 @@ namespace SekiburaGames.DefaultClicker.Controllers
 
             public override void SaveProgress()
             {
-                var savesYG = saveLoadController.Load();
-                savesYG.ScorePerSecond = scoreController.ScorePerSecond;
-                savesYG.ScorePerSecondIndex = _buyIteration;
-                saveLoadController.Save(savesYG);
+                //var savesYG = saveLoadController.Load();
+                //savesYG.ScorePerSecond = scoreController.ScorePerSecond;
+                //savesYG.ScorePerSecondIndex = _buyIteration;
+                //saveLoadController.Save(savesYG);
             }
 
             protected override void OnScoreUpdate(double newScore)
@@ -490,16 +492,18 @@ namespace SekiburaGames.DefaultClicker.Controllers
 
             private int LoadIndex()
             {
-                int value = saveLoadController.Load().ScorePerSecondIndex;
-                _buyIteration = value;
-                return value;
+                //int value = saveLoadController.Load().ScorePerSecondIndex;
+                //_buyIteration = value;
+                //return value;
+                return 0;
             }
 
             private float LoadScorePerSec()
             {
-                float value = saveLoadController.Load().ScorePerSecond;
-                scoreController.SetScorePerSec(value);
-                return value;
+                //float value = saveLoadController.Load().ScorePerSecond;
+                //scoreController.SetScorePerSec(value);
+                //return value;
+                return 0;
             }
         }
     }

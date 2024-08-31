@@ -60,7 +60,7 @@ namespace SekiburaGames.DefaultClicker.Controllers
             SystemManager.Get<BonusController>().Dispose();
             SystemManager.Get<ShopSystem>().Dispose();
             SystemManager.Get<ScoreController>().Dispose();
-            SystemManager.Get<SaveLoadController>().Dispose();
+            //SystemManager.Get<SaveLoadController>().Dispose();
             SystemManager.Dispose();
         }
     }

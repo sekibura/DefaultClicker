@@ -5,7 +5,7 @@ using System.Reflection;
 //using System.Threading;
 using Unity.VisualScripting;
 using UnityEngine;
-using YG;
+//using YG;
 using static SekiburaGames.DefaultClicker.Controllers.TimersController;
 using Timer = System.Threading.Timer;
 
@@ -91,17 +91,17 @@ namespace SekiburaGames.DefaultClicker.Controllers
             timerSave = TimersController.Instance.StartTimer(() => SaveTick(), 10, true);
 
             saveLoadController = SystemManager.Get<SaveLoadController>();
-            saveLoadController.LoadEvent += (x) => InitOnLoad();
-            if (YandexGame.SDKEnabled == true)
-            {
-                InitOnLoad();
-            }
+            //saveLoadController.LoadEvent += (x) => InitOnLoad();
+            //if (YandexGame.SDKEnabled == true)
+            //{
+            //    InitOnLoad();
+            //}
         }
 
         private void InitOnLoad()
         {
-            Score = saveLoadController.Load().Score;
-            Clicks = saveLoadController.Load().Clicks;
+            //Score = saveLoadController.Load().Score;
+            //Clicks = saveLoadController.Load().Clicks;
             ScoreUpdatedEvent?.Invoke(Score);
 
 #if UNITY_EDITOR
@@ -112,10 +112,10 @@ namespace SekiburaGames.DefaultClicker.Controllers
 
         private void SaveProgress()
         {
-            var savesYG = saveLoadController.Load();
-            savesYG.Score = Score;
-            savesYG.Clicks = Clicks;
-            saveLoadController.Save(savesYG);
+            //var savesYG = saveLoadController.Load();
+            //savesYG.Score = Score;
+            //savesYG.Clicks = Clicks;
+            //saveLoadController.Save(savesYG);
         }
 
         //private void InitValuesFromSave()

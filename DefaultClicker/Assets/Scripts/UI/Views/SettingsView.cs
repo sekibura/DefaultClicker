@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
-using YG;
+//using YG;
 
 namespace SekiburaGames.DefaultClicker.UI
 {
@@ -45,15 +45,15 @@ namespace SekiburaGames.DefaultClicker.UI
             _sliderDialogs.onValueChanged.AddListener((value) => OnSoundDialogsSliderChange(value));
             _sliderMusic.onValueChanged.AddListener((value) => OnMusicSliderChange(value));
             _resetBtn.onClick.AddListener(() => _resetWindow.SetActive(true));
-            _resetSavesBtn.onClick.AddListener(() => { YandexGame.ResetSaveProgress(); _resetWindow.SetActive(false); });
+            //_resetSavesBtn.onClick.AddListener(() => { YandexGame.ResetSaveProgress(); _resetWindow.SetActive(false); });
             _resetWindowCloseBtn.onClick.AddListener(() => _resetWindow.SetActive(false));
 
             SystemManager.Get(out saveLoadController);
-            saveLoadController.LoadEvent += (x) => LoadSettings();
-            if (YandexGame.SDKEnabled == true)
-            {
-                LoadSettings();
-            }            
+            //saveLoadController.LoadEvent += (x) => LoadSettings();
+            //if (YandexGame.SDKEnabled == true)
+            //{
+            //    LoadSettings();
+            //}            
         }
 
         public override void Show(object parameter = null)
@@ -62,25 +62,25 @@ namespace SekiburaGames.DefaultClicker.UI
             _resetWindow.SetActive(false);
             _languageChooseController.UpdateButtonStates();
             SlidersUpdateValue();
-            FindAnyObjectByType<TimerBeforeAdsYG>().ToShow = false;
+            //FindAnyObjectByType<TimerBeforeAdsYG>().ToShow = false;
         }
 
 
         public override void OnBackButton()
         {
             base.OnBackButton();
-            if (YandexGame.SDKEnabled == true)
-            {
-                SaveSettings();
-            }
+            //if (YandexGame.SDKEnabled == true)
+            //{
+            //    SaveSettings();
+            //}
         }
 
         private void SlidersUpdateValue()
         {
             _isSetSliderValues = true;
-            var saveData = saveLoadController.Load(); 
-            _sliderDialogs.value = saveData.SettingsDialogVolume;
-            _sliderMusic.value = saveData.SettingsMusicVolume;
+            //var saveData = saveLoadController.Load(); 
+            //_sliderDialogs.value = saveData.SettingsDialogVolume;
+            //_sliderMusic.value = saveData.SettingsMusicVolume;
             _isSetSliderValues = false;
         }
 
@@ -102,23 +102,23 @@ namespace SekiburaGames.DefaultClicker.UI
 
         private void LoadSettings()
         {
-            var saveData = saveLoadController.Load();
-            Debug.Log($"Load settings = {saveData.SettingsDialogVolume} | {saveData.SettingsMusicVolume} | {saveData.lang}");
-            OnMusicSliderChange(saveData.SettingsMusicVolume);
-            OnSoundDialogsSliderChange(saveData.SettingsDialogVolume);
-            _languageChooseController.SetLanguage(saveData.lang);
-            _languageChooseController.UpdateButtonStates();
+            //var saveData = saveLoadController.Load();
+            //Debug.Log($"Load settings = {saveData.SettingsDialogVolume} | {saveData.SettingsMusicVolume} | {saveData.lang}");
+            //OnMusicSliderChange(saveData.SettingsMusicVolume);
+            //OnSoundDialogsSliderChange(saveData.SettingsDialogVolume);
+            //_languageChooseController.SetLanguage(saveData.lang);
+            //_languageChooseController.UpdateButtonStates();
             //SlidersUpdateValue();
         }
 
         private void SaveSettings()
         {
-            var saveData = saveLoadController.Load();
-            saveData.SettingsDialogVolume = _sliderDialogs.value;
-            saveData.SettingsMusicVolume = _sliderMusic.value;
-            saveData.lang = _languageChooseController.Language;
-            Debug.Log($"Save settings = {_sliderDialogs.value} {_sliderMusic.value} {_languageChooseController.Language}");
-            saveLoadController.Save(saveData);
+            //var saveData = saveLoadController.Load();
+            //saveData.SettingsDialogVolume = _sliderDialogs.value;
+            //saveData.SettingsMusicVolume = _sliderMusic.value;
+            //saveData.lang = _languageChooseController.Language;
+            //Debug.Log($"Save settings = {_sliderDialogs.value} {_sliderMusic.value} {_languageChooseController.Language}");
+            //saveLoadController.Save(saveData);
         }
     }
 }

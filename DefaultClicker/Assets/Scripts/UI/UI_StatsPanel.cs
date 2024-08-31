@@ -5,7 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using YG;
+//using YG;
 
 namespace SekiburaGames.DefaultClicker.UI
 {
@@ -28,7 +28,7 @@ namespace SekiburaGames.DefaultClicker.UI
             _scoreController = SystemManager.Get<ScoreController>();
             _saveLoadController = SystemManager.Get<SaveLoadController>();
 
-            _saveLoadController.LoadEvent += (a) => Init();
+            //_saveLoadController.LoadEvent += (a) => Init();
             Init();
             _scoreController.ScoreUpdatedEvent += ScoreUpdated;
             _scoreController.ScorePerSecondUpdatedEvent += ScorePerSecUpdated;
@@ -38,11 +38,11 @@ namespace SekiburaGames.DefaultClicker.UI
 
         private void Init()
         {
-            SavesYG saveData = _saveLoadController.Load();
-            _scoreTMP.text = saveData.Score.ToString() + "$";
-            _scorePowerTMP.text = saveData.ScorePower.ToString() + "$";
-            _scorePerSecTMP.text = saveData.ScorePerSecond.ToString() + "$";
-            _clickCountTMP.text = saveData.Clicks.ToString();
+            //SavesYG saveData = _saveLoadController.Load();
+            //_scoreTMP.text = saveData.Score.ToString() + "$";
+            //_scorePowerTMP.text = saveData.ScorePower.ToString() + "$";
+            //_scorePerSecTMP.text = saveData.ScorePerSecond.ToString() + "$";
+            //_clickCountTMP.text = saveData.Clicks.ToString();
         }
 
         private void ScoreUpdated(double value)
